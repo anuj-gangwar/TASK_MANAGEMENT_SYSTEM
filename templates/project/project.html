@@ -1,0 +1,256 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+<link rel="stylesheet" href="{% static 'css/project/projectroject.css' %}" >
+<link rel="stylesheet" href="{% static 'css/project/graph.css' %}" >
+
+<div class="pc-container">
+    <div class="pc-content">
+        <div class="container">
+            <div class="card p-4">
+                <div class="d-flex justify-content-between align-items-center mb-3">
+                    <h2 class="text-dark mb-0">Project List</h2>
+                    <div>
+                        <a href="{% url 'create_project' %}">
+                            <button class="btn btn-primary"> + Create Project</button>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="container mt-4">
+                  <div class="row g-3 mb-3">
+                      <div class="col-md-3">
+                          <label class="form-label">Project ID:</label>
+                          <input type="text" class="form-control" placeholder="Enter Project ID">
+                      </div>
+                      <div class="col-md-3">
+                          <label class="form-label">Search By Queue:</label>
+                          <input type="text" class="form-control" placeholder="Enter Queue Name">
+                      </div>
+                      <div class="col-md-3">
+                          <label class="form-label">Department:</label>
+                          <select class="form-select">
+                              <option value="">All Departments</option>
+                              <option>Finance</option>
+                              <option>IT</option>
+                              <option>HR</option>
+                              <option>Cybersecurity</option>
+                              <option>Software Development</option>
+                              <option>Transport</option>
+                              <option>Public Services</option>
+                              <option>Government</option>
+                          </select>
+                      </div>
+                      <div class="col-md-3">
+                          <label class="form-label">Project Status:</label>
+                          <select class="form-select">
+                              <option value="">All</option>
+                              <option>To-Do</option>
+                              <option>In Progress</option>
+                              <option>Completed</option>
+                          </select>
+                      </div>
+                  </div>
+                  <div class="row g-3 align-items-end">
+                      <div class="col-md-5">
+                          <label class="form-label">Date Range:</label>
+                          <input type="text" class="form-control" placeholder="YYYY-MM-DD - YYYY-MM-DD">
+                      </div>
+                      <div class="col-md-7 d-flex justify-content-end gap-2">
+                          <button class="btn btn-primary">Apply</button>
+                          <button class="btn btn-secondary">Reset</button>
+                      </div>
+                  </div>
+                  
+                  <!-- Task Summary Cards -->
+                <div class="row mt-4">
+                    <div class="col-md-3">
+                        <div class="card bg-primary text-white p-3">
+                            <h6 class="text-dark">Total Tasks</h6>
+                            <h4>46 <span class="badge bg-light text-primary">
+                                    <img src="{% static 'Png/trending up.png' %}" width="25" height="25"> 59.3%
+                                </span>
+                            </h4>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="card bg-success text-white p-3">
+                            <h6 class="text-dark">Completed Task</h6>
+                            <h4>78 <span class="badge bg-light text-success">
+                                    <img src="{% static 'Png/trending up.png ' %}" width="25" height="25"> 70.5%
+                                </span>
+                            </h4>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="card bg-danger text-dark p-3">
+                            <h6 class="text-dark">Pending Task</h6>
+                            <h4>35 <span class="badge bg-light text-danger">
+                                    <img src="{% static 'Png/trending down.png' %}" width="25" height="25"> 27.4%
+                                </span>
+                            </h4>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="card bg-warning text-dark p-3">
+                            <h6 class="text-dark">Running Task</h6>
+                            <h4>46 <span class="badge bg-light text-warning">
+                                    <img src="{% static 'Png/trending down.png' %}" width="25" height="25"> 59.3%
+                                </span>
+                            </h4>
+                        </div>
+                    </div>
+                </div>
+
+<!-- Graph Section (Placed Above Table) -->
+<div class="container mt-4">
+<div class="d-flex justify-content-between align-items-center">
+   <h6 class="text-muted">Graph History</h6>
+   <button class="btn btn-dark" id="toggleGraph">
+       <span id="toggleIcon">+</span>
+   </button>
+</div>
+
+<!-- Collapsible Graph Section -->
+<div id="graphHistory" class="collapse mt-3">
+   <div class="p-3 border rounded bg-light">
+       <div class="row">
+           <div class="col-md-4">
+               <h6 class="text-center">Bar Chart</h6>
+               <canvas id="barChart"></canvas>
+           </div>
+           <div class="col-md-4">
+               <h6 class="text-center">Line Chart</h6>
+               <canvas id="lineChart"></canvas>
+           </div>
+           <div class="col-md-4">
+               <h6 class="text-center">Pie Chart</h6>
+               <canvas id="pieChart"></canvas>
+           </div>
+       </div>
+   </div>
+</div>
+</div>
+
+<!-- Entries Limit Dropdown + Table -->
+<div class="d-flex justify-content-between align-items-center mt-4">
+<div class="d-flex align-items-center">
+   <label for="entriesLimit" class="me-2">Show</label>
+   <select id="entriesLimit" class="form-select form-select-sm" style="width: auto;">
+       <option value="5">5</option>
+       <option value="10" selected>10</option>
+       <option value="20">20</option>
+       <option value="50">50</option>
+   </select>
+   <label for="entriesLimit" class="ms-2">entries</label>
+</div>
+</div>
+
+<!-- Table Section -->
+<div class="table-responsive">
+<table id="taskTable" class="table table-bordered table-hover mt-3">
+   <thead style="background-color: #606364;">
+       <tr>
+           <th>Project ID <img src="{% static  'Png/sort.png' %}" style="width: 16px;"></th>
+           <th>Project Name <img src="{% static  'Png/sort.png' %}" style="width: 16px;"></th>
+           <th>Department <img src="{%  static 'Png/sort.png' %}" style="width: 16px;"></th>
+           <th>Project Queue <img src="{% static 'Png/sort.png' %}" style="width: 16px;"></th>
+           <th>Progress <img src="{% static 'Png/sort.png' %}" style="width: 16px;"></th>
+           <th>Status <img src="{% static 'Png/sort.png' %}" style="width: 16px;"></th>
+           <th>Updated By <img src="{% static 'Png/sort.png' %}" style="width: 16px;"></th>
+           <th>Manage</th>
+       </tr>
+   </thead>
+   <tbody>
+     <tr>
+       <td>201</td>
+       <td>Smart Tax Filing</td>
+       <td>Finance</td>
+       <td>Queue A</td>
+       <td>
+           <div class="progress" style="height: 20px; position: relative;">
+               <div class="progress-bar bg-warning" style="width: 50%;"></div>
+               <span class="position-absolute w-100 text-center" style="color: black; font-weight: bold;">50%</span>
+           </div>
+       </td>
+       <td style="width: 10px;">
+           <div style="width: 120px;">
+               <select class="form-select form-select-sm status-dropdown">
+                   <option value="in-progress" selected>In Progress</option>
+                   <option value="completed">Completed</option>
+                   <option value="pending">Pending</option>
+                   <option value="Hold">Hold</option>
+               </select>
+           </div>
+       </td>
+       <td>Anita Verma</td>
+       <td>
+        <a href="{% url 'show_project' %}" class="btn btn-info btn-sm">View</a>
+        <a href="{% url 'modify_project' %}" class="btn btn-warning btn-sm">Modify</a>
+        <a href="{% url 'delete_project' %}"class="btn btn-danger btn-sm">Delete</a>
+       </td>
+   </tr>
+
+        <tr>
+             <td>202</td>
+             <td>Cyber Security Audit</td>
+             <td>Cyber Security</td>
+             <td>Queue B</td>
+           <td>
+               <div class="progress" style="height: 20px; position: relative;">
+                 <div class="progress-bar" style="width: 100%; background-color: green;"></div>
+                 <span class="position-absolute w-100 text-center" style="color: black; font-weight: bold;">100%</span>
+              </div>
+           </td>
+             <td style="width: 10px;">
+             <div style="width: 120px;">
+                 <select class="form-select form-select-sm status-dropdown">
+                     <option value="in-progress" selected>In Progress</option>
+                     <option value="completed">Completed</option>
+                     <option value="pending">Pending</option>
+                     <option value="Hold">Hold</option>
+                 </select>
+             </div>
+           </td>
+             <td>Amit Verma</td>
+             <td>
+                <a href="{% url 'show_project' %}" class="btn btn-info btn-sm">View</a>
+                <a href="{% url 'modify_project' %}" class="btn btn-warning btn-sm">Modify</a>
+                <a href="{% url 'delete_project' %}"class="btn btn-danger btn-sm">Delete</a>
+             </td>
+         </tr>
+         <tr>
+             <td>203</td>
+             <td>Railway Ticket Booking System</td>
+             <td>Software Development</td>
+             <td>Queue C</td>
+             <td>
+               <div class="progress" style="height: 20px; position: relative;">
+                 <div class="progress-bar" style="width: 20%; background-color: red;"></div>
+                 <span class="position-absolute w-100 text-center" style="color: black; font-weight: bold;">20%</span>
+             </div>
+             </td>
+             <td style="width: 10px;">
+             <div style="width: 120px;">
+                 <select class="form-select form-select-sm status-dropdown">
+                     <option value="in-progress" selected>In Progress</option>
+                     <option value="completed">Completed</option>
+                     <option value="pending">Pending</option>
+                     <option value="Hold">Hold</option>
+                 </select>
+             </div>
+           </td>
+             <td>Neha Pandey</td>
+             <td>
+                <a href="{% url 'show_project' %}" class="btn btn-info btn-sm">View</a>
+                <a href="{% url 'modify_project' %}" class="btn btn-warning btn-sm">Modify</a>
+                <a href="{% url 'delete_project' %}"class="btn btn-danger btn-sm">Delete</a>
+             </td>
+         </tr>
+   </tbody>
+</table>
+</div>
+<script src="{% static 'Javascript/project/graphProject.js' %}"></script>
+<script src=" https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+{% endblock %}

@@ -1,0 +1,86 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+<link rel="stylesheet" href="{% static 'css/task/showTask.css' %}" >
+
+<div class="pc-container ">
+    <div class="pc-content">
+        <div class="container">
+            <div class="card p-4" style="max-width: 800px; margin: auto; width: 100%;">
+                <h2 class="text-dark mb-3 text-center">Task Details</h2>
+
+                <!-- Task & Project --!>
+                <div class="row mb-3">
+                    <div class="col-md-6">
+                        <label class="form-label fw-bold">Task Name:</label>
+                        <input type="text" class="form-control" value="Implement Login System" readonly>
+                    </div>
+                    <div class="col-md-6">
+                        <label class="form-label fw-bold">Project Name:</label>
+                        <input type="text" class="form-control" value="Task Management System" readonly>
+                    </div>
+                </div>
+
+                <!-- Module & Status -->
+                <div class="row mb-3">
+                    <div class="col-md-6">
+                        <label class="form-label fw-bold">Module Name:</label>
+                        <input type="text" class="form-control" value="Frontend" readonly>
+                    </div>
+                    <div class="col-md-6">
+                        <label class="form-label fw-bold">Task Status:</label>
+                        <input type="text" class="form-control" value="In Progress" readonly>
+                    </div>
+                </div>
+
+                <!-- Start Date & End Date -->
+                <div class="row mb-3">
+                    <div class="col-md-6">
+                        <label class="form-label fw-bold">Start Date:</label>
+                        <input type="text" class="form-control" value="2024-03-01" readonly>
+                    </div>
+                    <div class="col-md-6">
+                        <label class="form-label fw-bold">Due Date:</label>
+                        <input type="text" class="form-control" value="2024-03-10" readonly>
+                    </div>
+                </div>
+
+                <!-- Assigned Department & Manager -->
+                <div class="row mb-3">
+                    <div class="col-md-6">
+                        <label class="form-label fw-bold">Assigned Department:</label>
+                        <input type="text" class="form-control" value="Development" readonly>
+                    </div>
+                    <div class="col-md-6">
+                        <label class="form-label fw-bold">Assigned Manager:</label>
+                        <input type="text" class="form-control" value="Naveen Taneja" readonly>
+                    </div>
+                </div>
+
+                <!-- Assigned Developer -->
+                <div class="mb-3">
+                    <label class="form-label fw-bold">Assigned Developer:</label>
+                    <input type="text" class="form-control" value="John Doe" readonly>
+                </div>
+
+                <!-- Description -->
+                <div class="mb-3">
+                    <label class="form-label fw-bold">Task Description:</label>
+                    <textarea class="form-control" rows="4" readonly>
+Implement a secure login system with role-based access control.
+                    </textarea>
+                </div>
+
+                <!-- Action Buttons -->
+                <div class="text-center">
+                    <a href="{% url 'modify_task' %} "><button class="btn btn-warning me-2">Edit Task</button></a>
+                    
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+<script src="{% static 'Javascript/task/showTask.js' %}"></script>
+
+{% endblock %}

@@ -1,0 +1,14 @@
+.table td, .table th {
+    vertical-align: middle; /* Ensures text is centered vertically */
+    white-space: nowrap; /* Keeps text in one line */
+    text-align: center;
+}
+
+.badge {
+    padding: 5px 10px;
+    font-size: 14px;
+}
+
+.btn-sm {
+    margin: 2px;
+}

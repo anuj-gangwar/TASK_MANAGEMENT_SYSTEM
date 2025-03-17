@@ -1,0 +1,244 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+<link rel="stylesheet" href="{% static 'css/index.css' %}">
+<div class="pc-container">
+    <div class="pc-content">
+        <div class="row">
+            <!-- Task Summary Cards (unchanged) -->
+            <div class="col-md-12">
+                <div class="row">
+                    <div class="col-md-6 col-xl-3">
+                        <div class="card">
+                            <div class="card-body">
+                                <h6 class="mb-2 f-w-400 text-muted">Total Project</h6>
+                                <h4 class="mb-3">46 <span class="badge bg-light-primary border border-primary"><i
+                                                class="ti ti-trending-up"></i> 59.3%</span></h4>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-xl-3">
+                        <div class="card">
+                            <div class="card-body">
+                                <h6 class="mb-2 f-w-400 text-muted">Completed Task</h6>
+                                <h4 class="mb-3">78 <span class="badge bg-light-success border border-success"><i
+                                                class="ti ti-trending-up"></i> 70.5%</span></h4>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-xl-3">
+                        <div class="card">
+                            <div class="card-body">
+                                <h6 class="mb-2 f-w-400 text-muted">Pending Task</h6>
+                                <h4 class="mb-3">35 <span class="badge bg-light-danger border border-danger"><i
+                                                class="ti ti-trending-down"></i> 27.4%</span></h4>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-xl-3">
+                        <div class="card">
+                            <div class="card-body">
+                                <h6 class="mb-2 f-w-400 text-muted">Running Task</h6>
+                                <h4 class="mb-3">46 <span class="badge bg-light-primary border border-primary"><i
+                                                class="ti ti-trending-up"></i> 59.3%</span></h4>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Expandable Task Status Card -->
+            <div class="col-md-12">
+                <!-- Main card -->
+                <div class="card p-4" id="taskStatusCard">
+                    <div class="d-flex justify-content-between align-items-center">
+                        <h2>Total Task Status</h2>
+                        <button class="btn btn-outline-primary toggle-btn" data-target="#filterAndChartContainer">
+                            -
+                        </button>
+                    </div>
+
+                    <div id="filterAndChartContainer" class="collapse show">
+
+                        <!-- Shared Filter Dropdowns -->
+                        <div class="filter-container">
+                            <div class="filter-dropdowns">
+                                <div class="filter-item">
+                                    <label for="projectFilter">Project:</label>
+                                    <select class="form-control form-control-sm" id="projectFilter">
+                                        <option value="">All</option>
+                                    </select>
+                                </div>
+                                <div class="filter-item">
+                                    <label for="moduleFilter">Module:</label>
+                                    <select class="form-control form-control-sm" id="moduleFilter" disabled>
+                                        <option value="">All</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-4">
+                                <!-- Bar Chart -->
+                                <div class="chart-card">
+                                    <h3>Task Status</h3>
+                                    <div id="barChartContainer" class="chart-container collapse show">
+                                        <canvas id="barChart"></canvas>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-md-4">
+                                <!-- Line Chart -->
+                                <div class="chart-card">
+                                    <h3>Task Trends</h3>
+                                    <div id="lineChartContainer" class="chart-container collapse show">
+                                        <canvas id="lineChart"></canvas>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-md-4">
+                                <!-- Pie Chart -->
+                                <div class="chart-card">
+                                    <h3>Module Distribution</h3>
+                                    <div id="pieChartContainer" class="chart-container collapse show">
+                                        <canvas id="pieChart"></canvas>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Task Table -->
+            <div class="col-md-12">
+                <div class="mt-4">
+                    <h5>Task Details</h5>
+                    <div class="table-responsive">
+                        <table class="table table-bordered" id="taskTable">
+                            <thead style="background-color: #edf0f1;">
+                                <tr>
+                                    <th>S.No</th>
+                                    <th>Project Name</th>
+                                    <th>Module Name</th>
+                                    <th>Task Name</th>
+                                    <th>Assigned By</th>
+                                    <th>Assigned To</th>
+                                    <th>Status</th>
+                                    <th>Last Updated</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>1</td>
+                                    <td>E-learning Platform</td>
+                                    <td>Frontend</td>
+                                    <td>Course Page UI</td>
+                                    <td>Rohit Sinha</td>
+                                    <td>Simran Arora</td>
+                                    <td><span class="badge bg-primary">Running</span></td>
+                                    <td>2024-02-24</td>
+                                </tr>
+                                <tr>
+                                    <td>2</td>
+                                    <td>E-commerce Website</td>
+                                    <td>Backend</td>
+                                    <td>API Integration</td>
+                                    <td>Priya Sharma</td>
+                                    <td>Amit Patel</td>
+                                    <td><span class="badge bg-success">Completed</span></td>
+                                    <td>2024-02-23</td>
+                                </tr>
+                                <tr>
+                                    <td>3</td>
+                                    <td>E-learning Platform</td>
+                                    <td>Backend</td>
+                                    <td>Database Design</td>
+                                    <td>Rohit Sinha</td>
+                                    <td>Sneha Kapoor</td>
+                                    <td><span class="badge bg-danger">Pending</span></td>
+                                    <td>2024-02-22</td>
+                                </tr>
+                                <tr>
+                                    <td>4</td>
+                                    <td>E-commerce Website</td>
+                                    <td>Frontend</td>
+                                    <td>Product Listing</td>
+                                    <td>Priya Sharma</td>
+                                    <td>Vikram Singh</td>
+                                    <td><span class="badge bg-primary">Running</span></td>
+                                    <td>2024-02-21</td>
+                                </tr>
+                                <tr>
+                                    <td>5</td>
+                                    <td>CRM System</td>
+                                    <td>UI/UX</td>
+                                    <td>Dashboard Design</td>
+                                    <td>Karan Verma</td>
+                                    <td>Divya Iyer</td>
+                                    <td><span class="badge bg-success">Completed</span></td>
+                                    <td>2024-02-20</td>
+                                </tr>
+                                <tr>
+                                    <td>6</td>
+                                    <td>E-learning Platform</td>
+                                    <td>Frontend</td>
+                                    <td>User Authentication</td>
+                                    <td>Rohit Sinha</td>
+                                    <td>Simran Arora</td>
+                                    <td><span class="badge bg-success">Completed</span></td>
+                                    <td>2024-02-19</td>
+                                </tr>
+                                <tr>
+                                    <td>7</td>
+                                    <td>E-commerce Website</td>
+                                    <td>Backend</td>
+                                    <td>Payment Gateway</td>
+                                    <td>Priya Sharma</td>
+                                    <td>Amit Patel</td>
+                                    <td><span class="badge bg-danger">Pending</span></td>
+                                    <td>2024-02-18</td>
+                                </tr>
+                                <tr>
+                                    <td>8</td>
+                                    <td>CRM System</td>
+                                    <td>Backend</td>
+                                    <td>Lead Management</td>
+                                    <td>Karan Verma</td>
+                                    <td>Sneha Kapoor</td>
+                                    <td><span class="badge bg-primary">Running</span></td>
+                                    <td>2024-02-17</td>
+                                </tr>
+                                <tr>
+                                    <td>9</td>
+                                    <td>E-learning Platform</td>
+                                    <td>UI/UX</td>
+                                    <td>Mobile Responsiveness</td>
+                                    <td>Rohit Sinha</td>
+                                    <td>Divya Iyer</td>
+                                    <td><span class="badge bg-danger">Pending</span></td>
+                                    <td>2024-02-16</td>
+                                </tr>
+                                <tr>
+                                    <td>10</td>
+                                    <td>E-commerce Website</td>
+                                    <td>Frontend</td>
+                                    <td>Shopping Cart</td>
+                                    <td>Priya Sharma</td>
+                                    <td>Vikram Singh</td>
+                                    <td><span class="badge bg-success">Completed</span></td>
+                                    <td>2024-02-15</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="{% static 'Javascript/index.js' %}"></script>
+{% endblock %}

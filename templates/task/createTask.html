@@ -1,0 +1,120 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+<link rel="stylesheet" href="{% static 'css/task/createTask.css' %}" >
+
+<div class="pc-container">
+    <div class="pc-content">
+        <div class="container">
+            <div class="card p-4">
+                <div class="d-flex justify-content-between align-items-center mb-3">
+                    <h2 class="text-dark mb-0">Create Task</h2>
+                </div>
+
+                <div class="container">
+                    <div class="row">
+                         <!-- Task Name  -->
+                        <div class="col-md-6 mb-3">
+                            <label class="form-label">Task Name:</label>
+                            <input type="text" class="form-control" placeholder="Enter Task Name">
+                        </div>
+
+                        <div class="col-md-6 mb-3">
+                            <label class="form-label">Project:</label>
+                            <select class="form-select">
+                                <option selected>----Select----</option>
+                                <option>Company Management System</option>
+                                <option>Task Management System</option>
+                                <option>Regression Model</option>
+                                <option>Classification</option>
+                            </select>
+                        </div>
+                        <!-- Module Name Dropdown -->
+                        <div class="col-md-6 mb-3">
+                            <label class="form-label">Module Name:</label>
+                            <select class="form-select">
+                                <option selected>----Select----</option>
+                                <option>User Authentication</option>
+                                <option>Data Processing</option>
+                                <option>Reporting</option>
+                                <option>API Integration</option>
+                            </select>
+                        </div>
+
+                        <!-- Project Dropdown -->
+
+                        <!-- Assigned Department -->
+                        <div class="col-md-6 mb-3">
+                            <label class="form-label">Assigned Department:</label>
+                            <select class="form-select">
+                                <option selected>----Select----</option>
+                                <option>Development</option>
+                                <option>Marketing</option>
+                                <option>Human Resources</option>
+                                <option>Finance</option>
+                            </select>
+                        </div>
+
+                        <!-- Assigned Manager -->
+                        <div class="col-md-6 mb-3">
+                            <label class="form-label">Assigned Manager:</label>
+                            <select class="form-select">
+                                <option selected>----Select----</option>
+                                <option>Naveen Taneja</option>
+                                <option>Chandan Kumar</option>
+                                <option>Rahul Sharma</option>
+                                <option>Pooja Singh</option>
+                            </select>
+                        </div>
+
+                        <!-- Assigned Employee -->
+                        <div class="col-md-6 mb-3">
+                            <label class="form-label">Assigned Employee:</label>
+                            <select class="form-select">
+                                <option selected>----Select----</option>
+                                <option>Gaurav</option>
+                                <option>Anuj</option>
+                                <option>Shubham</option>
+                                <option>Rajat</option>
+                            </select>
+                        </div>
+
+                        <!-- Date Fields & Status -->
+                        <div class="row mb-4">
+                            <div class="col-md-4">
+                                <label class="form-label">Start Date:</label>
+                                <input type="date" class="form-control">
+                            </div>
+
+                            <div class="col-md-4">
+                                <label class="form-label">End Date:</label>
+                                <input type="date" class="form-control">
+                            </div>
+
+                            <div class="col-md-4">
+                                <label class="form-label">Status:</label>
+                                <select class="form-select">
+                                    <option>All</option>
+                                    <option>To-Do</option>
+                                    <option>In Progress</option>
+                                    <option>Completed</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <!-- Description Field -->
+                        <div class="col-md-12 mb-3">
+                            <label class="form-label">Description:</label>
+                            <textarea class="form-control" rows="4" placeholder="Enter Task Description"></textarea>
+                        </div>
+                    </div>
+                </div>
+                <!-- Submit Button --->
+                <button class="btn btn-primary">Create Task</button>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="{% static 'Javascript/task/createTask.js' %}"></script>
+
+{% endblock %}

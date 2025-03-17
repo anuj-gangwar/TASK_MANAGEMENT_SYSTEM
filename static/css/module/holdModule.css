@@ -1,0 +1,23 @@
+
+
+.table td, .table th {
+    vertical-align: middle;
+    white-space: nowrap;
+    text-align: center;
+}
+
+.badge {
+    padding: 5px 10px;
+    font-size: 14px;
+}
+
+.btn-sm {
+    margin: 2px;
+}
+
+/* On Hold row styling */
+.on-hold-row {
+    background-color: rgba(255, 0, 0, 0.1); /* Light Red */
+    font-weight: bold;
+}
+

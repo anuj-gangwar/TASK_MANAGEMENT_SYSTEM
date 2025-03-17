@@ -1,0 +1,60 @@
+#taskStatusCard {
+    margin-bottom: 20px;
+}
+
+/* Styles for the chart cards */
+.chart-card {
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    margin-bottom: 15px;
+    padding: 10px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+}
+
+.chart-card h3 {
+    margin-bottom: 10px;
+    font-size: 1.1rem;
+}
+
+.chart-container {
+    position: relative;
+    height: 300px;
+    width: 100%;
+}
+
+/* Styles for the filter container */
+.filter-container {
+    display: flex;
+    justify-content: flex-start;
+    margin-bottom: 10px;
+}
+
+.filter-dropdowns {
+    display: flex;
+    flex-wrap: nowrap;
+    gap: 5px;
+}
+
+.filter-item {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.filter-item label {
+    font-size: 0.7rem;
+    margin-bottom: 0.1rem;
+}
+
+.filter-item .form-control-sm {
+    font-size: 0.8rem;
+    padding: 0.2rem 0.4rem;
+    height: auto;
+    width: 100px;
+}
+
+/* Styles for the main toggle button */
+.toggle-btn {
+    padding: 0.25rem 0.5rem;
+    font-size: 0.7rem;
+}

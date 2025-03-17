@@ -1,0 +1,553 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+<div class="pc-container">
+    <div class="pc-content">
+   <div class="container mt-4">
+    <div class="card">
+    <h1>Permission </h1>
+
+    <div class="container mt-4">
+      <div class="row">
+          <!-- Department Dropdown -->
+          <div class="col-md-4">
+              <div class="card">
+                  <div class="card-header">
+                      <strong>Departments</strong>
+                  </div>
+                  <div class="card-body">
+                      <select class="form-select">
+                          <option selected disabled>Select Department</option>
+                          <option>Admin</option>
+                          <option>Tester</option>
+                          <option>Deployment</option>
+                          <option>Developer</option>
+                          <option>Creative</option>
+                          <option>Designer</option>
+                      </select>
+                  </div>
+              </div>
+          </div>
+  
+          <!-- Roles Dropdown -->
+          <div class="col-md-4">
+              <div class="card">
+                  <div class="card-header">
+                      <strong>Roles</strong>
+                  </div>
+                  <div class="card-body">
+                      <select class="form-select">
+                          <option selected disabled>Select Role</option>
+                          <option>Super Admin</option>
+                          <option>Admin</option>
+                          <option>Manager</option>
+                          <option>Developer</option>
+                          <option>Quality Analyst</option>
+                          <option>Deployment Manager</option>
+                      </select>
+                  </div>
+              </div>
+          </div>
+  
+          <!-- Project -->
+          <div class="col-md-4">
+              <div class="card">
+                  <div class="card-header">
+                      <strong>Projects</strong>
+                  </div>
+                  <div class="card-body">
+                      <select class="form-select">
+                          <option selected disabled>Select Projects</option>
+                          <option>Project Alpha</option>
+                          <option>Project Beta</option>
+                          <option>Project Gamma</option>
+                          <option>Project Delta</option>
+                          <option>Project Charlie</option>
+                      </select>
+                  </div>
+              </div>
+          </div>
+          
+          <!-- Module -->
+          <div class="col-md-4">
+            <div class="card">
+                <div class="card-header">
+                    <strong>Module</strong>
+                </div>
+                <div class="card-body">
+                    <select class="form-select">
+                        <option selected disabled>Select Module</option>
+                        <option>User Authentication</option>
+                        <option>Data Processingp</option>
+                        <option>Reporting</option>
+                        <option>API Integration</option>
+                        <option>UI Design</option>
+                    </select>
+                </div>
+            </div>
+            
+        </div>
+        <!-- Task -->
+        <div class="col-md-4">
+          <div class="card">
+              <div class="card-header">
+                  <strong>Task</strong>
+              </div>
+              <div class="card-body">
+                  <select class="form-select">
+                      <option selected disabled>Select Task</option>
+                      <option>Implement Login Functionality	</option>
+                      <option>Cleanse and Validate Input Data</option>
+                      <option>Generate Weekly Sales Report</option>
+                      <option>Integrate with Payment Gateway API	</option>
+                      <option>Create Mockups for Mobile App</option>
+                  </select>
+              </div>
+          </div>
+      </div>
+      <!-- User Search Card -->
+        <div class="col-md-4">
+          <div class="card">
+              <div class="card-header">
+                  <strong>Search User</strong>
+              </div>
+              <div class="card-body">
+                  <div class="input-group">
+                      <input type="text" id="searchUserInput" class="form-control" placeholder="Enter User ID or Name">
+                      <button class="btn btn-primary" onclick="searchUser()">Search</button>
+                  </div>
+                  <ul class="list-group mt-2" id="userResults" style="display: none;"></ul>
+              </div>
+          </div>
+        </div>
+  </div>
+</div>
+</div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  
+  <div class="container mt-4">
+    <div class="card">
+        <div class="card-header">
+            <strong>Module 1</strong>
+        </div>
+        <div class="card-body">
+            <div class="row">
+             
+                <!-- User Management -->
+                <div class="col-md-4">
+                    <h5>User Management</h5>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" id="createUser">
+                        <label class="form-check-label" for="createUser">Create Users</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" id="editUser">
+                        <label class="form-check-label" for="editUser">Edit Users</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" id="deleteUser">
+                        <label class="form-check-label" for="deleteUser">Delete Users</label>
+                    </div>
+                </div>
+
+                <!-- Role Management -->
+                <div class="col-md-4">
+                    <h5>Role Management</h5>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" id="assignRole">
+                        <label class="form-check-label" for="assignRole">Assign Roles</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" id="changeRole">
+                        <label class="form-check-label" for="changeRole">Change Roles</label>
+                    </div>
+                </div>
+
+                <!-- Access Control -->
+                <div class="col-md-4">
+                    <h5>Access Control</h5>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" id="restrictAccess">
+                        <label class="form-check-label" for="restrictAccess">Restrict Access</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" id="grantAccess">
+                        <label class="form-check-label" for="grantAccess">Grant Access</label>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Second Row -->
+            <div class="row mt-3">
+                <!-- Audit Logs -->
+                <div class="col-md-4">
+                    <h5>Audit Logs</h5>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" id="viewLoginLogs">
+                        <label class="form-check-label" for="viewLoginLogs">View Login Logs</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" id="viewActivityLogs">
+                        <label class="form-check-label" for="viewActivityLogs">View User Activity Logs</label>
+                    </div>
+                </div>
+
+                <!-- System Settings -->
+                <div class="col-md-4">
+                    <h5>System Settings</h5>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" id="updateConfig">
+                        <label class="form-check-label" for="updateConfig">Update Configurations</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" id="changeTheme">
+                        <label class="form-check-label" for="changeTheme">Change UI Theme</label>
+                    </div>
+                </div>
+
+                <!-- Billing Management -->
+                <div class="col-md-4">
+                    <h5>Billing Management</h5>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" id="viewInvoices">
+                        <label class="form-check-label" for="viewInvoices">View Invoices</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" id="updatePaymentMethod">
+                        <label class="form-check-label" for="updatePaymentMethod">Update Payment Method</label>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Third Row -->
+            <div class="row mt-3">
+                <!-- Security Settings -->
+                <div class="col-md-4">
+                    <h5>Security Settings</h5>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" id="enable2FA">
+                        <label class="form-check-label" for="enable2FA">Enable Two-Factor Authentication</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" id="passwordPolicy">
+                        <label class="form-check-label" for="passwordPolicy">Enforce Password Policy</label>
+                    </div>
+                </div>
+
+                <!-- API Management -->
+                <div class="col-md-4">
+                    <h5>API Management</h5>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" id="generateAPIKey">
+                        <label class="form-check-label" for="generateAPIKey">Generate API Keys</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" id="manageWebhooks">
+                        <label class="form-check-label" for="manageWebhooks">Manage Webhooks</label>
+                    </div>
+                </div>
+
+                <!-- Backup & Restore -->
+                <div class="col-md-4">
+                    <h5>Backup & Restore</h5>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" id="createBackup">
+                        <label class="form-check-label" for="createBackup">Create Backups</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" id="restoreBackup">
+                        <label class="form-check-label" for="restoreBackup">Restore Backups</label>
+                    </div>
+                    <div class="text-center">
+                      <button class="btn btn-primary px-20">Save</button>
+                  </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container mt-4">
+ <div class="card">
+     <div class="card-header">
+         <strong>Module 2</strong>
+     </div>
+     <div class="card-body">
+         <div class="row">
+             <!-- User Management -->
+             <div class="col-md-4">
+                 <h5>User Management</h5>
+                 <div class="form-check">
+                     <input class="form-check-input" type="checkbox" id="createUser">
+                     <label class="form-check-label" for="createUser">Create Users</label>
+                 </div>
+                 <div class="form-check">
+                     <input class="form-check-input" type="checkbox" id="editUser">
+                     <label class="form-check-label" for="editUser">Edit Users</label>
+                 </div>
+                 <div class="form-check">
+                     <input class="form-check-input" type="checkbox" id="deleteUser">
+                     <label class="form-check-label" for="deleteUser">Delete Users</label>
+                 </div>
+                 
+             </div>
+
+             <!-- Role Management -->
+             <div class="col-md-4">
+                 <h5>Role Management</h5>
+                 <div class="form-check">
+                     <input class="form-check-input" type="checkbox" id="assignRole">
+                     <label class="form-check-label" for="assignRole">Assign Roles</label>
+                 </div>
+                 <div class="form-check">
+                     <input class="form-check-input" type="checkbox" id="changeRole">
+                     <label class="form-check-label" for="changeRole">Change Roles</label>
+                 </div>
+             </div>
+
+             <!-- Access Control -->
+             <div class="col-md-4">
+                 <h5>Access Control</h5>
+                 <div class="form-check">
+                     <input class="form-check-input" type="checkbox" id="restrictAccess">
+                     <label class="form-check-label" for="restrictAccess">Restrict Access</label>
+                 </div>
+                 <div class="form-check">
+                     <input class="form-check-input" type="checkbox" id="grantAccess">
+                     <label class="form-check-label" for="grantAccess">Grant Access</label>
+                 </div>
+             </div>
+         </div>
+
+         <!-- Second Row -->
+         <div class="row mt-3">
+             <!-- Audit Logs -->
+             <div class="col-md-4">
+                 <h5>Audit Logs</h5>
+                 <div class="form-check">
+                     <input class="form-check-input" type="checkbox" id="viewLoginLogs">
+                     <label class="form-check-label" for="viewLoginLogs">View Login Logs</label>
+                 </div>
+                 <div class="form-check">
+                     <input class="form-check-input" type="checkbox" id="viewActivityLogs">
+                     <label class="form-check-label" for="viewActivityLogs">View User Activity Logs</label>
+                 </div>
+             </div>
+
+             <!-- System Settings -->
+             <div class="col-md-4">
+                 <h5>System Settings</h5>
+                 <div class="form-check">
+                     <input class="form-check-input" type="checkbox" id="updateConfig">
+                     <label class="form-check-label" for="updateConfig">Update Configurations</label>
+                 </div>
+                 <div class="form-check">
+                     <input class="form-check-input" type="checkbox" id="changeTheme">
+                     <label class="form-check-label" for="changeTheme">Change UI Theme</label>
+                 </div>
+             </div>
+
+             <!-- Billing Management -->
+             <div class="col-md-4">
+                 <h5>Billing Management</h5>
+                 <div class="form-check">
+                     <input class="form-check-input" type="checkbox" id="viewInvoices">
+                     <label class="form-check-label" for="viewInvoices">View Invoices</label>
+                 </div>
+                 <div class="form-check">
+                     <input class="form-check-input" type="checkbox" id="updatePaymentMethod">
+                     <label class="form-check-label" for="updatePaymentMethod">Update Payment Method</label>
+                 </div>
+             </div>
+         </div>
+
+         <!-- Third Row -->
+         <div class="row mt-3">
+             <!-- Security Settings -->
+             <div class="col-md-4">
+                 <h5>Security Settings</h5>
+                 <div class="form-check">
+                     <input class="form-check-input" type="checkbox" id="enable2FA">
+                     <label class="form-check-label" for="enable2FA">Enable Two-Factor Authentication</label>
+                 </div>
+                 <div class="form-check">
+                     <input class="form-check-input" type="checkbox" id="passwordPolicy">
+                     <label class="form-check-label" for="passwordPolicy">Enforce Password Policy</label>
+                 </div>
+             </div>
+
+             <!-- API Management -->
+             <div class="col-md-4">
+                 <h5>API Management</h5>
+                 <div class="form-check">
+                     <input class="form-check-input" type="checkbox" id="generateAPIKey">
+                     <label class="form-check-label" for="generateAPIKey">Generate API Keys</label>
+                 </div>
+                 <div class="form-check">
+                     <input class="form-check-input" type="checkbox" id="manageWebhooks">
+                     <label class="form-check-label" for="manageWebhooks">Manage Webhooks</label>
+                 </div>
+             </div>
+
+             <!-- Backup & Restore -->
+             <div class="col-md-4">
+                 <h5>Backup & Restore</h5>
+                 <div class="form-check">
+                     <input class="form-check-input" type="checkbox" id="createBackup">
+                     <label class="form-check-label" for="createBackup">Create Backups</label>
+                 </div>
+                 <div class="form-check">
+                     <input class="form-check-input" type="checkbox" id="restoreBackup">
+                     <label class="form-check-label" for="restoreBackup">Restore Backups</label>
+                 </div>
+                 <div class="text-center">
+                   <button class="btn btn-primary px-20">Save</button>
+               </div>
+             </div>
+         </div>
+     </div>
+ </div>
+</div>
+<div class="container mt-4">
+<div class="card">
+   <div class="card-header">
+       <strong>Module 3</strong>
+   </div>
+   <div class="card-body">
+       <div class="row">
+           <!-- User Management -->
+           <div class="col-md-4">
+               <h5>User Management</h5>
+               <div class="form-check">
+                   <input class="form-check-input" type="checkbox" id="createUser">
+                   <label class="form-check-label" for="createUser">Create Users</label>
+               </div>
+               <div class="form-check">
+                   <input class="form-check-input" type="checkbox" id="editUser">
+                   <label class="form-check-label" for="editUser">Edit Users</label>
+               </div>
+               <div class="form-check">
+                   <input class="form-check-input" type="checkbox" id="deleteUser">
+                   <label class="form-check-label" for="deleteUser">Delete Users</label>
+               </div>
+           </div>
+
+           <!-- Role Management -->
+           <div class="col-md-4">
+               <h5>Role Management</h5>
+               <div class="form-check">
+                   <input class="form-check-input" type="checkbox" id="assignRole">
+                   <label class="form-check-label" for="assignRole">Assign Roles</label>
+               </div>
+               <div class="form-check">
+                   <input class="form-check-input" type="checkbox" id="changeRole">
+                   <label class="form-check-label" for="changeRole">Change Roles</label>
+               </div>
+           </div>
+
+           <!-- Access Control -->
+           <div class="col-md-4">
+               <h5>Access Control</h5>
+               <div class="form-check">
+                   <input class="form-check-input" type="checkbox" id="restrictAccess">
+                   <label class="form-check-label" for="restrictAccess">Restrict Access</label>
+               </div>
+               <div class="form-check">
+                   <input class="form-check-input" type="checkbox" id="grantAccess">
+                   <label class="form-check-label" for="grantAccess">Grant Access</label>
+               </div>
+           </div>
+       </div>
+
+       <!-- Second Row -->
+       <div class="row mt-3">
+           <!-- Audit Logs -->
+           <div class="col-md-4">
+               <h5>Audit Logs</h5>
+               <div class="form-check">
+                   <input class="form-check-input" type="checkbox" id="viewLoginLogs">
+                   <label class="form-check-label" for="viewLoginLogs">View Login Logs</label>
+               </div>
+               <div class="form-check">
+                   <input class="form-check-input" type="checkbox" id="viewActivityLogs">
+                   <label class="form-check-label" for="viewActivityLogs">View User Activity Logs</label>
+               </div>
+           </div>
+
+           <!-- System Settings -->
+           <div class="col-md-4">
+               <h5>System Settings</h5>
+               <div class="form-check">
+                   <input class="form-check-input" type="checkbox" id="updateConfig">
+                   <label class="form-check-label" for="updateConfig">Update Configurations</label>
+               </div>
+               <div class="form-check">
+                   <input class="form-check-input" type="checkbox" id="changeTheme">
+                   <label class="form-check-label" for="changeTheme">Change UI Theme</label>
+               </div>
+           </div>
+
+           <!-- Billing Management -->
+           <div class="col-md-4">
+               <h5>Billing Management</h5>
+               <div class="form-check">
+                   <input class="form-check-input" type="checkbox" id="viewInvoices">
+                   <label class="form-check-label" for="viewInvoices">View Invoices</label>
+               </div>
+               <div class="form-check">
+                   <input class="form-check-input" type="checkbox" id="updatePaymentMethod">
+                   <label class="form-check-label" for="updatePaymentMethod">Update Payment Method</label>
+               </div>
+           </div>
+       </div>
+
+       <!-- Third Row -->
+       <div class="row mt-3">
+           <!-- Security Settings -->
+           <div class="col-md-4">
+               <h5>Security Settings</h5>
+               <div class="form-check">
+                   <input class="form-check-input" type="checkbox" id="enable2FA">
+                   <label class="form-check-label" for="enable2FA">Enable Two-Factor Authentication</label>
+               </div>
+               <div class="form-check">
+                   <input class="form-check-input" type="checkbox" id="passwordPolicy">
+                   <label class="form-check-label" for="passwordPolicy">Enforce Password Policy</label>
+               </div>
+           </div>
+
+           <!-- API Management -->
+           <div class="col-md-4">
+               <h5>API Management</h5>
+               <div class="form-check">
+                   <input class="form-check-input" type="checkbox" id="generateAPIKey">
+                   <label class="form-check-label" for="generateAPIKey">Generate API Keys</label>
+               </div>
+               <div class="form-check">
+                   <input class="form-check-input" type="checkbox" id="manageWebhooks">
+                   <label class="form-check-label" for="manageWebhooks">Manage Webhooks</label>
+               </div>
+           </div>
+
+           <!-- Backup & Restore -->
+           <div class="col-md-4">
+               <h5>Backup & Restore</h5>
+               <div class="form-check">
+                   <input class="form-check-input" type="checkbox" id="createBackup">
+                   <label class="form-check-label" for="createBackup">Create Backups</label>
+               </div>
+               <div class="form-check">
+                   <input class="form-check-input" type="checkbox" id="restoreBackup">
+                   <label class="form-check-label" for="restoreBackup">Restore Backups</label>
+               </div>
+               <div class="text-center">
+                 <button class="btn btn-primary px-20">Save</button>
+             </div>
+           </div>
+       </div>
+   </div>
+</div>
+</div>
+{% endblock %}
+

@@ -1,0 +1,109 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+<link rel="stylesheet" href="{% static 'css/task/modifyTask.css' %}" >
+
+<div class="pc-container">
+    <div class="pc-content">
+        <div class="container">
+            <div class="card p-4" style="max-width: 800px; margin: auto; width: 100%;">
+                <h2 class="text-dark mb-3 text-center">Edit Task Details</h2>
+
+                <!-- Task & Project -->
+                <div class="row mb-3">
+                    <div class="col-md-6">
+                        <label class="form-label fw-bold">Task Name:</label>
+                        <input type="text" class="form-control" value="Implement Login System">
+                    </div>
+                    <div class="col-md-6">
+                        <label class="form-label fw-bold">Project Name:</label>
+                        <select class="form-select">
+                            <option selected>Task Management System</option>
+                            <option>Company Management System</option>
+                            <option>Regression Model</option>
+                            <option>Classification</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- Module & Status -->
+                <div class="row mb-3">
+                    <div class="col-md-6">
+                        <label class="form-label fw-bold">Module Name:</label>
+                        <select class="form-select">
+                            <option selected>Frontend</option>
+                            <option>Backend</option>
+                            <option>Database</option>
+                        </select>
+                    </div>
+                    <div class="col-md-6">
+                        <label class="form-label fw-bold">Task Status:</label>
+                        <select class="form-select">
+                            <option>To-Do</option>
+                            <option selected>In Progress</option>
+                            <option>Completed</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- Start Date & End Date -->
+                <div class="row mb-3">
+                    <div class="col-md-6">
+                        <label class="form-label fw-bold">Start Date:</label>
+                        <input type="date" class="form-control" value="2024-03-01">
+                    </div>
+                    <div class="col-md-6">
+                        <label class="form-label fw-bold">Due Date:</label>
+                        <input type="date" class="form-control" value="2024-03-10">
+                    </div>
+                </div>
+
+                <!-- Assigned Department & Manager -->
+                <div class="row mb-3">
+                    <div class="col-md-6">
+                        <label class="form-label fw-bold">Assigned Department:</label>
+                        <select class="form-select">
+                            <option>All</option>
+                            <option selected>Development</option>
+                            <option>Marketing</option>
+                            <option>Human Resources</option>
+                        </select>
+                    </div>
+                    <div class="col-md-6">
+                        <label class="form-label fw-bold">Assigned Manager:</label>
+                        <select class="form-select">
+                            <option>Naveen Taneja</option>
+                            <option selected>Chandan</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- Assigned Developer -->
+                <div class="mb-3">
+                    <label class="form-label fw-bold">Assigned Developer:</label>
+                    <select class="form-select">
+                        <option selected>Gaurav</option>
+                        <option>Shubham Taneja</option>
+                        <option>Anuj Oberio</option>
+                    </select>
+                </div>
+
+                <!-- Description -->
+                <div class="mb-3">
+                    <label class="form-label fw-bold">Task Description:</label>
+                    <textarea class="form-control" rows="4">Implement a secure login system with role-based access control.</textarea>
+                </div>
+
+                <!-- Action Buttons -->
+                <div class="text-center">
+                    <button class="btn btn-success me-2">Save Changes</button>
+                    <button class="btn btn-secondary">Cancel</button>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+<script src="{% static 'Javascript/task/modifyTask.js' %}"></script>
+
+{% endblock %}

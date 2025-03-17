@@ -1,0 +1,98 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+<link rel="stylesheet" href="{% static 'css/role/createRole.css' %}" >
+
+<div class="pc-container">
+    <div class="pc-content">
+        <div class="container" style="max-width: 1300px; margin: 0px; background: #fdfdfd; padding: 20px; border-radius: 8px; box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);">
+            <h2 class="text-center mb-4">Create Role</h2>
+            <form>
+                <div class="row">
+                    <!-- Left Column -->
+                    <div class="col-md-6">
+                        <!-- Department Selection -->
+                        <div class="mb-3">
+                            <label class="form-label fw-bold">Department</label>
+                            <select class="form-select" required>
+                                <option selected disabled>-- Select Role --</option>
+                                <option>Deployment</option>
+                                <option>Creative</option>
+                                <option>Admin</option>
+                                <option>Developer</option>
+                                <option>Testing</option>
+                            </select>
+                            <span class="error-text text-danger" style="font-size: 12px;">This field is required.</span>
+                        </div>
+
+                        <!-- Role Input -->
+                        <div class="mb-3">
+                            <label class="form-label fw-bold">Role</label>
+                            <input type="text" class="form-control" required>
+                            <span class="error-text text-danger" style="font-size: 12px;">This field is required.</span>
+                        </div>
+                    </div>
+
+                    <!-- Right Column -->
+                    <div class="col-md-6">
+                        <!-- Project Reference Document -->
+                        <div class="mb-3">
+                            <label class="form-label fw-bold">Project Reference Document</label>
+                            <div class="d-flex align-items-center">
+                                <input type="file" class="form-control" id="fileInput">
+                                <button type="button" class="btn btn-primary ms-2" onclick="startUpload()">Upload</button>
+                            </div>
+                        </div>
+
+                        <!-- Description -->
+                        <div class="mb-3">
+                            <label class="form-label fw-bold">Description</label>
+                            <textarea class="form-control" rows="3" required></textarea>
+                            <span class="error-text text-danger" style="font-size: 12px;">This field is required.</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Permissions Section (Full Width) -->
+                <h4>Permissions</h4>
+                <div class="row">
+                    <!-- Available Permissions -->
+                    <div class="col-md-5">
+                        <label class="form-label">Available Permissions</label>
+                        <div id="availablePermissions" class="permissions-box droppable" ondrop="drop(event)" ondragover="allowDrop(event)" style="width: 100%; height: 150px; border: 1px solid #ccc; padding: 10px; overflow-y: auto; background: #fff;">
+                            <div class="draggable" draggable="true" ondragstart="drag(event)" id="perm1" style="padding: 10px; margin: 5px; border: 1px solid #ccc; background-color: #f9f9f9; cursor: grab;">View Users</div>
+                            <div class="draggable" draggable="true" ondragstart="drag(event)" id="perm2" style="padding: 10px; margin: 5px; border: 1px solid #ccc; background-color: #f9f9f9; cursor: grab;">Create Users</div>
+                            <div class="draggable" draggable="true" ondragstart="drag(event)" id="perm3" style="padding: 10px; margin: 5px; border: 1px solid #ccc; background-color: #f9f9f9; cursor: grab;">Edit Users</div>
+                            <div class="draggable" draggable="true" ondragstart="drag(event)" id="perm4" style="padding: 10px; margin: 5px; border: 1px solid #ccc; background-color: #f9f9f9; cursor: grab;">Delete Users</div>
+                            <div class="draggable" draggable="true" ondragstart="drag(event)" id="perm5" style="padding: 10px; margin: 5px; border: 1px solid #ccc; background-color: #f9f9f9; cursor: grab;">Activate Users</div>
+                            <div class="draggable" draggable="true" ondragstart="drag(event)" id="perm6" style="padding: 10px; margin: 5px; border: 1px solid #ccc; background-color: #f9f9f9; cursor: grab;">Deactivate Users</div>
+                            <div class="draggable" draggable="true" ondragstart="drag(event)" id="perm7" style="padding: 10px; margin: 5px; border: 1px solid #ccc; background-color: #f9f9f9; cursor: grab;">Reset User Password</div>
+                        </div>
+                    </div>
+
+                    <!-- Transfer Icon -->
+                    <div class="col-md-2 d-flex align-items-center justify-content-center">
+                        <i class="fas fa-exchange-alt fa-2x"></i>
+                    </div>
+
+                    <!-- Assigned Permissions -->
+                    <div class="col-md-5">
+                        <label class="form-label">Assigned Permissions</label>
+                        <div id="assignedPermissions" class="permissions-box droppable" ondrop="drop(event)" ondragover="allowDrop(event)" style="width: 100%; height: 150px; border: 1px solid #ccc; padding: 10px; overflow-y: auto; background: #fff;"></div>
+                    </div>
+                </div>
+
+                <!-- Action Buttons -->
+                <div class="d-flex justify-content-between mt-3">
+                    <button type="button" class="btn" style="background-color: #ffa500; color: white; font-weight: bold;">Back</button>
+                    <button type="submit" class="btn" style="background-color: #007bff; color: white; font-weight: bold;">Save</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<script src="{% static Javascript/role/createRole.js %}"></script>
+
+{% endblock %}
+
+

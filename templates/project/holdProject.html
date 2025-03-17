@@ -1,0 +1,93 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+<link rel="stylesheet" href="{% static 'css/project/holdProject.css' %}" >
+
+<div class="pc-container">
+    <div class="pc-content">
+        <div class="container-fluid py-4">
+            <div class="d-flex justify-content-between align-items-center mb-3">
+                <h2 class="text-dark">Project Modules</h2>
+
+                <!-- Filter Dropdown -->
+                <select id="statusFilter" class="form-select form-select-sm" style="width: auto;">
+                    <option value="all" selected>Show All</option>
+                    <option value="on-hold">Show On Hold</option>
+                </select>
+            </div>
+
+            <div class="card p-3 shadow-sm">
+                <div class="table-responsive">
+                    <table class="table table-bordered table-hover text-center align-middle">
+                        <thead class="table-dark">
+                            <tr>
+                                <th>S No.</th>
+                                <th>Module Name</th>
+                                <th>Description</th>
+                                <th>Assigned Department</th>
+                                <th>Assigned Manager</th>
+                                <th>Status</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>1</td>
+                                <td>User Authentication</td>
+                                <td>Handles user login and registration</td>
+                                <td>Development</td>
+                                <td>Shubham Ryan</td>
+                                <td><span class="badge bg-success">Completed</span></td>
+                                <td>
+                                    <button class="btn btn-warning btn-sm">Edit</button>
+                                    <button class="btn btn-danger btn-sm">Delete</button>
+                                </td>
+                            </tr>
+                            <tr class="on-hold-row">
+                                <td>2</td>
+                                <td>Payment Gateway</td>
+                                <td>Handles secure transactions</td>
+                                <td>Finance</td>
+                                <td>Salman Khan</td>
+                                <td><span class="badge bg-danger">On Hold</span></td>
+                                <td>
+                                    <button class="btn btn-warning btn-sm" disabled>Edit</button>
+                                    <button class="btn btn-danger btn-sm" disabled>Delete</button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>3</td>
+                                <td>Cloud Deployment</td>
+                                <td>Deploys applications to the cloud</td>
+                                <td>IT Operations</td>
+                                <td>Soheb Akhtar</td>
+                                <td><span class="badge bg-success">Completed</span></td>
+                                <td>
+                                    <button class="btn btn-warning btn-sm">Edit</button>
+                                    <button class="btn btn-danger btn-sm">Delete</button>
+                                </td>
+                            </tr>
+                            <tr class="on-hold-row">
+                                <td>4</td>
+                                <td>Security Compliance</td>
+                                <td>Ensures app security standards</td>
+                                <td>Cybersecurity</td>
+                                <td>David Martinez</td>
+                                <td><span class="badge bg-danger">On Hold</span></td>
+                                <td>
+                                    <button class="btn btn-warning btn-sm" disabled>Edit</button>
+                                    <button class="btn btn-danger btn-sm" disabled>Delete</button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script src="{% static 'Javascript/project/holdProject.js '%}"></script>
+
+{% endblock %}

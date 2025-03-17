@@ -1,0 +1,66 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+<link rel="stylesheet" href="{% static 'css/project/deleteProject.css' %}" >
+
+<div class="pc-container vh-100 d-flex align-items-center justify-content-center">
+    <div class="pc-content w-100">
+        <div class="container">
+            <div class="card p-4">
+                <h2 class="text-dark mb-3 text-center">Delete Project</h2>
+
+                <!-- Task & Project -->
+                <div class="row mb-3">
+                    <div class="col-md-6">
+                        <label class="form-label">Task:</label>
+                        <input type="text" class="form-control" placeholder="Enter Task Name">
+                    </div>
+                    <div class="col-md-6">
+                        <label class="form-label">Project:</label>
+                        <select class="form-select">
+                            <option>Company Management System</option>
+                            <option>Task Management System</option>
+                            <option>Regression Model</option>
+                            <option>Classification</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- Start Date, End Date & Status -->
+                <div class="row mb-3">
+                    <div class="col-md-4">
+                        <label class="form-label">Start Date:</label>
+                        <input type="date" class="form-control">
+                    </div>
+                    <div class="col-md-4">
+                        <label class="form-label">End Date:</label>
+                        <input type="date" class="form-control">
+                    </div>
+                    <div class="col-md-4">
+                        <label class="form-label">Status:</label>
+                        <select class="form-select">
+                            <option>All</option>
+                            <option>To-Do</option>
+                            <option>In Progress</option>
+                            <option>Completed</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- Description -->
+                <div class="mb-3">
+                    <label class="form-label">Description:</label>
+                    <textarea class="form-control" rows="5" placeholder="Enter description"></textarea>
+                </div>
+
+                <!-- Submit Button -->
+                <div class="text-center">
+                    <button class="btn btn-primary w-50">Submit</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="{% static 'Javascript/project/deleteProject.js' %}"></script>
+
+{% endblock %}

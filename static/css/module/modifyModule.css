@@ -1,0 +1,19 @@
+
+
+.form-label {
+    font-weight: 600;
+}
+
+.progress-bar {
+    font-weight: bold;
+}
+
+.btn {
+    padding: 10px 20px;
+}
+
+th, td {
+    white-space: nowrap; /* Prevents text from breaking */
+    text-align: center; /* Centers text */
+    vertical-align: middle; /* Aligns text to the middle */
+  }

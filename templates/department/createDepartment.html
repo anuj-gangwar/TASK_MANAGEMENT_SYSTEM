@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+<div class="pc-container">
+    <div class="pc-content">
+        <div class="container">
+            <div class="card">
+                <div class="card-body">
+                    <h4 class="card-title">Department Information</h4>
+                    <form>
+                        <div class="form-group">
+                            <label for="departmentName">Department Name:</label>
+                            <input type="text" class="form-control" id="departmentName" placeholder="Enter department name">
+                        </div>
+                        <div class="form-group">
+                            <label for="departmentDescription">Description:</label>
+                            <textarea class="form-control" id="departmentDescription" rows="3" placeholder="Enter department description"></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label for="departmentManager">Department Manager:</label>
+                            <select class="form-control" id="departmentManager">
+                                <option value="">Select Manager</option>
+                                <option value="johnDoe">John Doe</option>
+                                <option value="janeSmith">Jane Smith</option>
+                                <option value="michaelLee">Michael Lee</option>
+                                <!-- Add more managers as needed -->
+                            </select>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Create Department</button>
+                        <button type="button" class="btn btn-secondary">Cancel</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

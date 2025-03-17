@@ -1,0 +1,224 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+<link rel="stylesheet" href="{%static 'static/css/task/task.css'%}">
+<div class="pc-container">
+    <div class="pc-content">
+        <div class="container">
+            <div class="card p-4">
+                <div class="d-flex justify-content-between align-items-center mb-3">
+                    <h2 class="text-dark mb-0">Check Task Status</h2>
+                    <a href="{% url 'create_task' %}" class="btn btn-primary">+ Create Task</a>
+                </div>
+  
+                <!-- Filters -->
+                <div class="container mt-4">
+                    <div class="row g-2 mb-3">
+                        <div class="col-md-3">
+                            <label class="form-label">Task ID:</label>
+                            <input type="text" id="taskIdFilter" class="form-control" placeholder="Enter Task ID">
+                        </div>
+                        <div class="col-md-3">
+                            <label class="form-label">Search By User:</label>
+                            <input type="text" id="userFilter" class="form-control" placeholder="Enter User Name">
+                        </div>
+                        <div class="col-md-3">
+                            <label class="form-label">Search By Project:</label>
+                            <input type="text" id="projectFilter" class="form-control"
+                                placeholder="Enter Project Name">
+                        </div>
+                        <div class="col-md-3">
+                            <label class="form-label">Search By Module:</label>
+                            <input type="text" id="moduleFilter" class="form-control"
+                                placeholder="Enter Module Name">
+                        </div>
+                    </div>
+  
+                    <div class="row g-3">
+                        <div class="col-md-3">
+                            <label class="form-label">Task Status:</label>
+                            <select id="statusFilter" class="form-select">
+                                <option value="">All</option>
+                                <option value="todo">To-Do</option>
+                                <option value="inprogress">In Progress</option>
+                                <option value="completed">Completed</option>
+                                <option value="blocked">Blocked</option>
+                            </select>
+                        </div>
+                        <div class="col-md-3">
+                            <label class="form-label">Select Department:</label>
+                            <select id="departmentFilter" class="form-select">
+                                <option value="">All Departments</option>
+                                <option value="Finance">Finance</option>
+                                <option value="IT">IT</option>
+                                <option value="Human Resources">Human Resources</option>
+                                <option value="Cybersecurity">Cybersecurity</option>
+                                <option value="Software Development">Software Development</option>
+                                <option value="Transport">Transport</option>
+                                <option value="Public Services">Public Services</option>
+                                <option value="Government">Government</option>
+                            </select>
+                        </div>
+                        <div class="col-md-3">
+                            <label class="form-label">Date Range:</label>
+                            <input type="text" id="dateRangeInput" class="form-control"
+                                placeholder="YYYY-MM-DD - YYYY-MM-DD">
+                        </div>
+                        <div class="col-md-3 d-flex align-items-end gap-2">
+                            <button class="btn btn-primary w-50">Apply</button>
+                            <button class="btn btn-secondary w-50">Reset</button>
+                        </div>
+                    </div>
+                </div>
+  
+                <!-- Task Summary Cards -->
+                <div class="row mt-4">
+                    <div class="col-md-3">
+                        <div class="card bg-primary text-white p-3">
+                            <h6 class="text-dark">Total Tasks</h6>
+                            <h4>46 <span class="badge bg-light text-primary">
+                                    <img src="{% static 'Png/trending up.png' %}" width="25" height="25"> 59.3%
+                                </span>
+                            </h4>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="card bg-success text-white p-3">
+                            <h6 class="text-dark">Completed Task</h6>
+                            <h4>78 <span class="badge bg-light text-success">
+                                    <img src="{% static 'Png/trending up.png' %}" width="25" height="25"> 70.5%
+                                </span>
+                            </h4>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="card bg-danger text-dark p-3">
+                            <h6 class="text-dark">Pending Task</h6>
+                            <h4>35 <span class="badge bg-light text-danger">
+                                    <img src="{% static 'Png/trending down.png' %}" width="25" height="25"> 27.4%
+                                </span>
+                            </h4>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="card bg-warning text-dark p-3">
+                            <h6 class="text-dark">Running Task</h6>
+                            <h4>46 <span class="badge bg-light text-warning">
+                                    <img src="{% static 'Png/trending down.png' %}" width="25" height="25"> 59.3%
+                                </span>
+                            </h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="container mt-5">
+                    <h2 class="text-center mb-4">Task Overview Charts</h2>
+                    <div class="card shadow-sm chart-card">
+                        <div class="card-body">
+                            <h5 class="card-title text-center">Task Analytics</h5>
+                            <button class="collapse-btn" onclick="toggleCharts()">−</button>
+                            <div id="chartsContainer">
+                                <div class="row">
+                                    <div class="col-md-4">
+                                        <h6 class="text-center">Task Status Distribution</h6>
+                                        <canvas id="taskStatusChart" class="chart-canvas" height="400" weight="400"></canvas>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <h6 class="text-center">Department-wise Task Distribution</h6>
+                                        <canvas id="departmentChart" class="chart-canvas"height="400" weight="400"></canvas>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <h6 class="text-center">Task Priority Levels</h6>
+                                        <canvas id="priorityChart" class="chart-canvas" height="400" weight="400"></canvas>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Task Table -->
+                <div class="table-responsive">
+                    <table id="taskTable" class="table table-bordered table-hover mt-3">
+                        <thead style="background-color: #f7f9f9;">
+                            <tr>
+                              <tr>
+                                <th>S.No <img src="{% static 'Png/sort.png' %}" style="width: 16px; height: 16px; margin-left: 5px;"></th>
+                                <th>Task Name <img src="{% static 'Png/sort.png' %}" style="width: 16px; height: 16px; margin-left: 5px;"></th>
+                                <th>Department <img src="{% static 'Png/sort.png' %}" style="width: 16px; height: 16px; margin-left: 5px;"></th>
+                                <th>Project <img src="{% static 'Png/sort.png' %}" style="width: 16px; height: 16px; margin-left: 5px;"></th>
+                                <th>Status <img src="{% static 'Png/sort.png' %}" style="width: 16px; height: 16px; margin-left: 5px;"></th>
+                                <th>Start Date<img src="{% static 'Png/sort.png' %}" style="width: 16px; height: 16px; margin-left: 5px;"></th>
+                                <th>Due Date <img src="{% static 'Png/sort.png' %}" style="width: 16px; height: 16px; margin-left: 5px;"></th>
+                                <th>Assigned To<img src="{% static 'Png/sort.png' %}" style="width: 16px; height: 16px; margin-left: 5px;"></th>
+                                <th>Assigned By<img src="{% static 'Png/sort.png' %}" style="width: 16px; height: 16px; margin-left: 5px;"></th>
+                                <th>Action<img src="{% static 'Png/sort.png' %}" style="width: 16px; height: 16px; margin-left: 5px;"></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>1</td>
+                                <td>GST Filing Automation</td>
+                                <td>Finance</td>
+                                <td>High</td>
+                                <td>In Progress</td>
+                                <td>2024-03-01</td>
+                                <td>2024-03-10</td>
+                                <td>Rajesh Kumar</td>
+                                <td>Lallan Seth Kumar</td>
+                                <td>
+                                  <a href="{% url 'show_task' %}"><button class="btn btn-info btn-sm"onclick="showProject('101')">View</button></a>
+                                  <a href="{% url 'modify_task' %}"><button class="btn btn-warning btn-sm"onclick="showProject('101')">Modify</button></a>
+                                  <a href="!#"><button class="btn btn-info btn-sm"onclick="showProject('101')">Delete</button></a>
+                                    
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>2</td>
+                                <td>UPI Payment Bug Fix</td>
+                                <td>IT</td>
+                                <td>Medium</td>
+                                <td>In Progress</td>
+                                <td>2024-02-25</td>
+                                <td>2024-03-05</td>
+                                <td>Vikas Gupta</td>
+                                <td>Baba Tillu</td>
+                                <td>
+                                  <a href="{% url 'show_task' %}"><button class="btn btn-info btn-sm"onclick="showProject('101')">View</button></a>
+                                  <a href="{% url 'modify_task' %}"><button class="btn btn-warning btn-sm"onclick="showProject('101')">Modify</button></a>
+                                  <a href="!#"><button class="btn btn-info btn-sm"onclick="showProject('101')">Delete</button></a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>3</td>
+                                <td>New HR Policy Draft</td>
+                                <td>Human Resources</td>
+                                <td>Low</td>
+                                <td>Completed</td>
+                                <td>2024-03-01</td>
+                                <td>2024-03-10</td>
+                                <td>Rajesh Kumar</td>
+                                <td>Lallan Seth Kumar</td>
+                                <td>
+                                  <a href="./showTask.html"><button class="btn btn-info btn-sm"onclick="showProject('101')">View</button></a>
+                                  <a href="./modifyTask.html"><button class="btn btn-warning btn-sm"onclick="showProject('101')">Modify</button></a>
+                                  <a href="!#"><button class="btn btn-info btn-sm"onclick="showProject('101')">Delete</button></a>
+                                </td>
+                            </tr>
+                            
+                        </tbody>
+                    </table>
+                </div>
+
+
+                <nav>
+                    <ul class="pagination justify-content-center">
+                        <li class="page-item"><a class="page-link" href="#">Prev</a></li>
+                        <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                        <li class="page-item"><a class="page-link" href="#">2</a></li>
+                        <li class="page-item"><a class="page-link" href="#">3</a></li>
+                        <li class="page-item"><a class="page-link" href="#">Next</a></li>
+                    </ul>
+                </nav>
+            </div>
+<script src="{% static 'Javascript/task/task.js' %}"></script>
+
+{% endblock %}

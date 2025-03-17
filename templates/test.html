@@ -1,0 +1,626 @@
+<!-- [ Sidebar Menu ] start -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@300;400;500;600;700&display=swap" id="main-font-link">
+    <link rel="stylesheet" href="./Assets/css/tabler-icons.min.css" >
+    <link rel="stylesheet" href="./Assets/css/feather.css" >
+    <link rel="stylesheet" href="./Assets/css/fontawesome.css" >
+    <link rel="stylesheet" href="./Assets/css/material.css" >
+    <link rel="stylesheet" href="./Assets/css/style.css" id="main-style-link" >
+    <link rel="stylesheet" href="./Assets/css/style-preset.css" >
+    <link rel="stylesheet" href="{% static 'css/test.css' %}" >
+
+</head>
+
+
+<body>
+
+
+
+    <nav class="pc-sidebar">
+        <div class="navbar-wrapper">
+          <div class="m-header">
+            <a href="./index.html" class="b-brand text-primary">
+                <div class="d-flex">
+                    <img src="./Assets/Png/—Pngtree—mv vm letter vector logo_5249394.png" alt="Tasks Icon" width="20" height="20" class="img-fluid " alt="logo">
+                    <h4 class="text-end">Mind Aviator</h4>
+                    </div>
+              <!-- ========   Change your logo from here   ============ -->
+    
+            </a>
+          </div>
+          <div class="navbar-content">
+            <ul class="pc-navbar">
+              <li class="pc-item">
+                <a href="./index.html" class="pc-link">
+      
+                  <span class="pc-micon">
+                    <img src="./Assets/Png/dashboard.png" alt="Tasks Icon" width="20" height="20"></i></span>
+                  <span class="pc-mtext text-dark">Dashboard</span>
+                </a>
+              </li>
+              <li class="pc-item pc-caption">
+                <label>ADMIN</label>
+                <i class="ti ti-brand-chrome"></i>
+              </li>
+              <li class="pc-item pc-hasmenu">
+                
+                <ul class="pc-submenu">
+                          <li class="pc-item"><a class="pc-link" href=".">Check Task Status </a></li>
+                          <li class="pc-item"><a class="pc-link" href="#!">Search Task </a></li>
+                          <li class="pc-item"><a class="pc-link" href="#!">Display List Of Task</a></li>
+                          <li class="pc-item"><a class="pc-link" href="#!">Check Task is Updated By</a></li>
+                </ul>
+              </li>
+              <li class="pc-item pc-hasmenu">
+                <a href="#!" class="pc-link"><span class="pc-micon">
+                  <img src="./Assets/Png/to-do-list.png" alt="Tasks Icon" width="20" height="20">
+                  </i></span><span class="pc-mtext">Tasks</span><span class="pc-arrow"><i data-feather="chevron-right"></i></span></a>
+                <ul class="pc-submenu">
+                          <li class="pc-item"><a class="pc-link" href="./tasks.html">Tasks</a></li>
+                          <li class="pc-item"><a class="pc-link" href="./createTask.html">Create Tasks</a></li>
+                          
+                </ul>
+              </li>
+              <li class="pc-item pc-hasmenu">
+                <a href="#!" class="pc-link"><span class="pc-micon">
+                  <img src="./Assets/Png/project.png" alt="Tasks Icon" width="20" height="20"></i></span><span class="pc-mtext">Projects</span><span class="pc-arrow"><i data-feather="chevron-right"></i></span></a>
+                <ul class="pc-submenu">
+                          <li class="pc-item"><a class="pc-link" href="./project.html">Project</a></li>
+                          <li class="pc-item"><a class="pc-link" href="./createProject.html">Create Projects</a></li>
+                          
+                </ul>
+              </li>
+              <li class="pc-item pc-hasmenu">
+                <a href="#!" class="pc-link"><span class="pc-micon">
+                  <img src="./Assets/Png/cube.png" alt="Tasks Icon" width="20" height="20"> </i></span><span class="pc-mtext">Module</span><span class="pc-arrow"><i data-feather="chevron-right"></i></span></a>
+                <ul class="pc-submenu">
+                          <li class="pc-item"><a class="pc-link" href="./module.html">Module</a></li>
+                          <li class="pc-item"><a class="pc-link" href="./createModule.html">Create Module</a></li>
+                          
+                </ul>
+              </li>
+              <li class="pc-item pc-hasmenu">
+                <a href="#!" class="pc-link"><span class="pc-micon">
+                  <img src="./Assets/Png/networking.png" alt="Tasks Icon" width="20" height="20"></i></span><span class="pc-mtext">Department</span><span class="pc-arrow"><i data-feather="chevron-right"></i></span></a>
+                <ul class="pc-submenu">
+                          <li class="pc-item"><a class="pc-link" href="./department.html">Department</a></li>
+                          <li class="pc-item"><a class="pc-link" href="#!"></a></li>
+                </ul>
+              </li>
+
+              <li class="pc-item pc-hasmenu">
+                <a href="#!" class="pc-link"><span class="pc-micon">
+                  <img src="./Assets/Png/setting.png" alt="Tasks Icon" width="20" height="20"></i></span><span class="pc-mtext">Role</span><span class="pc-arrow"><i data-feather="chevron-right"></i></span></a>
+                <ul class="pc-submenu">
+                          <li class="pc-item"><a class="pc-link" href="./role.html">Role</a></li>
+                          <li class="pc-item"><a class="pc-link" href="#!"></a></li>
+                </ul>
+              </li>
+
+              <li class="pc-item pc-hasmenu">
+                <a href="#!" class="pc-link"><span class="pc-micon">
+                  <img src="./Assets/Png/access-granted.png" alt="Tasks Icon" width="20" height="20"></i></span><span class="pc-mtext">Permission</span><span class="pc-arrow"><i data-feather="chevron-right"></i></span></a>
+                <ul class="pc-submenu">
+                          <li class="pc-item"><a class="pc-link" href="./permission.html">Permission</a></li>
+                          <li class="pc-item"><a class="pc-link" href="#!"></a></li>
+                </ul>
+              </li>
+
+              <li class="pc-item pc-hasmenu">
+                <a href="#!" class="pc-link"><span class="pc-micon">
+                  <img src="./Assets/Png/profile-user.png" alt="Tasks Icon" width="20" height="20"></i></span><span class="pc-mtext">Employees</span><span class="pc-arrow"><i data-feather="chevron-right"></i></span></a>
+                <ul class="pc-submenu">
+                          <li class="pc-item"><a class="pc-link" href="./employeeList.html">User</a></li>
+                          <li class="pc-item"><a class="pc-link" href="./createEmployee.html">Create User</a></li>
+                          
+                </ul>
+              </li>
+              <li class="pc-item pc-hasmenu">
+                <a href="#!" class="pc-link"><span class="pc-micon">
+                  <img src="./Assets/Png/log.png.jpg" alt="Tasks Icon" width="20" height="20"></i></span><span class="pc-mtext">Logs</span><span class="pc-arrow"><i data-feather="chevron-right"></i></span></a>
+                <ul class="pc-submenu">
+                          <li class="pc-item"><a class="pc-link" href="./log_activity.html">Log Activity</a></li>
+                         
+                          
+                </ul>
+              </li>
+
+              
+                
+
+
+              
+              <li class="pc-item pc-caption">
+                
+                <i class="ti ti-news"></i>
+              </li>
+              <li class="pc-item">
+                <a href="../pages/login.html" class="pc-link">
+                  
+                </a>
+              </li>
+              <li class="pc-item">
+                <a href="../pages/register.html" class="pc-link">
+                 
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+
+      <header class="pc-header">
+        <div class="header-wrapper"> <!-- [Mobile Media Block] start -->
+      <div class="me-auto pc-mob-drp">
+        <ul class="list-unstyled">
+          <!-- ======= Menu collapse Icon ===== -->
+          <li class="pc-h-item pc-sidebar-collapse">
+            <a href="#" class="pc-head-link ms-0" id="sidebar-hide">
+              <i class="ti ti-menu-2"></i>
+            </a>
+          </li>
+          <li class="pc-h-item pc-sidebar-popup">
+            <a href="#" class="pc-head-link ms-0" id="mobile-collapse">
+              <i class="ti ti-menu-2"></i>
+            </a>
+          </li>
+          <li class="dropdown pc-h-item d-inline-flex d-md-none">
+            <a
+              class="pc-head-link dropdown-toggle arrow-none m-0"
+              data-bs-toggle="dropdown"
+              href="#"
+              role="button"
+              aria-haspopup="false"
+              aria-expanded="false"
+            >
+              <i class="ti ti-search"></i>
+            </a>
+            <div class="dropdown-menu pc-h-dropdown drp-search">
+              <form class="px-3">
+                <div class="form-group mb-0 d-flex align-items-center">
+                  <i data-feather="search"></i>
+                  <input type="search" class="form-control border-0 shadow-none" placeholder="Search here. . .">
+                </div>
+              </form>
+            </div>
+          </li>
+          <li class="pc-h-item d-none d-md-inline-flex">
+            <form class="header-search">
+              <i data-feather="search" class="icon-search"></i>
+              <input type="search" class="form-control" placeholder="Search here. . .">
+            </form>
+          </li>
+        </ul>
+      </div>
+      <!-- [Mobile Media Block end] -->
+      <div class="ms-auto">
+        <ul class="list-unstyled">
+          <li class="dropdown pc-h-item">
+            <a
+              class="pc-head-link dropdown-toggle arrow-none me-0"
+              data-bs-toggle="dropdown"
+              href="#"
+              role="button"
+              aria-haspopup="false"
+              aria-expanded="false"
+            >
+              <i class="ti ti-mail"></i>
+            </a>
+            <div class="dropdown-menu dropdown-notification dropdown-menu-end pc-h-dropdown">
+              <div class="dropdown-header d-flex align-items-center justify-content-between">
+                <h5 class="m-0">Message</h5>
+                <a href="#!" class="pc-head-link bg-transparent"><i class="ti ti-x text-danger"></i></a>
+              </div>
+              <div class="dropdown-divider"></div>
+              <div class="dropdown-header px-0 text-wrap header-notification-scroll position-relative" style="max-height: calc(100vh - 215px)">
+                <div class="list-group list-group-flush w-100">
+                  <a class="list-group-item list-group-item-action">
+                    <div class="d-flex">
+                      <div class="flex-shrink-0">
+                        <img src="../assets/images/user/avatar-2.jpg" alt="user-image" class="user-avtar">
+                      </div>
+                      <div class="flex-grow-1 ms-1">
+                        <span class="float-end text-muted">3:00 AM</span>
+                        <p class="text-body mb-1">It's <b>Cristina danny's</b> birthday today.</p>
+                        <span class="text-muted">2 min ago</span>
+                      </div>
+                    </div>
+                  </a>
+                </div>
+              </div>
+              <div class="dropdown-divider"></div>
+              <div class="text-center py-2">
+                <a href="#!" class="link-primary">View all</a>
+              </div>
+            </div>
+          </li>
+          <li class="dropdown pc-h-item header-user-profile">
+            <a
+              class="pc-head-link dropdown-toggle arrow-none me-0"
+              data-bs-toggle="dropdown"
+              href="#"
+              role="button"
+              aria-haspopup="false"
+              data-bs-auto-close="outside"
+              aria-expanded="false"
+            >
+              <img src="../assets/images/user/avatar-2.jpg" alt="user-image" class="user-avtar">
+              <span>Stebin Ben</span>
+            </a>
+            <div class="dropdown-menu dropdown-user-profile dropdown-menu-end pc-h-dropdown">
+              <div class="dropdown-header">
+                <div class="d-flex mb-1">
+                  <div class="flex-shrink-0">
+                    <img src="../assets/images/user/avatar-2.jpg" alt="user-image" class="user-avtar wid-35">
+                  </div>
+                  <div class="flex-grow-1 ms-3">
+                    <h6 class="mb-1">Stebin Ben</h6>
+                    <span>UI/UX Designer</span>
+                  </div>
+                  <a href="#!" class="pc-head-link bg-transparent"><i class="ti ti-power text-danger"></i></a>
+                </div>
+              </div>
+              <ul class="nav drp-tabs nav-fill nav-tabs" id="mydrpTab" role="tablist">
+                <li class="nav-item" role="presentation">
+                  <button
+                    class="nav-link active"
+                    id="drp-t1"
+                    data-bs-toggle="tab"
+                    data-bs-target="#drp-tab-1"
+                    type="button"
+                    role="tab"
+                    aria-controls="drp-tab-1"
+                    aria-selected="true"
+                    ><i class="ti ti-user"></i> Profile</button
+                  >
+                </li>
+                <li class="nav-item" role="presentation">
+                  <button
+                    class="nav-link"
+                    id="drp-t2"
+                    data-bs-toggle="tab"
+                    data-bs-target="#drp-tab-2"
+                    type="button"
+                    role="tab"
+                    aria-controls="drp-tab-2"
+                    aria-selected="false"
+                    ><i class="ti ti-settings"></i> Setting</button
+                  >
+                </li>
+              </ul>
+              <div class="tab-content" id="mysrpTabContent">
+                <div class="tab-pane fade show active" id="drp-tab-1" role="tabpanel" aria-labelledby="drp-t1" tabindex="0">
+                  <a href="#!" class="dropdown-item">
+                    <i class="ti ti-edit-circle"></i>
+                    <span>Edit Profile</span>
+                  </a>
+                  <a href="#!" class="dropdown-item">
+                    <i class="ti ti-user"></i>
+                    <span>View Profile</span>
+                  </a>
+                  <a href="#!" class="dropdown-item">
+                    <i class="ti ti-clipboard-list"></i>
+                    <span>Social Profile</span>
+                  </a>
+                  <a href="#!" class="dropdown-item">
+                    <i class="ti ti-wallet"></i>
+                    <span>Billing</span>
+                  </a>
+                  <a href="#!" class="dropdown-item">
+                    <i class="ti ti-power"></i>
+                    <span>Logout</span>
+                  </a>
+                </div>
+                <div class="tab-pane fade" id="drp-tab-2" role="tabpanel" aria-labelledby="drp-t2" tabindex="0">
+                  <a href="#!" class="dropdown-item">
+                    <i class="ti ti-help"></i>
+                    <span>Support</span>
+                  </a>
+                  <a href="#!" class="dropdown-item">
+                    <i class="ti ti-user"></i>
+                    <span>Account Settings</span>
+                  </a>
+                  <a href="#!" class="dropdown-item">
+                    <i class="ti ti-lock"></i>
+                    <span>Privacy Center</span>
+                  </a>
+                  <a href="#!" class="dropdown-item">
+                    <i class="ti ti-messages"></i>
+                    <span>Feedback</span>
+                  </a>
+                  <a href="#!" class="dropdown-item">
+                    <i class="ti ti-list"></i>
+                    <span>History</span>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+       </div>
+      </header>
+
+
+       <!-- [ Main Content ] start -->
+
+       <div class="pc-container">
+        <div class="pc-content">
+            <div class="row">
+                <!-- Task Summary Cards (unchanged) -->
+                <div class="col-md-12">
+                    <div class="row">
+                        <div class="col-md-6 col-xl-3">
+                            <div class="card">
+                                <div class="card-body">
+                                    <h6 class="mb-2 f-w-400 text-muted">Total Project</h6>
+                                    <h4 class="mb-3">46 <span class="badge bg-light-primary border border-primary"><i
+                                                    class="ti ti-trending-up"></i> 59.3%</span></h4>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-xl-3">
+                            <div class="card">
+                                <div class="card-body">
+                                    <h6 class="mb-2 f-w-400 text-muted">Completed Task</h6>
+                                    <h4 class="mb-3">78 <span class="badge bg-light-success border border-success"><i
+                                                    class="ti ti-trending-up"></i> 70.5%</span></h4>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-xl-3">
+                            <div class="card">
+                                <div class="card-body">
+                                    <h6 class="mb-2 f-w-400 text-muted">Pending Task</h6>
+                                    <h4 class="mb-3">35 <span class="badge bg-light-danger border border-danger"><i
+                                                    class="ti ti-trending-down"></i> 27.4%</span></h4>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-xl-3">
+                            <div class="card">
+                                <div class="card-body">
+                                    <h6 class="mb-2 f-w-400 text-muted">Running Task</h6>
+                                    <h4 class="mb-3">46 <span class="badge bg-light-primary border border-primary"><i
+                                                    class="ti ti-trending-up"></i> 59.3%</span></h4>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+    
+                <!-- Expandable Task Status Card -->
+                <div class="col-md-12">
+                    <!-- Main card -->
+                    <div class="card p-4" id="taskStatusCard">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <h2>Total Task Status</h2>
+                            <button class="btn btn-outline-primary toggle-btn" data-target="#filterAndChartContainer">
+                                -
+                            </button>
+                        </div>
+    
+                        <div id="filterAndChartContainer" class="collapse show">
+    
+                            <!-- Shared Filter Dropdowns -->
+                            <div class="filter-container">
+                                <div class="filter-dropdowns">
+                                    <div class="filter-item">
+                                        <label for="projectFilter">Project:</label>
+                                        <select class="form-control form-control-sm" id="projectFilter">
+                                            <option value="">All</option>
+                                        </select>
+                                    </div>
+                                    <div class="filter-item">
+                                        <label for="moduleFilter">Module:</label>
+                                        <select class="form-control form-control-sm" id="moduleFilter" disabled>
+                                            <option value="">All</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+    
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <!-- Bar Chart -->
+                                    <div class="chart-card">
+                                        <h3>Task Status</h3>
+                                        <div id="barChartContainer" class="chart-container collapse show">
+                                            <canvas id="barChart"></canvas>
+                                        </div>
+                                    </div>
+                                </div>
+    
+                                <div class="col-md-4">
+                                    <!-- Line Chart -->
+                                    <div class="chart-card">
+                                        <h3>Task Trends</h3>
+                                        <div id="lineChartContainer" class="chart-container collapse show">
+                                            <canvas id="lineChart"></canvas>
+                                        </div>
+                                    </div>
+                                </div>
+    
+                                <div class="col-md-4">
+                                    <!-- Pie Chart -->
+                                    <div class="chart-card">
+                                        <h3>Module Distribution</h3>
+                                        <div id="pieChartContainer" class="chart-container collapse show">
+                                            <canvas id="pieChart"></canvas>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+    
+                <!-- Task Table -->
+                <div class="col-md-12">
+                    <div class="mt-4">
+                        <h5>Task Details</h5>
+    
+                        <!-- *DATE FILTER ADDED HERE - STYLED* -->
+                        <div class="mb-2">
+                            <label for="dateFilter">Show tasks from last:</label>
+                            <select class="form-control form-control-sm" id="dateFilter"
+                                style="width: auto; display: inline-block; background-color: #e9ecef;">
+                                <!-- width: auto;  Lets the browser determine width based on content -->
+                                <!-- display: inline-block;  Allows width to be respected while keeping it inline -->
+                                <option value="all">All Time</option>
+                                <option value="7">Last 7 Days</option>
+                                <option value="10">Last 10 Days</option>
+                                <option value="20">Last 20 Days</option>
+                                <option value="30">Last 30 Days</option>
+                            </select>
+                        </div>
+                        <!-- *DATE FILTER ENDS* -->
+    
+                        <div class="table-responsive">
+                            <table class="table table-bordered" id="taskTable">
+                                <thead style="background-color: #edf0f1;">
+                                    <tr>
+                                        <th>S.No</th>
+                                        <th>Project Name</th>
+                                        <th>Module Name</th>
+                                        <th>Task Name</th>
+                                        <th>Assigned By</th>
+                                        <th>Assigned To</th>
+                                        <th>Status</th>
+                                        <th>Last Updated</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>1</td>
+                                        <td>E-learning Platform</td>
+                                        <td>Frontend</td>
+                                        <td>Course Page UI</td>
+                                        <td>Rohit Sinha</td>
+                                        <td>Simran Arora</td>
+                                        <td><span class="badge bg-primary">Running</span></td>
+                                        <td>2025-03-11</td>
+                                    </tr>
+                                    <tr>
+                                        <td>2</td>
+                                        <td>E-commerce Website</td>
+                                        <td>Backend</td>
+                                        <td>API Integration</td>
+                                        <td>Priya Sharma</td>
+                                        <td>Amit Patel</td>
+                                        <td><span class="badge bg-success">Completed</span></td>
+                                        <td>2025-02-23</td>
+                                    </tr>
+                                    <tr>
+                                        <td>3</td>
+                                        <td>E-learning Platform</td>
+                                        <td>Backend</td>
+                                        <td>Database Design</td>
+                                        <td>Rohit Sinha</td>
+                                        <td>Sneha Kapoor</td>
+                                        <td><span class="badge bg-danger">Pending</span></td>
+                                        <td>2025-03-08</td>
+                                    </tr>
+                                    <tr>
+                                        <td>4</td>
+                                        <td>E-commerce Website</td>
+                                        <td>Frontend</td>
+                                        <td>Product Listing</td>
+                                        <td>Priya Sharma</td>
+                                        <td>Vikram Singh</td>
+                                        <td><span class="badge bg-primary">Running</span></td>
+                                        <td>2025-03-04</td>
+                                    </tr>
+                                    <tr>
+                                        <td>5</td>
+                                        <td>CRM System</td>
+                                        <td>UI/UX</td>
+                                        <td>Dashboard Design</td>
+                                        <td>Karan Verma</td>
+                                        <td>Divya Iyer</td>
+                                        <td><span class="badge bg-success">Completed</span></td>
+                                        <td>2025-02-21</td>
+                                    </tr>
+                                    <tr>
+                                        <td>6</td>
+                                        <td>E-learning Platform</td>
+                                        <td>Frontend</td>
+                                        <td>User Authentication</td>
+                                        <td>Rohit Sinha</td>
+                                        <td>Simran Arora</td>
+                                        <td><span class="badge bg-success">Completed</span></td>
+                                        <td>2025-02-19</td>
+                                    </tr>
+                                    <tr>
+                                        <td>7</td>
+                                        <td>E-commerce Website</td>
+                                        <td>Backend</td>
+                                        <td>Payment Gateway</td>
+                                        <td>Priya Sharma</td>
+                                        <td>Amit Patel</td>
+                                        <td><span class="badge bg-danger">Pending</span></td>
+                                        <td>2025-03-01</td>
+                                    </tr>
+                                    <tr>
+                                        <td>8</td>
+                                        <td>CRM System</td>
+                                        <td>Backend</td>
+                                        <td>Lead Management</td>
+                                        <td>Karan Verma</td>
+                                        <td>Sneha Kapoor</td>
+                                        <td><span class="badge bg-primary">Running</span></td>
+                                        <td>2025-02-17</td>
+                                    </tr>
+                                    <tr>
+                                        <td>9</td>
+                                        <td>E-learning Platform</td>
+                                        <td>UI/UX</td>
+                                        <td>Mobile Responsiveness</td>
+                                        <td>Rohit Sinha</td>
+                                        <td>Divya Iyer</td>
+                                        <td><span class="badge bg-danger">Pending</span></td>
+                                        <td>2025-03-03</td>
+                                    </tr>
+                                    <tr>
+                                        <td>10</td>
+                                        <td>E-commerce Website</td>
+                                        <td>Frontend</td>
+                                        <td>Shopping Cart</td>
+                                        <td>Priya Sharma</td>
+                                        <td>Vikram Singh</td>
+                                        <td><span class="badge bg-success">Completed</span></td>
+                                        <td>2025-02-15</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="{% static 'Javascript/test.js' %}"></script>
+
+    
+
+
+    
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+      <script src="./Assets/Javascript/apexcharts.min.js"></script>
+      <script src="./Assets/Javascript/dashboard-default.js"></script>
+      <script src="./Assets/Javascript/popper.min.js"></script>
+      <script src="./Assets/Javascript/simplebar.min.js"></script>
+      <!-- <script src="./Assets/Javascript/bootstrap.min.js"></script> -->
+      <script src="./Assets/Javascript/custom-font.js"></script>
+      <script src="./Assets/Javascript/pcoded.js"></script>
+      <script src="./Assets/Javascript/feather.min.js"></script>
+     
+</body>
+</html>

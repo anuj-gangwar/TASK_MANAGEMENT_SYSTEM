@@ -1,0 +1,111 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+<link rel="stylesheet" href="{% static 'css/project/modifyProject.css' %}" >
+
+<div class="pc-container">
+    <div class="pc-content">
+        <div class="container py-5">
+            <div class="card shadow-lg p-4 mx-auto" style="max-width: 900px; width: 100%;">
+                <h2 class="text-center text-dark mb-4">Edit Project Details</h2>
+
+                <!-- Project Name -->
+                <div class="row mb-3">
+                    <div class="col-md-12">
+                        <label class="form-label fw-bold">Project Name:</label>
+                        <input type="text" class="form-control" value="Implement Login System">
+                    </div>
+                </div>
+
+                <!-- Number of Modules & Tasks -->
+                <div class="row mb-3">
+                    <div class="col-md-6">
+                        <label class="form-label fw-bold">Number of Modules:</label>
+                        <input type="text" class="form-control" value="5" readonly>
+                    </div>
+                    <div class="col-md-6">
+                        <label class="form-label fw-bold">Number of Tasks:</label>
+                        <input type="text" class="form-control" value="15" readonly>
+                    </div>
+                </div>
+
+                <!-- Task Status & Priority -->
+                <div class="row mb-3">
+                    <div class="col-md-6">
+                        <label class="form-label fw-bold">Project Status:</label>
+                        <select class="form-select">
+                            <option>To-Do</option>
+                            <option selected>In Progress</option>
+                            <option>Completed</option>
+                        </select>
+                    </div>
+                    <div class="col-md-6">
+                        <label class="form-label fw-bold">Priority:</label>
+                        <select class="form-select">
+                            <option>Low</option>
+                            <option selected>High</option>
+                            <option>Medium</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- Start Date & End Date -->
+                <div class="row mb-3">
+                    <div class="col-md-6">
+                        <label class="form-label fw-bold">Start Date:</label>
+                        <input type="date" class="form-control" value="2024-03-01">
+                    </div>
+                    <div class="col-md-6">
+                        <label class="form-label fw-bold">Due Date:</label>
+                        <input type="date" class="form-control" value="2024-03-10">
+                    </div>
+                </div>
+
+                <!-- Assigned Department & Manager -->
+                <div class="row mb-3">
+                    <div class="col-md-6">
+                        <label class="form-label fw-bold">Assigned Department:</label>
+                        <select class="form-select">
+                            <option>All</option>
+                            <option selected>Development</option>
+                            <option>Marketing</option>
+                            <option>Human Resources</option>
+                        </select>
+                    </div>
+                    <div class="col-md-6">
+                        <label class="form-label fw-bold">Assigned Manager:</label>
+                        <select class="form-select">
+                            <option>Naveen Taneja</option>
+                            <option selected>Chandan</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- Project Completion -->
+                <div class="row mb-3">
+                    <div class="col-md-12">
+                        <label class="form-label fw-bold">Project Completion:</label>
+                        <div class="progress">
+                            <div class="progress-bar bg-success" role="progressbar" style="width: 60%;" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100">60%</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project Description -->
+                <div class="mb-3">
+                    <label class="form-label fw-bold">Project Description:</label>
+                    <textarea class="form-control" rows="4">Implement a secure login system with role-based access control.</textarea>
+                </div>
+
+                <!-- Action Buttons -->
+                <div class="text-center">
+                    <button class="btn btn-success me-2">Save Changes</button>
+                    <button class="btn btn-secondary">Cancel</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="{% static 'Javascript/project/modifyProject.js' %}"></script>
+
+{% endblock %}

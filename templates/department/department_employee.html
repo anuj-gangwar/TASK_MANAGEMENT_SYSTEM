@@ -1,0 +1,137 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+<div class="pc-container">
+    <div class="pc-content">
+        <div class="container-fluid">
+            <div class="card p-4">
+                <div class="d-flex justify-content-between align-items-center mb-3">
+                    <h2 class="text-dark mb-0">User List</h2>
+                </div>
+
+                <!-- Filters -->
+                <div class="row g-2 mb-3">
+                    <div class="col-md-3 col-sm-6 col-12">
+                        <label class="form-label">User ID :</label>
+                        <input type="text" class="form-control form-control-sm" placeholder="Enter Employee ID or Name ">
+                    </div>
+                    <!-- <div class="col-md-3 col-sm-6 col-12">
+                        <label class="form-label">Department:</label>
+                        <select class="form-select form-select-sm">
+                            <option value="">All</option>
+                            <option>Web Designing</option>
+                            <option>Quality Analyst</option>
+                            <option>Digital Marketing</option>
+                        </select>
+                    </div> -->
+                    <div class="col-md-3 col-sm-6 col-12">
+                        <label class="form-label">Manager:</label>
+                        <select class="form-select form-select-sm">
+                            <option value="">All</option>
+                            <option>Naveen Taneja</option>
+                            <option>Chandan Singh</option>
+                            <option>Anuj Kapoor</option>
+                        </select>
+                    </div>
+                    <div class="col-md-3 col-sm-6 col-12">
+                        <label class="form-label">Role :</label>
+                        <select class="form-select form-select-sm">
+                            <option value="">All</option>
+                            <option>Data Analyst</option>
+                            <option>Data Enigineer</option>
+                            <option>web Developer</option>
+                        </select>
+                    </div>
+                    <div class="col-md-3 col-sm-6 col-12">
+                        <label class="form-label">Employment Status:</label>
+                        <select class="form-select form-select-sm">
+                            <option value="">All</option>
+                            <option>Active</option>
+                            <option>On Leave</option>
+                            <option>Resigned</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="row g-2">
+                    <div class="col-md-3 col-sm-6 col-12">
+                        <label class="form-label">Project:</label>
+                        <select class="form-select form-select-sm">
+                            <option value="">All</option>
+                            <option>Project A</option>
+                            <option>Project B</option>
+                            <option>Project C</option>
+                        </select>
+                    </div>
+                    <div class="col-md-3 col-sm-6 col-12">
+                        <label class="form-label">Joining Date:</label>
+                        <input type="date" class="form-control form-control-sm">
+                    </div>
+                    <div class="col-md-4 d-flex align-items-end">
+                        <button class="btn btn-primary me-2 w-50">Apply</button>
+                        <button class="btn btn-secondary w-50">Reset</button>
+                    </div>
+                </div>
+
+                <!-- Responsive Table -->
+                        <div class="table-responsive">
+                            <table id="taskTable" class="table table-bordered table-hover mt-3">
+                                <thead style="background-color: #606364;">
+                                    <tr>
+                                      <tr>
+                                        <tr>
+                                          <tr>
+                                            <th>S.No <img src="{% static 'Png/sort.png' %}" style="width: 16px; height: 16px; margin-left: 5px;"></th>
+                                            <th>Employee ID<img src="{% static 'Png/sort.png' %}" style="width: 16px; height: 16px; margin-left: 5px;"></th>
+                                            <th>Name <img src="{% static 'Png/sort.png' %}" style="width: 16px; height: 16px; margin-left: 5px;"></th>
+                                            <th>Role<img src="{% static 'Png/sort.png' %}" style="width: 16px; height: 16px; margin-left: 5px;"></th>
+                                            <th>Manager<img src="{% static 'Png/sort.png' %}" style="width: 16px; height: 16px; margin-left: 5px;"></th>
+                                            <th>Employment Status <img src="{% static 'Png/sort.png' %}" style="width: 16px; height: 16px; margin-left: 5px;"></th>
+                                        </tr>
+                                      </tr>
+                                    </tr>
+                                </thead>
+                        <tbody>
+                            <tr>
+                                <td>1</td>
+                                <td>EMP001</td>
+                                <td>Gaurav Kumar</td>
+                                <td>Web Desginer</td>
+                                <td>Naveen Taneja</td>
+                                <td><span class="badge bg-success">Active</span></td>
+                            </tr>
+                            <tr>
+                                <td>2</td>
+                                <td>EMP002</td>
+                                <td>Shubham Ryan</td>
+                                <td>Data Analyst</td>
+                                <td>Anuj Kapoor</td>
+                                <td><span class="badge bg-warning text-dark">On Leave</span></td>
+                            </tr>
+                            <tr>
+                                <td>3</td>
+                                <td>EMP003</td>
+                                <td>Anuj Mehra</td>
+                                <td>Data Engineer</td>
+                                <td>Anuj Kapoor</td>
+                                <td><span class="badge bg-success  ">Active</span></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <!-- Pagination -->
+                <nav>
+                    <ul class="pagination justify-content-center">
+                        <li class="page-item"><a class="page-link" href="#">Prev</a></li>
+                        <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                        <li class="page-item"><a class="page-link" href="#">2</a></li>
+                        <li class="page-item"><a class="page-link" href="#">3</a></li>
+                        <li class="page-item"><a class="page-link" href="#">Next</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
