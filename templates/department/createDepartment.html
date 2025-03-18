@@ -6,32 +6,50 @@
         <div class="container">
             <div class="card">
                 <div class="card-body">
-                    <h4 class="card-title">Department Information</h4>
+                    <h4 class="card-title mb-3">Department Information</h4>
                     <form>
-                        <div class="form-group">
-                            <label for="departmentName">Department Name:</label>
-                            <input type="text" class="form-control" id="departmentName" placeholder="Enter department name">
+                        <div class="row">
+                            <!-- Department Name -->
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="departmentName" class="form-label">Department Name:</label>
+                                    <input type="text" class="form-control form-control-sm" id="departmentName" placeholder="Enter department name">
+                                </div>
+                            </div>
+
+                            <!-- Department Manager -->
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="departmentManager" class="form-label">Department Manager:</label>
+                                    <select class="form-control form-control-sm" id="departmentManager">
+                                        <option value="">Select Manager</option>
+                                        <option value="johnDoe">John Doe</option>
+                                        <option value="janeSmith">Jane Smith</option>
+                                        <option value="michaelLee">Michael Lee</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <!-- Description -->
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <label for="departmentDescription" class="form-label">Description:</label>
+                                    <textarea class="form-control form-control-sm" id="departmentDescription" rows="2" placeholder="Enter department description"></textarea>
+                                </div>
+                            </div>
                         </div>
-                        <div class="form-group">
-                            <label for="departmentDescription">Description:</label>
-                            <textarea class="form-control" id="departmentDescription" rows="3" placeholder="Enter department description"></textarea>
+
+                        <!-- Buttons -->
+                        <div class="text-end mt-3">
+                            <button type="submit" class="btn btn-primary btn-sm">Create Department</button>
+                            <button type="button" class="btn btn-secondary btn-sm">Cancel</button>
                         </div>
-                        <div class="form-group">
-                            <label for="departmentManager">Department Manager:</label>
-                            <select class="form-control" id="departmentManager">
-                                <option value="">Select Manager</option>
-                                <option value="johnDoe">John Doe</option>
-                                <option value="janeSmith">Jane Smith</option>
-                                <option value="michaelLee">Michael Lee</option>
-                                <!-- Add more managers as needed -->
-                            </select>
-                        </div>
-                        <button type="submit" class="btn btn-primary">Create Department</button>
-                        <button type="button" class="btn btn-secondary">Cancel</button>
                     </form>
                 </div>
             </div>
         </div>
     </div>
 </div>
+
+
 {% endblock %}

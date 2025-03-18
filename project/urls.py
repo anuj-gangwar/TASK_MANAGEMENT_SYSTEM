@@ -7,7 +7,7 @@ urlpatterns = [
 
     # Task URLs
     path('task/', Task.task, name='task'),
-    path('task/create/', Task.createTask, name='create_task'),
+    path('task/create/', Task.createTask, name='createTask'),
     path('task/show/', Task.showTask, name='show_task'),
     path('task/modify/', Task.modifyTask, name='modify_task'),
     path('task/graph/', Task.taskGraph, name='garph_task')
@@ -36,12 +36,15 @@ urlpatterns+=[
     path('department/create/', Department.createDepartment, name='create_department'),
     path('department/show/', Department.showDepartment, name='show_department'),
     path('department/graph/', Department.departmentGraph, name='graph_department'),
-    path('department/departmentEmployee',Department.departmentEmployee,name='employee_department')
+    path('department/departmentEmployee',Department.departmentEmployee,name='employee_department'),
+    path('department/modifyDepartment',Department.modifydepartment,name='modify_department')
 ]
 urlpatterns+=[
     # Role urls
     path('role/',Role.role,name='role'),
-    path('role/create/',Role.createRole,name='create_role')
+    path('role/create/',Role.createRole,name='create_Role'),
+    path('role/view/',Role.viewRole,name='view_role'),
+    path('role/modify/',Role.modifyRole,name='modify_role')
 ]
 
 urlpatterns+=[
@@ -51,7 +54,8 @@ urlpatterns+=[
 urlpatterns+=[
     # User urls
     path('user/',User.user, name= 'user'),
-    path('create_user/',User.create_user, name='create_user'),
+    path('create_user/',User.createUser, name='create_user'),
+    path('user/userDetail',User.userdetail,name='user_detail'),
 ]
 urlpatterns+=[
     path('log/',UserLog.log,name='log')

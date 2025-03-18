@@ -11,7 +11,7 @@ class Task:
     def task( request):
         return render(request, 'task/tasks.html') 
     def createTask( request):
-        return render(request, 'task/modifyTask.html')
+        return render(request, 'task/createTask.html')
     def showTask(request):
         return render(request,'task/showTask.html')
     def modifyTask(request):
@@ -50,7 +50,9 @@ class Department:
     def departmentGraph( request):
         return render(request , 'department/department_graph.html')
     def showDepartment(request):
-        return render(request,'department/showDepartment.html')
+        return render(request,'department/show_Department.html')
+    def modifydepartment(request):
+        return render(request,'department/modifyDepartment.html')
         
 
 # module api views
@@ -77,7 +79,10 @@ class Role:
         return render(request , 'role/role.html')
     def createRole( request):
         return render(request , 'role/createRole.html')
-
+    def viewRole( request):
+        return render(request , 'role/view_role.html')
+    def modifyRole( request):
+        return render(request , 'role/modify_role.html')
 
 
 
@@ -88,10 +93,11 @@ class Permission:
 class User:
     def user(request):
         return render(request,'user/user.html')
-    def create_user(request):
-        return render(request,'user/create_user.html')
+    def createUser(request):
+        return render(request,'user/createUser.html')
+    def userdetail(request):
+        return render(request,'user/userDetail.html')
 class UserLog:
     def log(request):
         return render(request,'log/log.html')
-
 
