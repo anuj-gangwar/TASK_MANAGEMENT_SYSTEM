@@ -10,37 +10,37 @@
                 <div class="row">
                     <div class="col-md-6 col-xl-3">
                         <div class="card">
-                            <div class="card-body">
-                                <h6 class="mb-2 f-w-400 text-muted">Total Project</h6>
-                                <h4 class="mb-3">46 <span class="badge bg-light-primary border border-primary"><i
-                                                class="ti ti-trending-up"></i> 59.3%</span></h4>
+                            <div class="card-body bg-light-primary ">
+                                <h6 class="mb-2 f-w-400 text-muted fw-bold">Total Project</h6>
+                                <h4 class="mb-3"> <span class="badge bg-light-primary border border-primary">
+                                    </iclass=> 46</span></h4>
                             </div>
                         </div>
                     </div>
                     <div class="col-md-6 col-xl-3">
                         <div class="card">
-                            <div class="card-body">
-                                <h6 class="mb-2 f-w-400 text-muted">Completed Task</h6>
-                                <h4 class="mb-3">78 <span class="badge bg-light-success border border-success"><i
-                                                class="ti ti-trending-up"></i> 70.5%</span></h4>
+                            <div class="card-body bg-light-success ">
+                                <h6 class="mb-2 f-w-400 text-muted fw-bold">Completed Task</h6>
+                                <h4 class="mb-3"><span class="badge bg-light-success border border-success">
+                                    </iclass=> 78</span></h4>
                             </div>
                         </div>
                     </div>
                     <div class="col-md-6 col-xl-3">
                         <div class="card">
-                            <div class="card-body">
-                                <h6 class="mb-2 f-w-400 text-muted">Pending Task</h6>
-                                <h4 class="mb-3">35 <span class="badge bg-light-danger border border-danger"><i
-                                                class="ti ti-trending-down"></i> 27.4%</span></h4>
+                            <div class="card-body bg-light-danger ">
+                                <h6 class="mb-2 f-w-400 text-muted fw-bold ">Pending Task</h6>
+                                <h4 class="mb-3"> <span class="badge bg-light-danger border border-danger">
+                                    </iclass=> 35</span></h4>
                             </div>
                         </div>
                     </div>
                     <div class="col-md-6 col-xl-3">
                         <div class="card">
-                            <div class="card-body">
-                                <h6 class="mb-2 f-w-400 text-muted">Running Task</h6>
-                                <h4 class="mb-3">46 <span class="badge bg-light-primary border border-primary"><i
-                                                class="ti ti-trending-up"></i> 59.3%</span></h4>
+                            <div class="card-body bg-light-primary ">
+                                <h6 class="mb-2 f-w-400 text-muted fw-bold">Running Task</h6>
+                                <h4 class="mb-3"> <span class="badge bg-light-primary border border-primary">
+                                    </iclass=> 46</span></h4>
                             </div>
                         </div>
                     </div>
@@ -81,7 +81,7 @@
                         <div class="row">
                             <div class="col-md-4">
                                 <!-- Bar Chart -->
-                                <div class="chart-card">
+                                <div class="chart-card border border-dark">
                                     <h3>Task Status</h3>
                                     <div id="barChartContainer" class="chart-container collapse show">
                                         <canvas id="barChart"></canvas>
@@ -91,7 +91,7 @@
 
                             <div class="col-md-4">
                                 <!-- Line Chart -->
-                                <div class="chart-card">
+                                <div class="chart-card border border-dark">
                                     <h3>Task Trends</h3>
                                     <div id="lineChartContainer" class="chart-container collapse show">
                                         <canvas id="lineChart"></canvas>
@@ -101,7 +101,7 @@
 
                             <div class="col-md-4">
                                 <!-- Pie Chart -->
-                                <div class="chart-card">
+                                <div class="chart-card border border-dark">
                                     <h3>Module Distribution</h3>
                                     <div id="pieChartContainer" class="chart-container collapse show">
                                         <canvas id="pieChart"></canvas>
@@ -117,8 +117,25 @@
             <div class="col-md-12">
                 <div class="mt-4">
                     <h5>Task Details</h5>
+
+                    <!-- DATE FILTER ADDED HERE - STYLED -->
+                    <div class="mb-2">
+                        <label for="dateFilter">Show tasks from last:</label>
+                        <select class="form-control form-control-sm" id="dateFilter"
+                            style="width: auto; display: inline-block; background-color: #e9ecef;">
+                            <!-- width: auto;  Lets the browser determine width based on content -->
+                            <!-- display: inline-block;  Allows width to be respected while keeping it inline -->
+                            <option value="all">All Time</option>
+                            <option value="7">Last 7 Days</option>
+                            <option value="10">Last 10 Days</option>
+                            <option value="20">Last 20 Days</option>
+                            <option value="30">Last 30 Days</option>
+                        </select>
+                    </div>
+                    <!-- DATE FILTER ENDS -->
+
                     <div class="table-responsive">
-                        <table class="table table-bordered" id="taskTable">
+                        <table class="table table-bordered border-secondary" id="taskTable">
                             <thead style="background-color: #edf0f1;">
                                 <tr>
                                     <th>S.No</th>
@@ -140,7 +157,7 @@
                                     <td>Rohit Sinha</td>
                                     <td>Simran Arora</td>
                                     <td><span class="badge bg-primary">Running</span></td>
-                                    <td>2024-02-24</td>
+                                    <td>2025-03-11</td>
                                 </tr>
                                 <tr>
                                     <td>2</td>
@@ -150,7 +167,7 @@
                                     <td>Priya Sharma</td>
                                     <td>Amit Patel</td>
                                     <td><span class="badge bg-success">Completed</span></td>
-                                    <td>2024-02-23</td>
+                                    <td>2025-02-23</td>
                                 </tr>
                                 <tr>
                                     <td>3</td>
@@ -160,7 +177,7 @@
                                     <td>Rohit Sinha</td>
                                     <td>Sneha Kapoor</td>
                                     <td><span class="badge bg-danger">Pending</span></td>
-                                    <td>2024-02-22</td>
+                                    <td>2025-03-08</td>
                                 </tr>
                                 <tr>
                                     <td>4</td>
@@ -170,7 +187,7 @@
                                     <td>Priya Sharma</td>
                                     <td>Vikram Singh</td>
                                     <td><span class="badge bg-primary">Running</span></td>
-                                    <td>2024-02-21</td>
+                                    <td>2025-03-04</td>
                                 </tr>
                                 <tr>
                                     <td>5</td>
@@ -180,7 +197,7 @@
                                     <td>Karan Verma</td>
                                     <td>Divya Iyer</td>
                                     <td><span class="badge bg-success">Completed</span></td>
-                                    <td>2024-02-20</td>
+                                    <td>2025-02-21</td>
                                 </tr>
                                 <tr>
                                     <td>6</td>
@@ -190,7 +207,7 @@
                                     <td>Rohit Sinha</td>
                                     <td>Simran Arora</td>
                                     <td><span class="badge bg-success">Completed</span></td>
-                                    <td>2024-02-19</td>
+                                    <td>2025-02-19</td>
                                 </tr>
                                 <tr>
                                     <td>7</td>
@@ -200,7 +217,7 @@
                                     <td>Priya Sharma</td>
                                     <td>Amit Patel</td>
                                     <td><span class="badge bg-danger">Pending</span></td>
-                                    <td>2024-02-18</td>
+                                    <td>2025-03-01</td>
                                 </tr>
                                 <tr>
                                     <td>8</td>
@@ -210,7 +227,7 @@
                                     <td>Karan Verma</td>
                                     <td>Sneha Kapoor</td>
                                     <td><span class="badge bg-primary">Running</span></td>
-                                    <td>2024-02-17</td>
+                                    <td>2025-02-17</td>
                                 </tr>
                                 <tr>
                                     <td>9</td>
@@ -220,7 +237,7 @@
                                     <td>Rohit Sinha</td>
                                     <td>Divya Iyer</td>
                                     <td><span class="badge bg-danger">Pending</span></td>
-                                    <td>2024-02-16</td>
+                                    <td>2025-03-03</td>
                                 </tr>
                                 <tr>
                                     <td>10</td>
@@ -230,7 +247,7 @@
                                     <td>Priya Sharma</td>
                                     <td>Vikram Singh</td>
                                     <td><span class="badge bg-success">Completed</span></td>
-                                    <td>2024-02-15</td>
+                                    <td>2025-02-15</td>
                                 </tr>
                             </tbody>
                         </table>
@@ -240,5 +257,9 @@
         </div>
     </div>
 </div>
+
+
+
+
 <script src="{% static 'Javascript/index.js' %}"></script>
-{% endblock %}
+{% endblock %}

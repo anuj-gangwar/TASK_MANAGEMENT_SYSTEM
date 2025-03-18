@@ -47,10 +47,8 @@ class Department:
         return render(request, 'department/createDepartment.html')
     def departmentEmployee( request):
         return  render(request, 'department/department_employee.html')
-    def departmentGraph( request):
-        return render(request , 'department/department_graph.html')
     def showDepartment(request):
-        return render(request,'department/show_Department.html')
+        return render(request,'department/showDepartment.html')
     def modifydepartment(request):
         return render(request,'department/modifyDepartment.html')
         
@@ -100,4 +98,5 @@ class User:
 class UserLog:
     def log(request):
         return render(request,'log/log.html')
+
 

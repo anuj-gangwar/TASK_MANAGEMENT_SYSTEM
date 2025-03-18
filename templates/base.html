@@ -42,75 +42,41 @@
               </li>
 
               <li class="pc-item pc-hasmenu">
-                <a href="#!" class="pc-link"><span class="pc-micon">
+                <a href="{% url 'task' %}" class="pc-link"><span class="pc-micon">
                   <img src="{% static 'Png/to-do-list.png' %}" alt="Tasks Icon" width="20" height="20">
-                  </i></span><span class="pc-mtext">Tasks</span><span class="pc-arrow"><i data-feather="chevron-right"></i></span></a>
-                <ul class="pc-submenu">
-                          <li class="pc-item"><a class="pc-link" href="{% url 'task' %}">Tasks</a></li>
-                          <li class="pc-item"><a class="pc-link" href="{% url 'create_task' %}">Create Tasks</a></li>
-                          
-                </ul>
+                  </i></span><span class="pc-mtext">Tasks</span><span class="pc-arrow"><i ></i></span></a>
               </li>
               <li class="pc-item pc-hasmenu">
-                <a href="#!" class="pc-link"><span class="pc-micon">
-                  <img src="{% static 'Png/project.png' %}" alt="Tasks Icon" width="20" height="20"></i></span><span class="pc-mtext">Projects</span><span class="pc-arrow"><i data-feather="chevron-right"></i></span></a>
-                <ul class="pc-submenu">
-                          <li class="pc-item"><a class="pc-link" href="{% url 'project' %}">Project</a></li>
-                          <li class="pc-item"><a class="pc-link" href="{% url 'create_project' %}">Create Projects</a></li>
-                          
-                </ul>
+                <a href="{% url 'project' %}" class="pc-link"><span class="pc-micon">
+                  <img src="{% static 'Png/project.png' %}" alt="Tasks Icon" width="20" height="20"></i></span><span class="pc-mtext">Projects</span></a>
               </li>
               <li class="pc-item pc-hasmenu">
-                <a href="#!" class="pc-link"><span class="pc-micon">
-                  <img src="{% static 'Png/cube.png' %}"alt="Tasks Icon" width="20" height="20"> </i></span><span class="pc-mtext">Module</span><span class="pc-arrow"><i data-feather="chevron-right"></i></span></a>
-                <ul class="pc-submenu">
-                          <li class="pc-item"><a class="pc-link" href="{% url 'module' %}">Module</a></li>
-                          <li class="pc-item"><a class="pc-link" href="{% url 'create_module' %}">Create Module</a></li>
-                          
-                </ul>
+                <a href="{% url 'module' %}" class="pc-link"><span class="pc-micon">
+                  <img src="{% static 'Png/cube.png' %}"alt="Tasks Icon" width="20" height="20"> </i></span><span class="pc-mtext">Module</span></a>
               </li>
               <li class="pc-item pc-hasmenu">
-                <a href="#!" class="pc-link"><span class="pc-micon">
-                  <img src="{% static 'Png/networking.png' %}" alt="Tasks Icon" width="20" height="20"></i></span><span class="pc-mtext">Department</span><span class="pc-arrow"><i data-feather="chevron-right"></i></span></a>
-                <ul class="pc-submenu">
-                          <li class="pc-item"><a class="pc-link" href="{% url 'department' %}">Department</a></li>
-                          <li class="pc-item"><a class="pc-link" href="#!"></a></li>
-                </ul>
+                <a href="{% url 'department' %}" class="pc-link"><span class="pc-micon">
+                  <img src="{% static 'Png/networking.png' %}" alt="Tasks Icon" width="20" height="20"></i></span><span class="pc-mtext">Department</span></a>
+        
               </li>
               
               <li class="pc-item pc-hasmenu">
-                <a href="#!" class="pc-link"><span class="pc-micon">
-                  <img src="{% static 'Png/setting.png' %}"  alt="Tasks Icon" width="20" height="20"></i></span><span class="pc-mtext">Role</span><span class="pc-arrow"><i data-feather="chevron-right"></i></span></a>
-                <ul class="pc-submenu">
-                          <li class="pc-item"><a class="pc-link" href="{% url 'role' %}">Role</a></li>
-                          <li class="pc-item"><a class="pc-link" href="#!"></a></li>
-                </ul>
+                <a href="{% url 'role' %}" class="pc-link"><span class="pc-micon">
+                  <img src="{% static 'Png/setting.png' %}"  alt="Tasks Icon" width="20" height="20"></i></span><span class="pc-mtext">Role</span></a>
               </li>
 
               <li class="pc-item pc-hasmenu">
-                <a href="#!" class="pc-link"><span class="pc-micon">
-                  <img src="{% static 'Png/access-granted.png' %}" alt="Tasks Icon" width="20" height="20"></i></span><span class="pc-mtext">Permission</span><span class="pc-arrow"><i data-feather="chevron-right"></i></span></a>
-                <ul class="pc-submenu">
-                          <li class="pc-item"><a class="pc-link" href="{% url 'permission' %}">Permission</a></li>
-                          <li class="pc-item"><a class="pc-link" href="#!"></a></li>
-                </ul>
+                <a href="{% url 'permission' %}" class="pc-link"><span class="pc-micon">
+                  <img src="{% static 'Png/access-granted.png' %}" alt="Tasks Icon" width="20" height="20"></i></span><span class="pc-mtext">Permission</span></a>
               </li>
 
               <li class="pc-item pc-hasmenu">
-                <a href="#!" class="pc-link"><span class="pc-micon">
-                  <img src="{% static 'Png/profile-user.png' %}" alt="Tasks Icon" width="20" height="20"></i></span><span class="pc-mtext">Users</span><span class="pc-arrow"><i data-feather="chevron-right"></i></span></a>
-                <ul class="pc-submenu">
-                          <li class="pc-item"><a class="pc-link" href="{% url 'user' %}">User</a></li>
-                          <li class="pc-item"><a class="pc-link" href="{% url 'create_user'%}">Create User</a></li>
-                          
-                </ul>
+                <a href="{% url 'user' %}" class="pc-link"><span class="pc-micon">
+                  <img src="{% static 'Png/profile-user.png' %}" alt="Tasks Icon" width="20" height="20"></i></span><span class="pc-mtext">Users</span></a>
               </li>
               <li class="pc-item pc-hasmenu">
-                <a href="#!" class="pc-link"><span class="pc-micon">
-                  <img src="{% static 'Png/log.png.jpg' %}" alt="Tasks Icon" width="20" height="20"></i></span><span class="pc-mtext">Logs</span><span class="pc-arrow"><i data-feather="chevron-right"></i></span></a>
-                <ul class="pc-submenu">
-                          <li class="pc-item"><a class="pc-link" href="{% url 'log' %}">Log Activity</a></li>     
-                </ul>
+                <a href="{% url 'log' %}" class="pc-link"><span class="pc-micon">
+                  <img src="{% static 'Png/log.png.jpg' %}" alt="Tasks Icon" width="20" height="20"></i></span><span class="pc-mtext">Logs</span></a>
             </li>
               <li class="pc-item pc-caption">
                 
@@ -138,7 +104,7 @@
           <!-- ======= Menu collapse Icon ===== -->
           <li class="pc-h-item pc-sidebar-collapse">
             <a href="#" class="pc-head-link ms-0" id="sidebar-hide">
-              <i class="ti ti-menu-2"></i>
+              <img src="{% static 'Png/menu.png' %}" alt="Task Icon" width="20" height="20" class="img-fluid " class="user-avtar">
             </a>
           </li>
           <li class="pc-h-item pc-sidebar-popup">
@@ -186,12 +152,13 @@
               aria-haspopup="false"
               aria-expanded="false"
             >
-              <i class="ti ti-mail"></i>
+            <img src="{% static 'Png/envelope.png' %}" alt="Task Icon" width="20" height="20" class="img-fluid " class="user-avtar">
+              
             </a>
             <div class="dropdown-menu dropdown-notification dropdown-menu-end pc-h-dropdown">
               <div class="dropdown-header d-flex align-items-center justify-content-between">
-                <h5 class="m-0">Message</h5>
-                <a href="#!" class="pc-head-link bg-transparent"><i class="ti ti-x text-danger"></i></a>
+                <h5 class="m-0">Notifications
+                <a href="#!" class="pc-head-link bg-transparent"></a>
               </div>
               <div class="dropdown-divider"></div>
               <div class="dropdown-header px-0 text-wrap header-notification-scroll position-relative" style="max-height: calc(100vh - 215px)">
@@ -199,11 +166,11 @@
                   <a class="list-group-item list-group-item-action">
                     <div class="d-flex">
                       <div class="flex-shrink-0">
-                        <img src="{% static 'images/user/avatar-2.jpg' %}" alt="user-image" class="user-avtar">
+                        <img src="{% static 'Png/inbox.png' %}" alt="Task Icon" width="20" height="20" class="img-fluid " class="user-avtar">
                       </div>
                       <div class="flex-grow-1 ms-1">
                         <span class="float-end text-muted">3:00 AM</span>
-                        <p class="text-body mb-1">It's <b>Cristina danny's</b> birthday today.</p>
+                        <p class="text-body mb-1">CRM System project</b> is completed </p>
                         <span class="text-muted">2 min ago</span>
                       </div>
                     </div>
@@ -226,20 +193,20 @@
               data-bs-auto-close="outside"
               aria-expanded="false"
             >
-            <img src="{% static 'images/user/avatar-2.jpg' %}" alt="user-image" class="user-avatar">
-              <span>Admin</span>
+              <img src="{% static 'Png/boy.png' %}" alt="user-image" class="user-avtar">
+              <span>Shubham Ryan</span>
             </a>
             <div class="dropdown-menu dropdown-user-profile dropdown-menu-end pc-h-dropdown">
               <div class="dropdown-header">
                 <div class="d-flex mb-1">
                   <div class="flex-shrink-0">
-                    <img src="{% static 'images/user/avatar-2.jpg' %}" alt="user-image" class="user-avtar wid-35">
+                    <img src="{% static 'Png/boy.png' %}" alt="user-image" class="user-avtar wid-35">
                   </div>
                   <div class="flex-grow-1 ms-3">
-                    <h6 class="mb-1">Admin</h6>
+                    <h6 class="mb-1">Shubham Ryan</h6>
                     <span>Admin</span>
                   </div>
-                  <a href="#!" class="pc-head-link bg-transparent"><i class="ti ti-power text-danger"></i></a>
+                  <a href="#!" class="pc-head-link bg-transparent"></a>
                 </div>
               </div>
               <ul class="nav drp-tabs nav-fill nav-tabs" id="mydrpTab" role="tablist">
@@ -253,8 +220,8 @@
                     role="tab"
                     aria-controls="drp-tab-1"
                     aria-selected="true"
-                    ><i class="ti ti-user"></i> Profile</button
-                  >
+                    >
+                    <img src="{% static 'Png/profile-user.png' %}" alt="Task Icon" width="20" height="20" class="img-fluid user-avatar me-2">Profile</button>
                 </li>
                 <li class="nav-item" role="presentation">
                   <button
@@ -266,52 +233,45 @@
                     role="tab"
                     aria-controls="drp-tab-2"
                     aria-selected="false"
-                    ><i class="ti ti-settings"></i> Setting</button
+                    >
+                    <img src="{% static 'Png/settings.png' %}" alt="Task Icon" width="20" height="20" class="img-fluid user-avatar me-2"> Setting</button
                   >
                 </li>
               </ul>
               <div class="tab-content" id="mysrpTabContent">
                 <div class="tab-pane fade show active" id="drp-tab-1" role="tabpanel" aria-labelledby="drp-t1" tabindex="0">
                   <a href="#!" class="dropdown-item">
-                    <i class="ti ti-edit-circle"></i>
+                    <img src="{% static 'Png/user-avatar.png' %}" alt="Task Icon" width="20" height="20" class="img-fluid user-avatar me-2">
                     <span>Edit Profile</span>
                   </a>
                   <a href="#!" class="dropdown-item">
-                    <i class="ti ti-user"></i>
+                    <img src="{% static 'Png/view.png' %}" alt="Task Icon" width="20" height="20" class="img-fluid user-avatar me-2">
                     <span>View Profile</span>
                   </a>
                   <a href="#!" class="dropdown-item">
-                    <i class="ti ti-clipboard-list"></i>
-                    <span>Social Profile</span>
-                  </a>
-                  <a href="#!" class="dropdown-item">
-                    <i class="ti ti-wallet"></i>
-                    <span>Billing</span>
-                  </a>
-                  <a href="#!" class="dropdown-item">
-                    <i class="ti ti-power"></i>
+                    <img src="{% static 'Png/log.png.jpg' %}" alt="Task Icon" width="20" height="20" class="img-fluid user-avatar me-2">
                     <span>Logout</span>
                   </a>
                 </div>
                 <div class="tab-pane fade" id="drp-tab-2" role="tabpanel" aria-labelledby="drp-t2" tabindex="0">
                   <a href="#!" class="dropdown-item">
-                    <i class="ti ti-help"></i>
+                    <img src="{% static 'Png/customer-support.png' %}" alt="Task Icon" width="20" height="20" class="img-fluid user-avatar me-2">
                     <span>Support</span>
                   </a>
                   <a href="#!" class="dropdown-item">
-                    <i class="ti ti-user"></i>
+                    <img src="{% static 'Png/setting.png' %}" alt="Task Icon" width="20" height="20" class="img-fluid user-avatar me-2">
                     <span>Account Settings</span>
                   </a>
                   <a href="#!" class="dropdown-item">
-                    <i class="ti ti-lock"></i>
+                    <img src="{% static 'Png/padlock.png' %}" alt="Task Icon" width="20" height="20" class="img-fluid user-avatar me-2">
                     <span>Privacy Center</span>
                   </a>
                   <a href="#!" class="dropdown-item">
-                    <i class="ti ti-messages"></i>
+                    <img src="{% static 'Png/feedback.png' %}" alt="Task Icon" width="20" height="20" class="img-fluid user-avatar me-2">
                     <span>Feedback</span>
                   </a>
                   <a href="#!" class="dropdown-item">
-                    <i class="ti ti-list"></i>
+                    <img src="{% static 'Png/history.png' %}" alt="Task Icon" width="20" height="20" class="img-fluid user-avatar me-2">
                     <span>History</span>
                   </a>
                 </div>
@@ -321,7 +281,8 @@
         </ul>
       </div>
        </div>
-    </header> 
+      </header>
+
     
     {% block content %}
     {% endblock %}
@@ -336,6 +297,7 @@
       <script src="{% static 'Javascript/pcoded.js' %}"></script>
       <script src="{% static 'Javascript/feather.min.js' %}"></script>
       <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
      
 </body>
 </html>
