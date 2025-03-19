@@ -1,13 +1,13 @@
 from django.urls import path
 from .views import *
-from .views import Dashboard,Task,Module,Project,User,Permission,Role,Department,UserLog
+from .views import Dashboard,Task,Module,Project,User,Permission,Role,Department,UserLog,Authentication
 
 urlpatterns = [
     path('', Dashboard.index, name='index'),
 
     # Task URLs
     path('task/', Task.task, name='task'),
-    path('task/create/', Task.createTask, name='createTask'),
+    path('task/create/', Task.createTask, name='create_task'),
     path('task/show/', Task.showTask, name='show_task'),
     path('task/modify/', Task.modifyTask, name='modify_task'),
     path('task/graph/', Task.taskGraph, name='garph_task')
@@ -35,7 +35,6 @@ urlpatterns+=[
     path('department/', Department.department, name='department'),
     path('department/create/', Department.createDepartment, name='create_department'),
     path('department/show/', Department.showDepartment, name='show_department'),
-    path('department/graph/', Department.departmentGraph, name='graph_department'),
     path('department/departmentEmployee',Department.departmentEmployee,name='employee_department'),
     path('department/modifyDepartment',Department.modifydepartment,name='modify_department')
 ]
@@ -54,10 +53,16 @@ urlpatterns+=[
 urlpatterns+=[
     # User urls
     path('user/',User.user, name= 'user'),
-    path('create_user/',User.createUser, name='create_user'),
+    path('user/createuser/',User.createUser, name='create_user'),
     path('user/userDetail',User.userdetail,name='user_detail'),
+    path('user/modifyUser',User.usermodify,name='modify_user')
 ]
 urlpatterns+=[
     path('log/',UserLog.log,name='log')
+]
+urlpatterns+=[
+    path('login/',Authentication.adminlogin,name='login'),
+    path('logout/',Authentication.adminlogout,name='logout'),
+    path('signup/',Authentication.adminSignup,name='signup') 
 ]
 

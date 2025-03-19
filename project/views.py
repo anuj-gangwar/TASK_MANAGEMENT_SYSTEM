@@ -95,8 +95,17 @@ class User:
         return render(request,'user/createUser.html')
     def userdetail(request):
         return render(request,'user/userDetail.html')
+    def usermodify(request):
+        return render(request,'user/modifyUser.html')
 class UserLog:
     def log(request):
         return render(request,'log/log.html')
+class Authentication:
+    def adminlogin(request):
+        return render(request,'Authentication/login.html')
+    def adminlogout(request):
+        return render(request,'Authentication/login.html')
+    def adminSignup(request):
+        return render(request,'authentication/signup.html')
 
 

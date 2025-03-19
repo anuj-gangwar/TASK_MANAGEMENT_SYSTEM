@@ -6,8 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@300;400;500;600;700&display=swap" id="main-font-link">
-    <link rel="stylesheet" href="{% static 'css/tabler-icons.min.css '%}" >
-    <link rel="stylesheet" href="{% static 'css/feather.css' %}" >
+   
+    
     <link rel="stylesheet" href="{% static 'css/fontawesome.css'%}" >
     <link rel="stylesheet" href="{% static 'css/material.css'%}" >
     <link rel="stylesheet" href="{% static 'css/style.css' %}" id="main-style-link" >
@@ -248,31 +248,9 @@
                     <img src="{% static 'Png/view.png' %}" alt="Task Icon" width="20" height="20" class="img-fluid user-avatar me-2">
                     <span>View Profile</span>
                   </a>
-                  <a href="#!" class="dropdown-item">
+                  <a href="{% url 'logout' %}" class="dropdown-item">
                     <img src="{% static 'Png/log.png.jpg' %}" alt="Task Icon" width="20" height="20" class="img-fluid user-avatar me-2">
                     <span>Logout</span>
-                  </a>
-                </div>
-                <div class="tab-pane fade" id="drp-tab-2" role="tabpanel" aria-labelledby="drp-t2" tabindex="0">
-                  <a href="#!" class="dropdown-item">
-                    <img src="{% static 'Png/customer-support.png' %}" alt="Task Icon" width="20" height="20" class="img-fluid user-avatar me-2">
-                    <span>Support</span>
-                  </a>
-                  <a href="#!" class="dropdown-item">
-                    <img src="{% static 'Png/setting.png' %}" alt="Task Icon" width="20" height="20" class="img-fluid user-avatar me-2">
-                    <span>Account Settings</span>
-                  </a>
-                  <a href="#!" class="dropdown-item">
-                    <img src="{% static 'Png/padlock.png' %}" alt="Task Icon" width="20" height="20" class="img-fluid user-avatar me-2">
-                    <span>Privacy Center</span>
-                  </a>
-                  <a href="#!" class="dropdown-item">
-                    <img src="{% static 'Png/feedback.png' %}" alt="Task Icon" width="20" height="20" class="img-fluid user-avatar me-2">
-                    <span>Feedback</span>
-                  </a>
-                  <a href="#!" class="dropdown-item">
-                    <img src="{% static 'Png/history.png' %}" alt="Task Icon" width="20" height="20" class="img-fluid user-avatar me-2">
-                    <span>History</span>
                   </a>
                 </div>
               </div>
@@ -286,7 +264,7 @@
     
     {% block content %}
     {% endblock %}
-      <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
       <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
       <script src="{% static 'Javascript/apexcharts.min.js' %}"></script>
       <script src="{% static 'Javascript/dashboard-default.js' %}"></script>
@@ -298,6 +276,5 @@
       <script src="{% static 'Javascript/feather.min.js' %}"></script>
       <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
       <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-     
 </body>
 </html>
