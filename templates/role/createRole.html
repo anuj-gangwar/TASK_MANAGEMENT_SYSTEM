@@ -54,33 +54,8 @@
                 </div>
 
                 <!-- Permissions Section (Full Width) -->
-                <h4>Permissions</h4>
-                <div class="row">
-                    <!-- Available Permissions -->
-                    <div class="col-md-5">
-                        <label class="form-label">Available Permissions</label>
-                        <div id="availablePermissions" class="permissions-box droppable" ondrop="drop(event)" ondragover="allowDrop(event)" style="width: 100%; height: 150px; border: 1px solid #ccc; padding: 10px; overflow-y: auto; background: #fff;">
-                            <div class="draggable" draggable="true" ondragstart="drag(event)" id="perm1" style="padding: 10px; margin: 5px; border: 1px solid #ccc; background-color: #f9f9f9; cursor: grab;">View Users</div>
-                            <div class="draggable" draggable="true" ondragstart="drag(event)" id="perm2" style="padding: 10px; margin: 5px; border: 1px solid #ccc; background-color: #f9f9f9; cursor: grab;">Create Users</div>
-                            <div class="draggable" draggable="true" ondragstart="drag(event)" id="perm3" style="padding: 10px; margin: 5px; border: 1px solid #ccc; background-color: #f9f9f9; cursor: grab;">Edit Users</div>
-                            <div class="draggable" draggable="true" ondragstart="drag(event)" id="perm4" style="padding: 10px; margin: 5px; border: 1px solid #ccc; background-color: #f9f9f9; cursor: grab;">Delete Users</div>
-                            <div class="draggable" draggable="true" ondragstart="drag(event)" id="perm5" style="padding: 10px; margin: 5px; border: 1px solid #ccc; background-color: #f9f9f9; cursor: grab;">Activate Users</div>
-                            <div class="draggable" draggable="true" ondragstart="drag(event)" id="perm6" style="padding: 10px; margin: 5px; border: 1px solid #ccc; background-color: #f9f9f9; cursor: grab;">Deactivate Users</div>
-                            <div class="draggable" draggable="true" ondragstart="drag(event)" id="perm7" style="padding: 10px; margin: 5px; border: 1px solid #ccc; background-color: #f9f9f9; cursor: grab;">Reset User Password</div>
-                        </div>
-                    </div>
-
-                    <!-- Transfer Icon -->
-                    <div class="col-md-2 d-flex align-items-center justify-content-center">
-                        <i class="fas fa-exchange-alt fa-2x"></i>
-                    </div>
-
-                    <!-- Assigned Permissions -->
-                    <div class="col-md-5">
-                        <label class="form-label">Assigned Permissions</label>
-                        <div id="assignedPermissions" class="permissions-box droppable" ondrop="drop(event)" ondragover="allowDrop(event)" style="width: 100%; height: 150px; border: 1px solid #ccc; padding: 10px; overflow-y: auto; background: #fff;"></div>
-                    </div>
-                </div>
+             
+               
 
                 <!-- Action Buttons -->
                 <div class="d-flex justify-content-between mt-3">
@@ -91,7 +66,7 @@
         </div>
     </div>
 </div>
-<script src="{% static Javascript/role/createRole.js %}"></script>
+<script src="{% static 'Javascript/role/createRole.js' %}"></script>
 
 {% endblock %}
 

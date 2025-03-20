@@ -1,0 +1,56 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+
+
+<div class="pc-container"> 
+    <div class="pc-content">
+        <div class="container">
+            <div class="card p-4" style="max-width: 800px; margin: auto; width: 100%;">
+                <h2 class="text-dark mb-3 text-center">Modify Role</h2>
+
+                <form method="post" action="{% url 'modify_role' %}">
+                    {% csrf_token %}
+                    
+                    <!-- Role Name & Department -->
+                    <div class="row mb-3">
+                        <div class="col-md-6">
+                            <label class="form-label fw-bold">Role Name:</label>
+                            <input type="text" class="form-control" name="role_name" value="Software Engineer">
+                        </div>
+                        <div class="col-md-6">
+                            <label class="form-label fw-bold">Department:</label>
+                            <select class="form-select" name="department">
+                                <option value="IT" selected>IT</option>
+                                <option value="Finance">Finance</option>
+                                <option value="HR">Human Resources</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <!-- Number of Users -->
+                    <div class="mb-3">
+                        <label class="form-label fw-bold">Number of Users:</label>
+                        <input type="number" class="form-control" name="num_users" value="12">
+                    </div>
+
+                    <!-- Description -->
+                    <div class="mb-3">
+                        <label class="form-label fw-bold">Role Description:</label>
+                        <textarea class="form-control" rows="4" name="description">Responsible for developing and maintaining software applications.</textarea>
+                    </div>
+
+                    <!-- Action Buttons -->
+                    <div class="text-center">
+                        <button type="submit" class="btn btn-success">Update Role</button>
+                        {% comment %} <a href="{% url 'roles_list' %}" class="btn btn-secondary">Cancel</a> {% endcomment %}
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+{% endblock %}

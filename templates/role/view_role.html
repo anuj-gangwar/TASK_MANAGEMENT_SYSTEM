@@ -1,0 +1,70 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+<link rel="stylesheet" href="{% static 'css/task/showTask.css' %}" >
+
+<div class="pc-container"> 
+    <div class="pc-content">
+        <div class="container">
+            <div class="card p-4" style="max-width: 800px; margin: auto; width: 100%;">
+                <h2 class="text-dark mb-3 text-center">Role View</h2>
+
+                <form>
+                    <!-- Task & Project -->
+                    <div class="row mb-3">
+                        <div class="col-md-6">
+                            <label class="form-label fw-bold">Role Name:</label>
+                            <input type="text" class="form-control" value="Software Engineer" readonly>
+                        </div>
+                        <div class="col-md-6">
+                            <label class="form-label fw-bold">Role Assigned Department:</label>
+                            <input type="text" class="form-control" value="IT" readonly>
+                        </div>
+                    </div>
+
+                    <!-- Module & Status -->
+                    <div class="row mb-3">
+                        <div class="col-md-6">
+                            <label class="form-label fw-bold">Number Of Users :</label>
+                            <input type="text" class="form-control" value="12" readonly>
+                        </div>
+                        
+
+                    
+                        <div class="col-md-6">
+                            <label class="form-label fw-bold">Assigned Manager:</label>
+                            <input type="text" class="form-control" value="Naveen Taneja" readonly>
+                        </div>
+                    </div>
+
+                    <!-- Assigned Developer -->
+                    <div class="mb-3">
+                        <label class="form-label fw-bold">Assigned User:</label>
+                        <input type="text" class="form-control" value="Anuj" readonly>
+                    </div>
+
+                    <!-- Description -->
+                    <div class="mb-3">
+                        <label class="form-label fw-bold">Task Description:</label>
+                        <textarea class="form-control" rows="4" readonly>
+                        Implement a secure login system with role-based access control.
+                        </textarea>
+                    </div>
+
+                    <!-- Action Buttons -->
+                    <div class="text-center">
+                        <a href="{% url 'modify_role' %}">
+                            <button type="button" class="btn btn-warning">Edit Role</button>
+                        </a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="{% static 'Javascript/task/showTask.js' %}"></script>
+
+<script src="{% static 'Javascript/task/showTask.js' %}"></script>
+
+{% endblock %}

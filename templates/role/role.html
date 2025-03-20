@@ -50,41 +50,82 @@
                 <div class="row mt-4">
                     <div class="col-md-3">
                         <div class="card bg-primary text-white p-3">
-                            <h6 class="text-dark">Total Tasks</h6>
+                            <h6 class="text-dark">Total Role</h6>
                             <h4>46 <span class="badge bg-light text-primary">
-                                    <img src="./Assets/Png/trending up.png" width="25" height="25"> 59.3%
+                                    <img src="{% static 'Png/trending up.png' %}" width="25" height="25"> 59.3%
                                 </span>
                             </h4>
                         </div>
                     </div>
                     <div class="col-md-3">
                         <div class="card bg-success text-white p-3">
-                            <h6 class="text-dark">Completed Task</h6>
+                            <h6 class="text-dark">Roles Pending For Approval</h6>
                             <h4>78 <span class="badge bg-light text-success">
-                                    <img src="./Assets/Png/trending up.png" width="25" height="25"> 70.5%
+                                    <img src="{% static 'Png/trending up.png ' %}" width="25" height="25"> 70.5%
                                 </span>
                             </h4>
                         </div>
                     </div>
                     <div class="col-md-3">
                         <div class="card bg-danger text-dark p-3">
-                            <h6 class="text-dark">Pending Task</h6>
+                            <h6 class="text-dark">Approved Roles</h6>
                             <h4>35 <span class="badge bg-light text-danger">
-                                    <img src="./Assets/Png/trending down.png" width="25" height="25"> 27.4%
+                                    <img src="{% static 'Png/trending down.png' %}" width="25" height="25"> 27.4%
                                 </span>
                             </h4>
                         </div>
                     </div>
                     <div class="col-md-3">
                         <div class="card bg-warning text-dark p-3">
-                            <h6 class="text-dark">Running Task</h6>
+                            <h6 class="text-dark">Total Assigned Roles</h6>
                             <h4>46 <span class="badge bg-light text-warning">
-                                    <img src="./Assets/Png/trending down.png" width="25" height="25"> 59.3%
+                                    <img src="{% static 'Png/trending down.png' %}" width="25" height="25"> 59.3%
                                 </span>
                             </h4>
                         </div>
                     </div>
                 </div>
+                <!-- Expandable Task Status Card -->
+            <div class="col-md-12">
+                
+                    
+                    
+      
+
+                    <div id="chartsContainer" class="d-none">
+
+                        
+
+                        <!-- Put the graphs in card with fixed size -->
+                        <div class="card mt-4 chart-card">
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-md-4">
+                                        <h6 class="text-center">Task Status</h6>
+                                        <div class="chart-container">
+                                            <canvas id="taskStatusChart"></canvas>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <h6 class="text-center">Department-wise Task Distribution</h6>
+                                        <div class="chart-container">
+                                            <canvas id="departmentChart"></canvas>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <h6 class="text-center">Task Priority Levels</h6>
+                                        <div class="chart-container">
+                                            <canvas id="priorityChart"></canvas>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
 
                         <div class="d-flex align-items-center">
                             <label for="entriesLimit" class="me-2">Show</label>
@@ -97,52 +138,122 @@
                             <label for="entriesLimit" class="ms-2">entries</label>
                         </div>
                     </div>
-                </div>
+                
+
 
                 
 
+                
                 <!-- Role Table -->
-                <div class="table-responsive">
-                    <table class="table table-bordered table-hover mt-3">
-                        <thead class="table-dark">
-                            <tr>
-                                <th>S.No</th>
-                                <th>Role Name</th>
-                                <th>Department</th>
-                                <th>Number of Users</th>
-                                <th>Action</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>1</td>
-                                <td>Software Engineer</td>
-                                <td>IT</td>
-                                <td>12</td>
+            <div class="table-responsive">
+                <table id="taskTable" class="table table-bordered table-hover mt-3">
+                    <thead style="background-color:rgb(193, 230, 230);">
+                    <tr>
+                        <th>S.No <img src="{% static 'Png/sort.png' %}" style="width: 16px; height: 16px; margin-left: 5px;"></th>
+                        <th>Role Name <img src="{% static 'Png/sort.png' %}" style="width: 16px; height: 16px; margin-left: 5px;"></th>
+                        <th>Role Assigned Department <img src="{% static 'Png/sort.png' %}" style="width: 16px; height: 16px; margin-left: 5px;"></th>
+                        <th>Number Of Users<img src="{% static 'Png/sort.png' %}" style="width: 16px; height: 16px; margin-left: 5px;"></th>
+                        <th>Action <img src="{% static 'Png/sort.png' %}" style="width: 16px; height: 16px; margin-left: 5px;"></th>
+                    </tr>
+                           
+                  
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>Software Engineer</td>
+                        <td>IT</td>
+                        <td>12</td>
+                        <td>
+                            <div class="d-flex gap-3">
+                                <a href="{% url 'view_role' %}"><button class="btn btn-info btn-sm"onclick="showProject('101')">View</button></a>
+                                <a href="{% url 'modify_role' %}"><button class="btn btn-warning btn-sm"onclick="showProject('101')">Modify</button></a>
+                                <a href="!#"><button class="btn btn-info btn-sm"onclick="showProject('101')">Delete</button></a>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>Data Analyst</td>
+                        <td>Finance</td>
+                        <td>8</td>
+                        <td>
+                            <div class="d-flex gap-3">
+                                <a href="{% url 'view_role' %}"><button class="btn btn-info btn-sm"onclick="showProject('101')">View</button></a>
+                                <a href="{% url 'modify_role' %}"><button class="btn btn-warning btn-sm"onclick="showProject('101')">Modify</button></a>
+                                <a href="!#"><button class="btn btn-info btn-sm"onclick="showProject('101')">Delete</button></a>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                                <td>3</td>
+                                <td>HR Manager</td>
+                                <td>Human Resources</td>
+                                <td>5</td>
                                 <td>
-                                    <div class="d-flex gap-2">
-                                        <button class="btn btn-info btn-sm">View</button>
-                                        <button class="btn btn-warning btn-sm">Edit</button>
-                                        <button class="btn btn-danger btn-sm">Delete</button>
+                                    <div class="d-flex gap-3">
+                                        <a href="{% url 'view_role' %}"><button class="btn btn-info btn-sm"onclick="showProject('101')">View</button></a>
+                                        <a href="{% url 'modify_role' %}"><button class="btn btn-warning btn-sm"onclick="showProject('101')">Modify</button></a>
+                                        <a href="!#"><button class="btn btn-info btn-sm"onclick="showProject('101')">Delete</button></a>
                                     </div>
                                 </td>
                             </tr>
                             <tr>
-                                <td>2</td>
-                                <td>Data Analyst</td>
-                                <td>Finance</td>
-                                <td>8</td>
+                                <td>4</td>
+                                <td>Marketing Specialist</td>
+                                <td>Marketing</td>
+                                <td>10</td>
                                 <td>
-                                    <div class="d-flex gap-2">
-                                        <button class="btn btn-info btn-sm">View</button>
-                                        <button class="btn btn-warning btn-sm">Edit</button>
-                                        <button class="btn btn-danger btn-sm">Delete</button>
+                                    <div class="d-flex gap-3">
+                                        <a href="{% url 'view_role' %}"><button class="btn btn-info btn-sm"onclick="showProject('101')">View</button></a>
+                                        <a href="{% url 'modify_role' %}"><button class="btn btn-warning btn-sm"onclick="showProject('101')">Modify</button></a>
+                                        <a href="!#"><button class="btn btn-info btn-sm"onclick="showProject('101')">Delete</button></a>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>5</td>
+                                <td>Project Manager</td>
+                                <td>Operations</td>
+                                <td>7</td>
+                                <td>
+                                    <div class="d-flex gap-3">
+                                        <a href="{% url 'view_role' %}"><button class="btn btn-info btn-sm"onclick="showProject('101')">View</button></a>
+                                        <a href="{% url 'modify_role' %}"><button class="btn btn-warning btn-sm"onclick="showProject('101')">Modify</button></a>
+                                        <a href="!#"><button class="btn btn-info btn-sm"onclick="showProject('101')">Delete</button></a>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>6</td>
+                                <td>Cybersecurity Analyst</td>
+                                <td>Security</td>
+                                <td>6</td>
+                                <td>
+                                    <div class="d-flex gap-3">
+                                        <a href="{% url 'view_role' %}"><button class="btn btn-info btn-sm"onclick="showProject('101')">View</button></a>
+                                        <a href="{% url 'modify_role' %}"><button class="btn btn-warning btn-sm"onclick="showProject('101')">Modify</button></a>
+                                        <a href="!#"><button class="btn btn-info btn-sm"onclick="showProject('101')">Delete</button></a>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>7</td>
+                                <td>UX/UI Designer</td>
+                                <td>Design</td>
+                                <td>4</td>
+                                <td>
+                                    <div class="d-flex gap-3">
+                                        <a href="{% url 'view_role' %}"><button class="btn btn-info btn-sm"onclick="showProject('101')">View</button></a>
+                                        <a href="{% url 'modify_role' %}"><button class="btn btn-warning btn-sm"onclick="showProject('101')">Modify</button></a>
+                                        <a href="!#"><button class="btn btn-info btn-sm"onclick="showProject('101')">Delete</button></a>
                                     </div>
                                 </td>
                             </tr>
                         </tbody>
                     </table>
                 </div>
+
 
                 <!-- Pagination -->
                 <nav>
@@ -157,6 +268,9 @@
         </div>
     </div>
 </div>
+</div>
 <script src="{% static 'Javascript/role/role.js' %}"></script>
+<script src="{% static 'Javascript/role/role_graph.js' %}"></script>
 
-{% endblock %}
+
+{% endblock %}

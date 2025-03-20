@@ -1,5 +1,4 @@
-<script>
-    document.getElementById("statusFilter").addEventListener("change", function() {
+document.getElementById("statusFilter").addEventListener("change", function() {
         let filter = this.value;
         let rows = document.querySelectorAll("tbody tr");
 
@@ -13,4 +12,3 @@
             }
         });
     });
-</script>

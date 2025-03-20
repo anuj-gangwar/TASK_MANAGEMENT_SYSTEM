@@ -6,12 +6,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@300;400;500;600;700&display=swap" id="main-font-link">
-   
-    
+    <link rel="stylesheet" href="{% static 'css/tabler-icons.min.css '%}" >
+    <link rel="stylesheet" href="{% static 'css/feather.css' %}" >
     <link rel="stylesheet" href="{% static 'css/fontawesome.css'%}" >
     <link rel="stylesheet" href="{% static 'css/material.css'%}" >
     <link rel="stylesheet" href="{% static 'css/style.css' %}" id="main-style-link" >
-    <link rel="stylesheet" href="{% static 'css/style-preset.css' %}" >
+    <link rel="stylesheet" href="{% static 'css/style-preset.css' %}" >
 </head>
 <body>
     <nav class="pc-sidebar">
@@ -78,20 +78,6 @@
                 <a href="{% url 'log' %}" class="pc-link"><span class="pc-micon">
                   <img src="{% static 'Png/log.png.jpg' %}" alt="Tasks Icon" width="20" height="20"></i></span><span class="pc-mtext">Logs</span></a>
             </li>
-              <li class="pc-item pc-caption">
-                
-                <i class="ti ti-news"></i>
-              </li>
-              <li class="pc-item">
-                <a href="../pages/login.html" class="pc-link">
-                  
-                </a>
-              </li>
-              <li class="pc-item">
-                <a href="../pages/register.html'" class="pc-link">
-                 
-                </a>
-              </li>
             </ul>
           </div>
         </div>
@@ -209,35 +195,6 @@
                   <a href="#!" class="pc-head-link bg-transparent"></a>
                 </div>
               </div>
-              <ul class="nav drp-tabs nav-fill nav-tabs" id="mydrpTab" role="tablist">
-                <li class="nav-item" role="presentation">
-                  <button
-                    class="nav-link active"
-                    id="drp-t1"
-                    data-bs-toggle="tab"
-                    data-bs-target="#drp-tab-1"
-                    type="button"
-                    role="tab"
-                    aria-controls="drp-tab-1"
-                    aria-selected="true"
-                    >
-                    <img src="{% static 'Png/profile-user.png' %}" alt="Task Icon" width="20" height="20" class="img-fluid user-avatar me-2">Profile</button>
-                </li>
-                <li class="nav-item" role="presentation">
-                  <button
-                    class="nav-link"
-                    id="drp-t2"
-                    data-bs-toggle="tab"
-                    data-bs-target="#drp-tab-2"
-                    type="button"
-                    role="tab"
-                    aria-controls="drp-tab-2"
-                    aria-selected="false"
-                    >
-                    <img src="{% static 'Png/settings.png' %}" alt="Task Icon" width="20" height="20" class="img-fluid user-avatar me-2"> Setting</button
-                  >
-                </li>
-              </ul>
               <div class="tab-content" id="mysrpTabContent">
                 <div class="tab-pane fade show active" id="drp-tab-1" role="tabpanel" aria-labelledby="drp-t1" tabindex="0">
                   <a href="#!" class="dropdown-item">

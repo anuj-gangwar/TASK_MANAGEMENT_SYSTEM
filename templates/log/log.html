@@ -1,13 +1,11 @@
 {% extends "base.html" %}
 {% block content %}
 {% load static %}
+<link rel="stylesheet"  href="{% static 'css/log/log.css' %}"> 
+
 <div class="pc-container">
     <div class="pc-content">
-        <!-- [ breadcrumb ] start -->
-        <!-- [ breadcrumb ] end -->
-        <!-- [ Main Content ] start -->
         <div class="row">
-            <!-- [ sample-page ] start -->
             <div class="col-md-6 col-xl-3">
                 <!-- Content for the first column -->
             </div>
@@ -16,163 +14,116 @@
             </div>
         </div>
 
+        <div class="container">
+            <div class="card p-4">
         <div class="table-responsive mt-5">
-            <h2 class="mb-4 text-center">User Logs Management</h2>
-            <table id="taskTable" class="table table-bordered table-hover mt-3">
-                <thead style="background-color: #606364;">
-                    <tr>
-                        <th>S. No <img src="{% static 'Png/sort.png'%}"style="width: 16px; height: 16px; margin-left: 5px;"></th>
-                        <th>User ID <img src="{% static 'Png/sort.png'%}"style="width: 16px; height: 16px; margin-left: 5px;"></th>
-                        <th>Username <img src="{% static 'Png/sort.png'%}"style="width: 16px; height: 16px; margin-left: 5px;"></th>
-                        <th>Role <img src="{% static 'Png/sort.png'%}"style="width: 16px; height: 16px; margin-left: 5px;"></th>
-                        <th>Action <img src="{% static 'Png/sort.png'%}"style="width: 16px; height: 16px; margin-left: 5px;"></th>
-                        <th>Status <img src="{% static 'Png/sort.png'%}"style="width: 16px; height: 16px; margin-left: 5px;"></th>
-                        <th>Timestamp <img src="{% static 'Png/sort.png'%}"style="width: 16px; height: 16px; margin-left: 5px;"></th>
-                        <th>IP Address <img src="{% static 'Png/sort.png'%}"style="width: 16px; height: 16px; margin-left: 5px;"></th>
-                        <th>Browser <img src="{% static 'Png/sort.png'%}"style="width: 16px; height: 16px; margin-left: 5px;"></th>
-                        <th>Location <img src="{% static 'Png/sort.png'%}"style="width: 16px; height: 16px; margin-left: 5px;"></th>
-                        <th>Login Method <img src="{% static 'Png/sort.png'%}"style="width: 16px; height: 16px; margin-left: 5px;"></th>
-                        <th>Failed Attempts <img src="{% static 'Png/sort.png'%}"style="width: 16px; height: 16px; margin-left: 5px;"></th>
-                        <th>Session Duration <img src="{% static 'Png/sort.png'%}"style="width: 16px; height: 16px; margin-left: 5px;"></th>
-                        <th>Last Actions <img src="{% static 'Png/sort.png'%}"style="width: 16px; height: 16px; margin-left: 5px;"></th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <!-- Table rows here -->
-                    <tr>
-                        <td>1</td>
-                        <td>101</td>
-                        <td>Mithlesh</td>
-                        <td>Admin</td>
-                        <td>Login</td>
-                        <td><span class="badge bg-success">Online</span></td>
-                        <td>2025-03-11 10:30:45</td>
-                        <td>192.168.1.10</td>
-                        <td>Chrome</td>
-                        <td>Delhi, India</td>
-                        <td>Password</td>
-                        <td>0</td>
-                        <td>2 hours 15 mins</td>
-                        <td>Updated Settings, Viewed Dashboard</td>
-                    </tr>
-                    <tr>
-                        <td>2</td>
-                        <td>102</td>
-                        <td>Soyeb</td>
-                        <td>User</td>
-                        <td>Logout</td>
-                        <td><span class="badge bg-danger">Offline</span></td>
-                        <td>2025-03-11 11:00:15</td>
-                        <td>192.168.1.15</td>
-                        <td>Firefox</td>
-                        <td>Delhi, India</td>
-                        <td>OAuth (Google)</td>
-                        <td>1</td>
-                        <td>45 mins</td>
-                        <td>Browsed Products, Added to Cart</td>
-                    </tr>
-                    <tr>
-                        <td>3</td>
-                        <td>103</td>
-                        <td>Sachin</td>
-                        <td>Moderator</td>
-                        <td>Login</td>
-                        <td><span class="badge bg-success">Online</span></td>
-                        <td>2025-03-11 11:20:30</td>
-                        <td>192.168.1.20</td>
-                        <td>Edge</td>
-                        <td>Delhi, India</td>
-                        <td>Biometric</td>
-                        <td>0</td>
-                        <td>1 hour 30 mins</td>
-                        <td>Reviewed Reports, Approved Comments</td>
-                    </tr>
-                    <tr>
-                        <td>4</td>
-                        <td>104</td>
-                        <td>Chandan</td>
-                        <td>User</td>
-                        <td>Login</td>
-                        <td><span class="badge bg-success">Online</span></td>
-                        <td>2025-03-11 12:00:50</td>
-                        <td>192.168.1.25</td>
-                        <td>Safari</td>
-                        <td>Delhi, India</td>
-                        <td>Password</td>
-                        <td>2</td>
-                        <td>30 mins</td>
-                        <td>Read Blog, Liked Posts</td>
-                    </tr>
-                    <tr>
-                        <td>5</td>
-                        <td>105</td>
-                        <td>Shohan</td>
-                        <td>Admin</td>
-                        <td>Logout</td>
-                        <td><span class="badge bg-danger">Offline</span></td>
-                        <td>2025-03-11 12:15:30</td>
-                        <td>192.168.1.30</td>
-                        <td>Chrome</td>
-                        <td>Delhi, India</td>
-                        <td>OAuth (GitHub)</td>
-                        <td>0</td>
-                        <td>3 hours</td>
-                        <td>Modified User Permissions</td>
-                    </tr>
-                    <tr>
-                        <td>6</td>
-                        <td>106</td>
-                        <td>Sagar</td>
-                        <td>User</td>
-                        <td>Login</td>
-                        <td><span class="badge bg-success">Online</span></td>
-                        <td>2025-03-11 12:30:20</td>
-                        <td>192.168.1.35</td>
-                        <td>Chrome</td>
-                        <td>Delhi, India</td>
-                        <td>Biometric</td>
-                        <td>0</td>
-                        <td>1 hour</td>
-                        <td>Updated Profile, Checked Messages</td>
-                    </tr>
-                    <tr>
-                        <td>7</td>
-                        <td>107</td>
-                        <td>Shafali</td>
-                        <td>User</td>
-                        <td>Logout</td>
-                        <td><span class="badge bg-danger">Offline</span></td>
-                        <td>2025-03-11 12:45:10</td>
-                        <td>192.168.1.40</td>
-                        <td>Firefox</td>
-                        <td>Delhi, India</td>
-                        <td>OAuth (Facebook)</td>
-                        <td>1</td>
-                        <td>2 hours 10 mins</td>
-                        <td>Watched Tutorial, Joined Group</td>
-                    </tr>
-                    <tr>
-                        <td>8</td>
-                        <td>108</td>
-                        <td>Rita</td>
-                        <td>Admin</td>
-                        <td>Login</td>
-                        <td><span class="badge bg-success">Online</span></td>
-                        <td>2025-03-11 13:00:30</td>
-                        <td>192.168.1.45</td>
-                        <td>Safari</td>
-                        <td>Delhi</td>
-                        <td>Password</td>
-                        <td>0</td>
-                        <td>50 mins</td>
-                        <td>Managed Users, Checked Logs</td>
-                    </tr>
-                    <!-- Add more rows as needed -->
-                </tbody>
-            </table>
+            <h2 class="mb-4 text-s">User Logs</h2>
+        
+<!-- Heading (Left) and Search + Filter (Right) -->
+<div class="d-flex justify-content-end align-items-center mb-3">
 
-            <!-- Pagination -->
-            <nav aria-label="Page navigation example">
+    <div class="d-flex gap-2">
+        <!-- Search Input -->
+        <div class="input-group input-group-sm w-50 border border-dark">
+            <input type="text" id="search" class="form-control" placeholder="Search logs...">
+        </div>
+
+        <!-- Filter Dropdown -->
+        <select id="filter" class="form-select form-select-sm w-50">
+            <option value="All">All</option>
+            <option value="Updated Task">Updated Task</option>
+            <option value="Added Project">Project</option>
+            <option value="Changed Role">Module</option>
+            <option value="Changed Role">Department</option>
+            <option value="Changed Role">Role</option>
+            <option value="Changed Role">Permission</option>
+            <option value="Changed Role">Users</option>
+        </select>
+    </div>
+</div>
+
+<!-- Apply Button in Next Row (Right Aligned) -->
+<div class="d-flex justify-content-end">
+    <button class="btn btn-primary btn-sm">Apply</button>
+</div>
+
+            
+            <table id="taskTable" class="table table-bordered table-hover mt-3"></table>
+                <!-- <h2>Task Management Logs</h2> -->
+                <table class="table table-bordered border-secondary" id="logTable ">
+                    <thead  style="background-color: #edf0f1;">
+                        <tr>
+                            <th>Sr No. <img src="{% static 'Png/sort.png' %}" style="width: 16px; height: 16px; margin-left: 5px;"> </th>
+                            <th>Username  <img src="{% static 'Png/sort.png' %}" style="width: 16px; height: 16px; margin-left: 5px;"> </th>
+                            <th>Status  <img src="{% static 'Png/sort.png' %}" style="width: 16px; height: 16px; margin-left: 5px;"></th>
+                            <th>Role  <img src="{% static 'Png/sort.png' %}" style="width: 16px; height: 16px; margin-left: 5px;"></th>
+                            <th>Login Method  <img src="{% static 'Png/sort.png' %}" style="width: 16px; height: 16px; margin-left: 5px;"> </th>
+                            <th>Last Action  <img src="{% static 'Png/sort.png' %}" style="width: 16px; height: 16px; margin-left: 5px;"></th>
+                            <th>Timestamp  <img src="{% static 'Png/sort.png' %}" style="width: 16px; height: 16px; margin-left: 5px;"></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>1</td>
+                            <td>Soyeb</td>
+                            <td>Updated </td>
+                            <td>Admin</td>
+                            <td>Password</td>
+                            <td>Update Settings,view </td>
+                            <td>2025-03-18 10:00 AM</td>
+
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td>Shivam</td>
+                            <td>Updated Task</td>
+                            <td>User</td>
+                            <td>biomatric</td>
+                            <td>Update module,view </td>
+                            <td>2025-03-18 10:00 AM</td>
+                        </tr>
+                        <tr>
+                            <td>3</td>
+                            <td>Sachin</td>
+                            <td>Updated module</td>
+                            <td>User</td>
+                            <td>Password</td>
+                            <td>Update Role, </td>
+                            <td>2025-03-17 10:15 AM</td>
+                        </tr>
+                        <tr>
+                            <td>4</td>
+                            <td>Simran</td>
+                            <td>Updated Permission</td>
+                            <td>User</td>
+                            <td>Password</td>
+                            <td>Update Department,Module </td>
+                            <td>2025-03-18 10:00 AM</td>
+                        </tr>
+                        <tr>
+                            <td>5</td>
+                            <td>Shohan</td>
+                            <td>Updated Project</td>
+                            <td>Admin</td>
+                            <td>Password</td>
+                            <td>Update Settings,view </td>
+                            <td>2025-01-15 11:44 AM</td>
+                        </tr>
+                        <tr>
+                            <td>6</td>
+                            <td>Chandan</td>
+                            <td>Updated user</td>
+                            <td>Admin</td>
+                            <td>Password</td>
+                            <td>Update Settings,view </td>
+                            <td>2025-04-7 03:44 AM</td>
+                        </tr>
+                    </tbody>
+                </table>
+                
+            </div>
+            </div>
+            <nav aria-label="Page navigation example" class="pagination-container">
                 <ul class="pagination justify-content-center">
                     <li class="page-item disabled">
                         <a class="page-link" href="#" tabindex="-1">Previous</a>
@@ -185,8 +136,8 @@
                     </li>
                 </ul>
             </nav>
-        </div>
-    </div>
-</div>
+
+            
+            <script src="{% static 'Javascript/log/log.js' %}"></script>
 
 {% endblock %}
