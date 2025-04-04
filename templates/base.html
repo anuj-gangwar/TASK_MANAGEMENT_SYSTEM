@@ -46,12 +46,19 @@
                   <img src="{% static 'Png/to-do-list.png' %}" alt="Tasks Icon" width="20" height="20">
                   </i></span><span class="pc-mtext">Tasks</span><span class="pc-arrow"><i ></i></span></a>
               </li>
+              
               <li class="pc-item pc-hasmenu">
-                <a href="{% url 'project' %}" class="pc-link"><span class="pc-micon">
-                  <img src="{% static 'Png/project.png' %}" alt="Tasks Icon" width="20" height="20"></i></span><span class="pc-mtext">Projects</span></a>
+                  <a href="{% url 'project' %}" class="pc-link">
+                      <span class="pc-micon">
+                          <img src="{% static 'Png/project.png' %}" alt="Tasks Icon" width="20" height="20">
+                      </span>
+                      <span class="pc-mtext">Projects</span>
+                  </a>
               </li>
+              
+
               <li class="pc-item pc-hasmenu">
-                <a href="{% url 'module' %}" class="pc-link"><span class="pc-micon">
+                <a href="{% url 'module'%}" class="pc-link"><span class="pc-micon">
                   <img src="{% static 'Png/cube.png' %}"alt="Tasks Icon" width="20" height="20"> </i></span><span class="pc-mtext">Module</span></a>
               </li>
               <li class="pc-item pc-hasmenu">
@@ -66,16 +73,16 @@
               </li>
 
               <li class="pc-item pc-hasmenu">
-                <a href="{% url 'permission' %}" class="pc-link"><span class="pc-micon">
+                <a href="{%  url 'permission' %}" class="pc-link"><span class="pc-micon">
                   <img src="{% static 'Png/access-granted.png' %}" alt="Tasks Icon" width="20" height="20"></i></span><span class="pc-mtext">Permission</span></a>
               </li>
 
               <li class="pc-item pc-hasmenu">
-                <a href="{% url 'user' %}" class="pc-link"><span class="pc-micon">
+                <a href="{% url 'user'%}" class="pc-link"><span class="pc-micon">
                   <img src="{% static 'Png/profile-user.png' %}" alt="Tasks Icon" width="20" height="20"></i></span><span class="pc-mtext">Users</span></a>
               </li>
               <li class="pc-item pc-hasmenu">
-                <a href="{% url 'log' %}" class="pc-link"><span class="pc-micon">
+                <a href="{%url 'log'%}" class="pc-link"><span class="pc-micon">
                   <img src="{% static 'Png/log.png.jpg' %}" alt="Tasks Icon" width="20" height="20"></i></span><span class="pc-mtext">Logs</span></a>
             </li>
             </ul>
@@ -205,7 +212,7 @@
                     <img src="{% static 'Png/view.png' %}" alt="Task Icon" width="20" height="20" class="img-fluid user-avatar me-2">
                     <span>View Profile</span>
                   </a>
-                  <a href="{% url 'logout' %}" class="dropdown-item">
+                  <a href="#" class="dropdown-item">
                     <img src="{% static 'Png/log.png.jpg' %}" alt="Task Icon" width="20" height="20" class="img-fluid user-avatar me-2">
                     <span>Logout</span>
                   </a>

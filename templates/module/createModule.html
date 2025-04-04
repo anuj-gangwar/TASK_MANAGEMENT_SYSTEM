@@ -6,75 +6,119 @@
 
 <div class="pc-container">
     <div class="pc-content">
-    <!-- [ breadcrumb ] start -->
-    
+   
+
 
     <div class="container">
         <div class="card p-4">
             <div class="d-flex justify-content-between align-items-center mb-3">
-                <h2 class="text-dark mb-0">Enter Information</h2>
+                <h2 class="text-dark mb-0">Enter Module Information</h2>
             </div>
-    
-            <form>
+
+            <form method="post" enctype="multipart/form-data">  <!-- Added form tag and enctype -->
+                {% csrf_token %}
                 <div class="row mb-3">
                     <div class="col-md-6">
                         <label class="form-label">Module:</label>
-                        <input type="text" class="form-control" placeholder="Enter Module Name">
+                        <input type="text" class="form-control" name="module_name" placeholder="Enter Module Name" value="{{ form.module_name.value|default:'' }}">
+                        {{ form.module_name.errors }}  <!-- Display any errors -->
                     </div>
                     <div class="col-md-6">
                         <label class="form-label">Project:</label>
-                        <select class="form-select">
-                            <option>Company Management System</option>
-                            <option>Task Management System</option>
-                            <option>Regression Model</option>
-                            <option>Classification</option>
+                        <select class="form-select" name="project">
+                            {% for project in projects %}  <!-- Assuming you pass 'projects' from the view -->
+                                <option value="{{ project.pk }}" >{{ project.name }}</option>
+                            {% endfor %}
                         </select>
+                        {{ form.project.errors }}
                     </div>
                 </div>
-    
-        <div class="row mb-3">
-<div class="col-md-6">
-    <label class="form-label">Assigned By:</label>
-    <select class="form-select">
-        <option>Manager</option>
-        <option>Developer</option>
-        <option>QA</option>
-    </select>
-</div>
 
-<div class="col-md-6">
-    <label class="form-label">Assigned To:</label>
-    <input type="text" class="form-control" placeholder="Enter name">
-</div>
-</div>
+                <div class="row mb-3">
+                    <!-- Assigned By (Only Managers) -->
+                    <div class="col-md-6">
+                        <label class="form-label">Assigned By:</label>
+                        <select class="form-select" name="assigned_by">
+                            <option value="">Select Assigned By</option>
+                            {% for manager in managers %}
+                                <option value="{{ manager.id }}" {% if form.assigned_by.value == manager.id %}selected{% endif %}>
+                                    {{ manager.first_name }} {{ manager.last_name }}
+                                </option>
+                            {% endfor %}
+                        </select>
+                        {{ form.assigned_by.errors }}
+                    </div>
+                
+                    <!-- Assigned To (Only Developers & QA) -->
+                    <div class="col-md-6">
+                        <label class="form-label">Assigned To:</label>
+                        <select class="form-select" name="assigned_to">
+                            <option value="">Select Assigned To</option>
+                            {% for user in users %}
+                                <option value="{{ user.id }}" {% if form.assigned_to.value == user.id %}selected{% endif %}>
+                                    {{ user.first_name }} {{ user.last_name }} ({{ user.role.name }})
+                                </option>
+                            {% endfor %}
+                        </select>
+                        {{ form.assigned_to.errors }}
+                    </div>
 
-<div class="row mb-3">
-<div class="col-md-6">
-    <label class="form-label">Estimated Date:</label>
-    <input type="date" class="form-control">
-</div>
+                    
+                </div>
+                
+                <div class="row mb-3">
+                <div class="col-md-6">
+                    <label class="form-label">Department:</label>
+                    <select class="form-select" name="department">
+                        {% for department in departments %}
+                            <option value="{{ department.id }}">{{ department.department_name }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
 
-<!-- Project Reference Document -->
-<div class="col-md-6">
-<label class="form-label">Project Reference Document:</label>
-<div class="d-flex align-items-center">
-<!-- File Input -->
-<input type="file" class="form-control custom-file-input" id="fileInput">
-<!-- Upload Button -->
-<button class="btn btn-primary ms-2" onclick="startUpload()">Upload</button>
-</div>
-</div>
 
+                
+                    <div class="col-md-6">
+                        <label class="form-label">Estimated Date:</label>
+                        <input type="date" class="form-control" name="estimated_date" value="{{ form.estimated_date.value|date:'Y-m-d'|default:'' }}">  <!-- Use the date filter -->
+                        {{ form.estimated_date.errors }}
+                    </div>
+            </div>
+        
+            
+
+                
+
+
+                    
+
+                    <!-- Project Reference Document -->
+                    <div class="row mb-3">
+                    <div class="col-md-6">
+                        <label class="form-label">Project Reference Document:</label>
+                        <div class="d-flex align-items-center">
+                            <!-- File Input -->
+                            <input type="file" class="form-control custom-file-input" name="reference_document" id="fileInput">
+                            <!-- Upload Button -->
+                            <button class="btn btn-primary ms-2" type="button" onclick="startUpload()">Upload</button>  <!-- Changed to type="button" -->
+                        </div>
+                        {{ form.reference_document.errors }}
+                    </div>
 
                     <div class="col-md-6">
                         <label class="form-label">Description:</label>
-                        <textarea class="form-control" rows="2" placeholder="Enter description"></textarea>
+                        <textarea class="form-control" rows="2" name="description" placeholder="Enter description">{{ form.description.value|default:'' }}</textarea>
+                        {{ form.description.errors }}
                     </div>
+                </div>
+
+
+                   
 
                 </div>
-    
+
                 <div class="text-center">
-                    <button class="btn btn-primary">Submit</button>
+                    <button class="btn btn-primary" type="submit">Submit</button>
                 </div>
             </form>
         </div>

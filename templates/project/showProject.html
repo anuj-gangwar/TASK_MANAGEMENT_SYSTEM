@@ -10,70 +10,74 @@
      <div class="card shadow-lg p-4 mx-auto" style="max-width: 900px; width: 100%;">
          <h2 class="text-center text-dark mb-4">Project Details</h2>
 
-         <!-- Project Info -->
-         <div class="row mb-3">
-            <div class="col-md-6">
-                <label class="form-label fw-bold">Project Name: <span class="fw-normal">Smart Tax Filling</span></label>
-            </div>
-        </div>
-
-
-
-         <!-- Module, Status & Number of Tasks -->
-         <div class="row mb-3">
-            <div class="col-md-4">
-                <label class="form-label fw-bold">Project Status: <span class="text-warning fw-bold">In Progress</span></label>
+         <form method="GET">
+             {% csrf_token %}
+             <!-- Project Info -->
+             <div class="row mb-3">
+                <div class="col-md-6">
+                    <label class="form-label fw-bold" name ="project_name">Project Name: <span class="fw-normal">{{ project.name }}</span></label>
+                </div>
             </div>
 
-            <div class="col-md-4">
-                <label class="form-label fw-bold">Priority: <span class="text-danger fw-bold">High</span></label>
-            </div>
-        </div>
-
-        <!-- Dates & Priority -->
-        <div class="row mb-3">
-            <div class="col-md-4">
-                <label class="form-label fw-bold">Start Date: <span class="fw-normal">2024-03-01</span></label>
-            </div>
-            <div class="col-md-4">
-                <label class="form-label fw-bold">Due Date: <span class="text-danger fw-bold">2024-03-10</span></label>
-            </div>
-        </div>
 
 
+             <!-- Module, Status & Number of Tasks -->
+             <div class="row mb-3">
+                <div class="col-md-4">
+                    <label class="form-label fw-bold" name="project_status">Project Status: <span class="text-warning fw-bold">{{ project.get_status_display }}</span></label>
+                </div>
 
-        <!-- Assigned People -->
-        <div class="row mb-3">
-            <div class="col-md-4">
-                <label class="form-label fw-bold">Assigned Department: <span class="fw-normal">Development</span></label>
+                <div class="col-md-4">
+                    <label class="form-label fw-bold" name = "priority">Priority: <span class="text-danger fw-bold">{{ project.get_priority_display }}</span></label>
+                </div>
             </div>
-            <div class="col-md-4">
-                <label class="form-label fw-bold">Assigned Manager: <span class="fw-normal">Naveen Taneja</span></label>
-            </div>
-        </div>
 
-        <div class="row mb-3">
-            <div class="col-md-6">
-                <label class="form-label fw-bold">Assigned Developer: <span class="fw-normal">Subh</span></label>
+            <!-- Dates & Priority -->
+            <div class="row mb-3">
+                <div class="col-md-4">
+                    <label class="form-label fw-bold" name ="start_date">Start Date: <span class="fw-normal">{{ project.start_date }}</span></label>
+                </div>
+                <div class="col-md-4">
+                    <label class="form-label fw-bold" name = "due_date">Due Date: <span class="text-danger fw-bold">{{ project.due_date }}</span></label>
+                </div>
             </div>
-        </div>
 
-            <div class="col-md-6">
-                <div class="mb-4"> <!-- Extra margin added -->
-                    <label class="form-label fw-bold">Project Completion:</label>
-                    <div class="progress">
-                        <div class="progress-bar bg-success" role="progressbar" style="width: 60%;" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100">60%</div>
+
+
+            <!-- Assigned People -->
+            <div class="row mb-3">
+                <div class="col-md-4">
+                    <label class="form-label fw-bold" name = "assigned_department">Assigned Department: <span class="fw-normal">{{ project.department }}</span></label>
+                </div>
+                <div class="col-md-4">
+                    <label class="form-label fw-bold" name= "assigned_manager">Assigned Manager: <span class="fw-normal">{{ project.manager }}</span></label>
+                </div>
+            </div>
+
+            <div class="row mb-3">
+                <div class="col-md-6">
+                    <label class="form-label fw-bold" name = "assigned_developer">Assigned Developer: <span class="fw-normal">{{ project.developer }}</span></label>
+                </div>
+            </div>
+
+                <div class="col-md-6">
+                    <div class="mb-4"> <!-- Extra margin added -->
+                        <label class="form-label fw-bold" name="project_completion">Project Completion:</label>
+                        <div class="progress">
+                            <div class="progress-bar bg-success" role="progressbar" style="width: {{ project.completion }}%;" aria-valuenow="{{ project.completion }}" aria-valuemin="0" aria-valuemax="100">{{ project.completion }}%</div>
+                        </div>
                     </div>
-                </div>
 
-                <div class="mb-3">
-                    <label class="form-label fw-bold">Project Description:</label>
-                    <span class="fw-normal"> create modals of Smart tax Filling</span>
-                </div>
-        </div>
-        <div class="text-center">
-            <a href="{% url 'project' %}" class="btn btn-primary me-2">Back</a>
-        </div>
+                    <div class="mb-3">
+                        <label class="form-label fw-bold" name = "project_description">Project Description:</label>
+                        <span class="fw-normal">{{ project.description }}</span>
+                    </div>
+            </div>
+            <div class="text-center">
+                <a href="{% url 'project' %}" class="btn btn-secondary me-2">Back</a>
+                <button type="submit" class="btn btn-primary">Save Changes</button>  <!-- Add a save button -->
+            </div>
+        </form>
     </div>
 </div>
 

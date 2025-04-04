@@ -14,43 +14,40 @@
                     <div class="row mb-3">
                         <div class="col-md-6">
                             <label class="form-label fw-bold">Role Name:</label>
-                            <input type="text" class="form-control" value="Software Engineer" readonly>
+                            <input type="text" class="form-control" name= "role" value="{{ role.name.role_name }}" readonly>
                         </div>
                         <div class="col-md-6">
                             <label class="form-label fw-bold">Role Assigned Department:</label>
-                            <input type="text" class="form-control" value="IT" readonly>
+                            <input type="text" class="form-control" name="department" value="{{ role.department.department_name }}" readonly>
                         </div>
                     </div>
 
                     <!-- Module & Status -->
-                    <div class="row mb-3">
+                    <div class="row mb-3"> 
                         <div class="col-md-6">
-                            <label class="form-label fw-bold">Number Of Users :</label>
-                            <input type="text" class="form-control" value="12" readonly>
+                            <label class="form-label fw-bold">Number Of Users:</label>
+                            <input type="text" class="form-control" value="{{ role.userdepartmentrole_set.all.count }}" readonly>
                         </div>
-                        
-
                     
                         <div class="col-md-6">
                             <label class="form-label fw-bold">Assigned Manager:</label>
-                            <input type="text" class="form-control" value="Naveen Taneja" readonly>
+                            <input type="text" class="form-control" name="role" value="{{ role.manager }}" readonly>
                         </div>
                     </div>
-
+                    
                     <!-- Assigned Developer -->
                     <div class="mb-3">
                         <label class="form-label fw-bold">Assigned User:</label>
-                        <input type="text" class="form-control" value="Anuj" readonly>
+                        <input type="text" class="form-control" name="role" value="{{ role.name }}" readonly>
                     </div>
-
+                    
                     <!-- Description -->
                     <div class="mb-3">
                         <label class="form-label fw-bold">Task Description:</label>
-                        <textarea class="form-control" rows="4" readonly>
-                        Implement a secure login system with role-based access control.
-                        </textarea>
+                        <textarea class="form-control" rows="4" readonly>{{ role.task_description }}</textarea>
                     </div>
-
+                    
+ 
                     <!-- Action Buttons -->
                     <div class="text-center">
                         <a href="{% url 'modify_role' %}">

@@ -1,66 +1,45 @@
-{% include 'base.html' %}
+{% extends 'base.html' %}
 {% load static %}
 {% block content %}
 <div class="pc-container">
     <div class="pc-content">
-        <div class="container">
-            <div class="card p-4">
+        <div class="container py-5">
+            <div class="card p-4" style="max-width: 800px; margin: auto; width: 100%;">
                 <div class="d-flex justify-content-between align-items-center mb-3">
-                    <h2 class="text-dark mb-0">Department Information</h2>
-                    
-                    <!-- Button Container to Align Properly -->
+                    <h2 class="text-dark mb-0">Department Details</h2>
                     <div>
-                        <a href="{% url 'modify_department' %}" class="btn btn-warning me-2">Edit</a>
-                        <a href="{% url 'department' %}" class="btn btn-secondary">Back</a>
+                        <a href="{% url 'modify_department' department.id %}" class="btn btn-warning me-2">Edit</a>
+                        <a href="#" class="btn btn-secondary">Back</a>
                     </div>
                 </div>
 
-                <div class="container">
-                    <div class="row g-3">
-                        <!-- Department ID -->
-                        <div class="col-md-6 d-flex align-items-center">
-                            <label class="form-label me-3">Department ID:</label>
-                            <input type="text" class="form-control" value="101" readonly>
-                        </div>
-
-                        <!-- Department Name -->
-                        <div class="col-md-6 d-flex align-items-center">
-                            <label class="form-label me-3">Department Name:</label>
-                            <input type="text" class="form-control" value="Web Designing" readonly>
-                        </div>
-
-                        <!-- Description -->
-                        <div class="col-md-6 d-flex align-items-center">
-                            <label class="form-label me-3">Description:</label>
-                            <textarea class="form-control" rows="3" readonly>Responsible for UI/UX and front-end development.</textarea>
-                        </div>
-
-                        <!-- Department Head -->
-                        <div class="col-md-6 d-flex align-items-center">
-                            <label class="form-label me-3">Department Head:</label>
-                            <input type="text" class="form-control" value="John Doe" readonly>
-                        </div>
-
-                        <!-- Number of Users -->
-                        <div class="col-md-6 d-flex align-items-center">
-                            <label class="form-label me-3">Number of Users:</label>
-                            <input type="text" class="form-control" value="40" readonly>
-                        </div>
-
-                        <!-- Number of Managers -->
-                        <div class="col-md-6 d-flex align-items-center">
-                            <label class="form-label me-3">Number of Managers:</label>
-                            <input type="text" class="form-control" value="20" readonly>
-                        </div>
-
-                        <!-- Number of Projects -->
-                        <div class="col-md-6 d-flex align-items-center">
-                            <label class="form-label me-3">Number of Projects:</label>
-                            <input type="text" class="form-control" value="10" readonly>
-                        </div>
+                <!-- Department Info -->
+                <div class="row mb-3">
+                    <div class="col-md-6">
+                        <label class="form-label fw-bold">Department Name:</label>
+                        <input type="text" class="form-control" name="department_name" value="{{ department.name }}" readonly>
+                    </div>
+                    <div class="col-md-6">
+                        <label class="form-label fw-bold">Department Head:</label>
+                        <input type="text" class="form-control" name="department_head" value="{{ department.head }}" readonly>
                     </div>
                 </div>
 
+                <div class="row mb-3">
+                    <div class="col-md-6">
+                        <label class="form-label fw-bold">Total Employees:</label>
+                        <input type="text" class="form-control" value="{{ department.total_employees }}" readonly>
+                    </div>
+                    <div class="col-md-6">
+                        <label class="form-label fw-bold">Established Date:</label>
+                        <input type="text" class="form-control" name="established_date" value="{{ department.established_date }}" readonly>
+                    </div>
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label fw-bold">Department Description:</label>
+                    <textarea class="form-control" rows="4" readonly>{{ department.description }}</textarea>
+                </div>
             </div>
         </div>
     </div>

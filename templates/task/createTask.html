@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 {% load static %}
 {% block content %}
-<link rel="stylesheet" href="{% static 'css/task/createTask.css' %}" >
+<link rel="stylesheet" href="{% static 'css/task/createTask.css' %}">
 
 <div class="pc-container">
     <div class="pc-content">
@@ -11,106 +11,106 @@
                     <h2 class="text-dark mb-0">Create Task</h2>
                 </div>
 
-                <div class="container">
-                    <div class="row">
-                         <!-- Task Name  -->
-                        <div class="col-md-6 mb-3">
-                            <label class="form-label">Task Name:</label>
-                            <input type="text" class="form-control" placeholder="Enter Task Name">
-                        </div>
-
-                        <div class="col-md-6 mb-3">
-                            <label class="form-label">Project:</label>
-                            <select class="form-select">
-                                <option selected>----Select----</option>
-                                <option>Company Management System</option>
-                                <option>Task Management System</option>
-                                <option>Regression Model</option>
-                                <option>Classification</option>
-                            </select>
-                        </div>
-                        <!-- Module Name Dropdown -->
-                        <div class="col-md-6 mb-3">
-                            <label class="form-label">Module Name:</label>
-                            <select class="form-select">
-                                <option selected>----Select----</option>
-                                <option>User Authentication</option>
-                                <option>Data Processing</option>
-                                <option>Reporting</option>
-                                <option>API Integration</option>
-                            </select>
-                        </div>
-
-                        <!-- Project Dropdown -->
-
-                        <!-- Assigned Department -->
-                        <div class="col-md-6 mb-3">
-                            <label class="form-label">Assigned Department:</label>
-                            <select class="form-select">
-                                <option selected>----Select----</option>
-                                <option>Development</option>
-                                <option>Marketing</option>
-                                <option>Human Resources</option>
-                                <option>Finance</option>
-                            </select>
-                        </div>
-
-                        <!-- Assigned Manager -->
-                        <div class="col-md-6 mb-3">
-                            <label class="form-label">Assigned Manager:</label>
-                            <select class="form-select">
-                                <option selected>----Select----</option>
-                                <option>Naveen Taneja</option>
-                                <option>Chandan Kumar</option>
-                                <option>Rahul Sharma</option>
-                                <option>Pooja Singh</option>
-                            </select>
-                        </div>
-
-                        <!-- Assigned Employee -->
-                        <div class="col-md-6 mb-3">
-                            <label class="form-label">Assigned Employee:</label>
-                            <select class="form-select">
-                                <option selected>----Select----</option>
-                                <option>Gaurav</option>
-                                <option>Anuj</option>
-                                <option>Shubham</option>
-                                <option>Rajat</option>
-                            </select>
-                        </div>
-
-                        <!-- Date Fields & Status -->
-                        <div class="row mb-4">
-                            <div class="col-md-4">
-                                <label class="form-label">Start Date:</label>
-                                <input type="date" class="form-control">
+                <form method="post">  <!-- Add the form tag and method -->
+                    {% csrf_token %} <!-- Add CSRF token for security -->
+                    <div class="container">
+                        <div class="row">
+                            <!-- Task Name  -->
+                            <div class="col-md-6 mb-3">
+                                <label class="form-label">Task Name:</label>
+                                <input type="text" class="form-control" placeholder="Enter Task Name"
+                                       name="task_name" required minlength="3" maxlength="50">
                             </div>
 
-                            <div class="col-md-4">
-                                <label class="form-label">End Date:</label>
-                                <input type="date" class="form-control">
-                            </div>
-
-                            <div class="col-md-4">
-                                <label class="form-label">Status:</label>
-                                <select class="form-select">
-                                    <option>All</option>
-                                    <option>To-Do</option>
-                                    <option>In Progress</option>
-                                    <option>Completed</option>
+                            <!-- Project Dropdown -->
+                            <div class="col-md-6 mb-3">
+                                <label class="form-label">Project</label>
+                                <select class="form-select" name="project_id">
+                                    <option selected>----Select----</option>
+                                    {% for project in projects %}
+                                        <option value="{{ project.id }}">{{ project.name }}</option>
+                                    {% endfor %}
                                 </select>
                             </div>
-                        </div>
 
-                        <!-- Description Field -->
-                        <div class="col-md-12 mb-3">
-                            <label class="form-label">Description:</label>
-                            <textarea class="form-control" rows="4" placeholder="Enter Task Description"></textarea>
+                            <!-- Module Name Dropdown -->
+                            <div class="col-md-6 mb-3">
+                                <label class="form-label">Module Name:</label>
+                                <select class="form-select" name="module_id">
+                                    <option selected>----Select----</option>
+                                    {% comment %} {% for module in modules %} {% endcomment %}
+                                        <option value="{{ module.id }}">{{ module.name }}</option>
+                                    {% comment %} {% endfor %} {% endcomment %}
+                                </select>
+                            </div>
+
+                            <!-- Assigned Department -->
+                            <div class="col-md-6 mb-3">
+                                <label class="form-label">Assigned Department:</label>
+                                <select class="form-select" name="department_id">
+                                    <option selected>----Select----</option>
+                                    {% for department in departments %}
+                                        <option value="{{ department.id }}">{{ department.department_name }}</option>
+                                    {% endfor %}
+                                </select>
+                            </div>
+
+                            <!-- Assigned Manager -->
+                            <div class="col-md-6 mb-3">
+                                <label class="form-label">Assigned Manager:</label>
+                                <select class="form-select" name="manager_id">
+                                    <option selected>----Select----</option>
+                                    {% for manager in managers %}
+                                        <option value="{{ manager.id }}">{{ manager.full_name }}</option>
+                                    {% endfor %}
+                                </select>
+                            </div>
+
+                            <!-- Assigned Employee -->
+                            <div class="col-md-6 mb-3">
+                                <label class="form-label">Assigned Employee:</label>
+                                <select class="form-select" name="employee_id">
+                                    <option selected>----Select----</option>
+                                    {% for employee in employees %}
+                                        <option value="{{ employee.id }}">{{ employee.full_name }}</option>
+                                    {% endfor %}
+                                </select>
+                            </div>
+
+                            <!-- Date Fields & Status -->
+                            <div class="row mb-4">
+                                <div class="col-md-4">
+                                    <label class="form-label">Start Date:</label>
+                                    <input type="date" class="form-control" name="start_date">
+                                </div>
+
+                                <div class="col-md-4">
+                                    <label class="form-label">End Date:</label>
+                                    <input type="date" class="form-control" name="end_date">
+                                </div>
+
+                                <div class="col-md-4">
+                                    <label class="form-label">Status:</label>
+                                    <select class="form-select" name="status">
+                                        <option>All</option>
+                                        <option>To-Do</option>
+                                        <option>In Progress</option>
+                                        <option>Completed</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <!-- Description Field -->
+                            <div class="col-md-12 mb-3">
+                                <label class="form-label">Description:</label>
+                                <textarea class="form-control" name="description" rows="4"
+                                          placeholder="Enter Task Description"></textarea>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <!-- Submit Button --->
-                <button class="btn btn-primary">Create Task</button>
+                    <!-- Submit Button --->
+                    <button type="submit" class="btn btn-primary">Create Task</button>
+                </form>  <!-- Close the form tag -->
             </div>
         </div>
     </div>

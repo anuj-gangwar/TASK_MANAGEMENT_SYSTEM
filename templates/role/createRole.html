@@ -7,29 +7,32 @@
     <div class="pc-content">
         <div class="container" style="max-width: 1300px; margin: 0px; background: #fdfdfd; padding: 20px; border-radius: 8px; box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);">
             <h2 class="text-center mb-4">Create Role</h2>
-            <form>
+            <form method="POST" enctype="multipart/form-data">
+                {% csrf_token %}
                 <div class="row">
                     <!-- Left Column -->
                     <div class="col-md-6">
                         <!-- Department Selection -->
                         <div class="mb-3">
                             <label class="form-label fw-bold">Department</label>
-                            <select class="form-select" required>
-                                <option selected disabled>-- Select Role --</option>
-                                <option>Deployment</option>
-                                <option>Creative</option>
-                                <option>Admin</option>
-                                <option>Developer</option>
-                                <option>Testing</option>
+                            <select class="form-select" name="department" required>
+                                <option value="" {% if not form.department.value %}selected disabled{% endif %}>-- Select Department --</option>
+                                {% for department in department %}
+                                    <option value="{{ department.id }}">{{ department.department_name }}</option>
+                                {% endfor %}  
                             </select>
-                            <span class="error-text text-danger" style="font-size: 12px;">This field is required.</span>
+                            {% if form.department.errors %}
+                                <span class="error-text text-danger" style="font-size: 12px;">{{ form.department.errors|join:", " }}</span>
+                            {% endif %}
                         </div>
 
                         <!-- Role Input -->
                         <div class="mb-3">
                             <label class="form-label fw-bold">Role</label>
-                            <input type="text" class="form-control" required>
-                            <span class="error-text text-danger" style="font-size: 12px;">This field is required.</span>
+                            <input type="text" class="form-control" name="role_name" value="{{ form.role_name.value|default:'' }}" required>
+                            {% if form.role_name.errors %}
+                                <span class="error-text text-danger" style="font-size: 12px;">{{ form.role_name.errors|join:", " }}</span>
+                            {% endif %}
                         </div>
                     </div>
 
@@ -39,35 +42,62 @@
                         <div class="mb-3">
                             <label class="form-label fw-bold">Project Reference Document</label>
                             <div class="d-flex align-items-center">
-                                <input type="file" class="form-control" id="fileInput">
+                                <input type="file" class="form-control" id="fileInput" name="reference_document">
                                 <button type="button" class="btn btn-primary ms-2" onclick="startUpload()">Upload</button>
                             </div>
+                             {% if form.reference_document.errors %}
+                                <span class="error-text text-danger" style="font-size: 12px;">{{ form.reference_document.errors|join:", " }}</span>
+                            {% endif %}
                         </div>
 
                         <!-- Description -->
                         <div class="mb-3">
                             <label class="form-label fw-bold">Description</label>
-                            <textarea class="form-control" rows="3" required></textarea>
-                            <span class="error-text text-danger" style="font-size: 12px;">This field is required.</span>
+                            <textarea class="form-control" rows="3" name="description" required>{{ form.description.value|default:'' }}</textarea>
+                            {% if form.description.errors %}
+                                <span class="error-text text-danger" style="font-size: 12px;">{{ form.description.errors|join:", " }}</span>
+                            {% endif %}
                         </div>
                     </div>
                 </div>
-
-                <!-- Permissions Section (Full Width) -->
-             
-               
+                
 
                 <!-- Action Buttons -->
                 <div class="d-flex justify-content-between mt-3">
-                    <button type="button" class="btn" style="background-color: #ffa500; color: white; font-weight: bold;">Back</button>
+                    <a href="#" type="button" class="btn" style="background-color: #ffa500; color: white; font-weight: bold;">Back</a>
                     <button type="submit" class="btn" style="background-color: #007bff; color: white; font-weight: bold;">Save</button>
                 </div>
             </form>
         </div>
     </div>
 </div>
+
+<script>
+    function startUpload() {
+        const fileInput = document.getElementById('fileInput');
+        if (!fileInput.files.length) {
+            alert("Please select a file first.");
+            return;
+        }
+
+        const formData = new FormData();
+        formData.append('file', fileInput.files[0]);
+
+        // Replace '/upload/' with your actual upload URL
+        fetch('/upload/', {
+            method: 'POST',
+            body: formData,
+            headers: { 'X-CSRFToken': '{{ csrf_token }}' },
+        })
+        .then(response => response.json())
+        .then(data => {
+            alert("Upload Complete"); // Improve this with a progress bar
+        })
+        .catch(error => {
+            alert("Upload failed: " + error);
+        });
+    }
+</script>
 <script src="{% static 'Javascript/role/createRole.js' %}"></script>
 
 {% endblock %}
-
-

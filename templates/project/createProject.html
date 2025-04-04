@@ -8,73 +8,88 @@
         <div class="container">
             <div class="card p-3">
                 <h4 class="text-dark mb-3 text-center">Project Details</h4>
-                <form>
+                <form id="projectForm" method="POST" enctype="multipart/form-data">
+                    {% csrf_token %}
+
                     <div class="row g-3">
                         <div class="col-md-6">
                             <label class="form-label">Project Name:</label>
-                            <input type="text" class="form-control" placeholder="Enter Project Name">
+                            <input type="text" name="project_name" class="form-control" placeholder="Enter Project Name" value="{{ form.project_name.value|default:'' }}" required>
+                            {{ form.project_name.errors }}
                         </div>
+
+                        
                         <div class="col-md-6">
                             <label class="form-label">Department:</label>
-                            <select class="form-select">
-                                <option>Web Development</option>
-                                <option>Web Designing</option>
-                                <option>Testing</option>
-                                <option>Deployment</option>
+                            <select id="department" name="department" class="form-select" required>
+                                <option value="">Select Department</option>
+                                {% for ok in depar %}
+                                    <option value="{{ ok.id }}"> {{ ok.department_name }}
+                                    </option>
+                                {% endfor %}
                             </select>
+                            {{ form.department.errors }}
                         </div>
+
                         <div class="col-md-6">
                             <label class="form-label">Project Manager:</label>
-                            <select class="form-select">
-                                <option>Ram Prakesh</option>
-                                <option>Danial</option>
-                                <option>Yash Sangwan</option>
-                                <option>Gaurav</option>
+                            <select id="projectManager" name="project_manager" class="form-select" required>
+                                <option value="">Select Project Manager</option>
+                                {% for manager in managers %}
+                                    <option value="{{ manager.id }}">
+                                        {{ manager.get_full_name }}
+                                    </option>
+                                {% endfor %}
                             </select>
+                            {{ form.project_manager.errors }}
                         </div>
-                        <div class="col-md-6">
+
+                         <div class="col-md-6">
                             <label class="form-label">Status:</label>
-                            <select class="form-select">
-                                <option>To-Do</option>
-                                <option>In Progress</option>
-                                <option>Completed</option>
+                            <select id="status" name="status" class="form-select" required>
+                                <option value="">Select Status</option>
+                                {% for status_option in stat %}
+                                    <option value="{{ status_option }}">
+                                        {{ status_option }}
+                                    </option>
+                                {% endfor %}
                             </select>
+                            {{ form.status.errors }}
                         </div>
+
                         <div class="col-md-6">
                             <label class="form-label">Start Date:</label>
-                            <input type="date" class="form-control">
+                            <input type="date" name="start_date" class="form-control" value="{{ form.start_date.value|date:'Y-m-d' }}" required>
+                            {{ form.start_date.errors }}
                         </div>
-                        <div class="col-md-6">
-                          <label class="form-label">End Date:</label>
-                          <input type="date" class="form-control">
-                      </div>
 
-                      <div class="row">
-                        <!-- Project Reference Document -->
+                         <div class="col-md-6">
+                            <label class="form-label">End Date:</label>
+                            <input type="date" name="end_date" class="form-control" value="{{ form.end_date.value|date:'Y-m-d' }}">
+                            {{ form.end_date.errors }}
+                        </div>
+
                         <div class="col-md-6">
                             <label class="form-label">Project Reference Document:</label>
                             <div class="d-flex align-items-center">
-                             <!-- File Input -->
-                             <input type="file" class="form-control custom-file-input" id="fileInput">
-                             <!-- Upload Button -->
-                             <button class="btn btn-primary ms-2" onclick="startUpload()">Upload</button>
-                         </div>
-                         <!-- Progress Bar -->
-                         <div class="progress mt-2" style="height: 20px;">
-                             <div id="progress-bar" class="progress-bar bg-success" style="width: 0%;">0%</div>
-                         </div>
+                                <input type="file" id="fileInput" name="reference_document" class="form-control" accept=".pdf,.doc,.docx">
+                                <button type="button" class="btn btn-primary ms-2" onclick="startUpload()">Upload</button>
+                            </div>
+                            <div class="progress mt-2" style="height: 20px;">
+                                <div id="progress-bar" class="progress-bar bg-success" style="width: 0%;">0%</div>
+                            </div>
+                            {{ form.reference_document.errors }}
                         </div>
 
-                        <!-- Description Field -->
                         <div class="col-md-6">
                             <label class="form-label">Description:</label>
-                            <textarea class="form-control" rows="2" placeholder="Enter project details"></textarea>
+                            <textarea name="description" class="form-control" rows="2" placeholder="Enter project details">{{ form.description.value|default:'' }}</textarea>
+                            {{ form.description.errors }}
                         </div>
                     </div>
 
-                    </div>
                     <div class="text-center mt-3">
-                        <button class="btn btn-primary">Submit</button>
+                        <button type="submit" class="btn btn-primary">Submit</button>
                     </div>
                 </form>
             </div>
@@ -82,7 +97,33 @@
     </div>
 </div>
 
-<script src="{% static 'Javascript/project/createProject.js' %}"></script>
+<script>
+    function startUpload() {
+        const fileInput = document.getElementById('fileInput');
+        const progressBar = document.getElementById('progress-bar');
 
+        if (!fileInput.files.length) {
+            alert("Please select a file first.");
+            return;
+        }
+
+        const formData = new FormData();
+        formData.append('file', fileInput.files[0]);
+
+        fetch('/upload/', {  // Adjust URL if needed
+            method: 'POST',
+            body: formData,
+            headers: { 'X-CSRFToken': '{{ csrf_token }}' },
+        })
+        .then(response => response.json())
+        .then(data => {
+            progressBar.style.width = '100%';
+            progressBar.textContent = 'Upload Complete';
+        })
+        .catch(error => {
+            alert("Upload failed: " + error);
+        });
+    }
+</script>
 
 {% endblock %}

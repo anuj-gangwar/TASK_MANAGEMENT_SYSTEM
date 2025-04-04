@@ -2,76 +2,126 @@
 {% load static %}
 {% block content %}
   <div class="pc-container">
-   <div class="pc-content">
-       <div class="container-fluid">
-           <div class="row justify-content-center">
-               <div class="col-lg-8 col-md-10">
-                   <div class="card p-4 shadow">
-                       <h2 class="text-center mb-4">Create Employee</h2>
+    <div class="pc-content">
+      <div class="container-fluid">
+        <div class="row justify-content-center">
+          <div class="col-lg-8 col-md-10">
+            <div class="card p-4 shadow">
+              <h2 class="text-center mb-4">User Details</h2>
 
-                       <div class="row mb-3">
-                           <!-- First Name -->
-                           <div class="col-md-6">
-                               <label class="form-label">First Name</label>
-                               <input type="text" class="form-control" placeholder="Enter First Name" required>
-                           </div>
-                           <!-- Last Name -->
-                           <div class="col-md-6">
-                               <label class="form-label">Last Name</label>
-                               <input type="text" class="form-control" placeholder="Enter Last Name" required>
-                           </div>
-                       </div>
+              <form method="POST" enctype="multipart/form-data">
+                {% csrf_token %}
 
-                       <div class="row mb-3">
-                           <!-- Email Address -->
-                           <div class="col-md-6">
-                               <label class="form-label">Email Address</label>
-                               <input type="email" class="form-control" placeholder="Enter Email Address" required>
-                           </div>
-                           <!-- Phone Number -->
-                           <div class="col-md-6">
-                               <label class="form-label">Phone Number</label>
-                               <input type="tel" class="form-control" placeholder="Enter Phone Number" required>
-                           </div>
-                       </div>
+                <div class="row mb-3">
+                  <!-- First Name -->
+                  <div class="col-md-6">
+                    <label class="form-label">First Name</label>
+                    <input type="text" name="first_name" class="form-control {% if form.first_name.errors %}is-invalid{% endif %}" placeholder="Enter First Name" value="{{ form.first_name.value|default:'' }}" required minlength="2" maxlength="50" oninput="validateLength(this, 2, 50, 'fname-error')">
+                    <small id="fname-error" class="text-danger"></small>
+                    {% if form.first_name.errors %}
+                      <div class="invalid-feedback">
+                        {{ form.first_name.errors|join:", " }}
+                      </div>
+                    {% endif %}
+                  </div>
+                  <!-- Last Name -->
+                  <div class="col-md-6">
+                    <label class="form-label">Last Name</label>
+                    <input type="text" name="last_name" class="form-control {% if form.last_name.errors %}is-invalid{% endif %}" placeholder="Enter Last Name" value="{{ form.last_name.value|default:'' }}" required minlength="2" maxlength="50" oninput="validateLength(this, 2, 50, 'lname-error')">
+                    <small id="lname-error" class="text-danger"></small>
+                    {% if form.last_name.errors %}
+                      <div class="invalid-feedback">
+                        {{ form.last_name.errors|join:", " }}
+                      </div>
+                    {% endif %}
+                  </div>
+                </div>
 
-                       <div class="row mb-3">
-                           <!-- Department -->
-                           <div class="col-md-6">
-                               <label class="form-label">Department</label>
-                               <select class="form-select" required>
-                                   <option selected disabled>-- Select Department --</option>
-                                   <option>Admin</option>
-                                   <option>Deployment</option>
-                                   <option>Creative</option>
-                                   <option>Development</option>
-                                   <option>Testing</option>
-                               </select>
-                           </div>
-                           <!-- Role -->
-                           <div class="col-md-6">
-                               <label class="form-label">Role</label>
-                               <select class="form-select" required>
-                                   <option selected disabled>-- Select Role --</option>
-                                   <option>Super Admin</option>
-                                   <option>Admin</option>
-                                   <option>Project Manager</option>
-                                   <option>Developer</option>
-                                   <option>Tester</option>
-                               </select>
-                           </div>
-                       </div>
+                <div class="row mb-3">
+                  <!-- Email Address -->
+                  <div class="col-md-6">
+                    <label class="form-label">Email Address</label>
+                    <input type="email" name="email" class="form-control {% if form.email.errors %}is-invalid{% endif %}" placeholder="Enter Email Address" value="{{ form.email.value|default:'' }}" required pattern="^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$" oninput="validateEmail(this, 'email-error')">
+                    <small id="email-error" class="text-danger"></small>
+                    {% if form.email.errors %}
+                      <div class="invalid-feedback">
+                        {{ form.email.errors|join:", " }}
+                      </div>
+                    {% endif %}
+                  </div>
+                  <!-- Phone Number -->
+                  <div class="col-md-6">
+                    <label class="form-label">Phone Number</label>
+                    <input type="tel" name="phone_number" class="form-control {% if form.phone_number.errors %}is-invalid{% endif %}" placeholder="Enter Phone Number" value="{{ form.phone_number.value|default:'' }}" required pattern="^[0-9]{10}$" title="Enter a valid 10-digit phone number" oninput="validatePhone(this, 'phone-error')">
+                    <small id="phone-error" class="text-danger"></small>
+                    {% if form.phone_number.errors %}
+                      <div class="invalid-feedback">
+                        {{ form.phone_number.errors|join:", " }}
+                      </div>
+                    {% endif %}
+                  </div>
+                </div>
 
-                       <!-- Image Upload -->
+                <div class="row mb-3">
+                  <!-- Department -->
+                  <div class="col-md-6">
+                    <label class="form-label">Department</label>
+                    <select name="department" class="form-select {% if form.department.errors %}is-invalid{% endif %}" required>
+                      <option value="" {% if not form.department.value %}selected disabled{% endif %}>-- Select Department --</option>
+                      {% for d in depart %}
+                        <option value="{{ d.id }}" {% if form.department.value|stringformat:'s' == d.id|stringformat:'s' %}selected{% endif %}>
+                          {{ d.department_name }}</option>
+                      {% endfor %}
+                    </select>
+                    {% if form.department.errors %}
+                      <div class="invalid-feedback">
+                        {{ form.department.errors|join:", " }}
+                      </div>
+                    {% endif %}
+                  </div>
 
-                       <!-- Submit Button (Centered) -->
-                       <div class="d-flex justify-content-center">
-                           <button class="btn btn-primary px-5">Create Employee</button>
-                       </div>
-                   </div>
-               </div>
-           </div>
-       </div>
-   </div>  
-</div>
+                  <!-- Role -->
+                  <div class="col-md-6">
+                    <label class="form-label">Role</label>
+                    <select name="role" class="form-select {% if form.role.errors %}is-invalid{% endif %}" required>
+                      <option value="" {% if not form.role.value %}selected disabled{% endif %}>-- Select Role --</option>
+                      {% for roles in role %}
+                        <option value="{{ roles.id }}" {% if form.role.value|stringformat:'s' == roles.id|stringformat:'s' %}selected{% endif %}>{{ roles.name }}</option>
+                      {% endfor %}
+                    </select>
+                    {% if form.role.errors %}
+                      <div class="invalid-feedback">
+                        {{ form.role.errors|join:", " }}
+                      </div>
+                    {% endif %}
+                  </div>
+                </div>
+
+                <!-- Image Upload -->
+                <div class="row mb-3">
+                  <div class="col-md-12">
+                    <label class="form-label">Profile Image</label>
+                    <input type="file" name="profile_image" class="form-control {% if form.profile_image.errors %}is-invalid{% endif %}">
+                    {% if form.profile_image.errors %}
+                      <div class="invalid-feedback">
+                        {{ form.profile_image.errors|join:", " }}
+                      </div>
+                    {% endif %}
+                  </div>
+                </div>
+
+                <!-- Submit Button (Centered) -->
+                <div class="d-flex justify-content-center">
+                  <button type="submit" class="btn btn-primary px-5">Create Employee</button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="{% static 'Javascript/user/createUser.js' %}"></script>
+
 {% endblock %}
